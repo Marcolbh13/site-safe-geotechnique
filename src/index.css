@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   SAFE Géotechnique — base & composants (charte du logo)
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --header-h: 76px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 12px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    line-height: 1.65;
+    font-size: 1.0625rem;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-ink font-bold;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  h1 { @apply font-extrabold; font-size: clamp(2.1rem, 5vw, 3.4rem); }
+  h2 { font-size: clamp(1.65rem, 3.4vw, 2.4rem); }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
+
+  p { text-wrap: pretty; }
+
+  a { @apply text-safe-magenta; text-decoration: none; }
+
+  :focus-visible {
+    outline: 3px solid #c2317b;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-safe {
+    @apply w-full mx-auto;
+    max-width: var(--maxw, 1180px);
+    padding-inline: clamp(1.1rem, 4vw, 2rem);
+  }
+  .max-w-content { max-width: 1180px; }
+
+  .section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+  .section-tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 text-safe-magenta font-bold uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
+  .kicker::before {
+    content: '';
+    width: 26px; height: 2px;
+    @apply rounded;
+    background: linear-gradient(135deg, #7a2a5f, #c2317b);
+  }
+
+  .lead {
+    @apply text-slate;
+    font-size: clamp(1.1rem, 1.6vw, 1.28rem);
+    line-height: 1.6;
+  }
+
+  /* Boutons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-bold rounded-full cursor-pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.95rem 1.6rem;
+    border: 1.5px solid transparent;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+      color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn:hover { transform: translateY(-1px); text-decoration: none; }
+  .btn-sm { padding: 0.6rem 1.1rem; font-size: 0.92rem; }
+
+  .btn-primary {
+    @apply text-white bg-safe-gradient shadow-sfcta;
+  }
+  .btn-primary:hover { box-shadow: 0 12px 30px rgba(154,47,111,0.36); }
+
+  .btn-ghost {
+    @apply bg-transparent text-safe-magenta;
+    border-color: #e8e0e8;
+  }
+  .btn-ghost:hover { @apply bg-cloud; border-color: #9c2f6f; }
+
+  .btn-light { @apply bg-white text-safe-magenta; }
+  .btn-light:hover { @apply shadow-sfmd; }
+
+  .btn .arrow { transition: transform 0.18s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Cartes */
+  .card {
+    @apply bg-white rounded-xl2 shadow-sfsm h-full;
+    border: 1px solid #e8e0e8;
+    padding: clamp(1.5rem, 2.4vw, 2rem);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .card-link:hover {
+    transform: translateY(-4px);
+    @apply shadow-sfmd;
+    border-color: rgba(154,47,111,0.25);
+  }
+
+  .icon-badge {
+    @apply grid place-items-center text-safe-magenta bg-safe-soft;
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    border: 1px solid #e8e0e8;
+  }
+  .icon-badge svg { width: 26px; height: 26px; }
+
+  /* Listes à puces */
+  .ticks { @apply grid gap-3 list-none p-0; }
+  .ticks li { @apply relative text-slate; padding-left: 1.9rem; }
+  .ticks li::before {
+    content: '';
+    @apply absolute rounded-full;
+    left: 0; top: 0.45em;
+    width: 14px; height: 14px;
+    background: linear-gradient(135deg, #7a2a5f, #c2317b);
+    box-shadow: 0 0 0 4px rgba(194,49,123,0.12);
+  }
+  .ticks strong { @apply text-ink; }
+
+  /* Encadré note */
+  .note {
+    @apply bg-safe-soft text-slate rounded-[14px];
+    border: 1px solid #e8e0e8;
+    border-left: 4px solid #9c2f6f;
+    padding: 1.1rem 1.3rem;
+    font-size: 0.98rem;
+  }
+
+  /* Bandeau CTA */
+  .cta-band {
+    @apply bg-safe-gradient text-white rounded-xl2 relative overflow-hidden;
+    padding: clamp(2.2rem, 5vw, 3.5rem);
+    text-align: center;
+  }
+  .cta-band::after {
+    content: '';
+    @apply absolute pointer-events-none;
+    right: -40px; bottom: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 70%);
+  }
+
+  .skip-link {
+    @apply absolute z-[200] bg-ink text-white font-semibold;
+    left: -9999px; top: 0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 14px 0;
+  }
+  .skip-link:focus { left: 0; text-decoration: none; }
+
+  /* Formulaires */
+  .form-card {
+    @apply bg-white rounded-xl2 shadow-sfmd grid gap-[1.1rem];
+    border: 1px solid #e8e0e8;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+  }
+  .field { @apply grid gap-1.5; }
+  .field label { @apply font-semibold text-ink; font-size: 0.95rem; }
+
+  .form-card input,
+  .form-card select,
+  .form-card textarea {
+    @apply w-full bg-cloud text-ink rounded-[10px];
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1.5px solid #e8e0e8;
+    padding: 0.75rem 0.9rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .form-card textarea { resize: vertical; }
+  .form-card input[type='file'] { @apply bg-white; padding: 0.55rem 0.7rem; }
+  .form-card input:focus,
+  .form-card select:focus,
+  .form-card textarea:focus {
+    outline: none;
+    border-color: #9c2f6f;
+    box-shadow: 0 0 0 3px rgba(194,49,123,0.15);
+  }
+}

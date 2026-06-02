@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SAFE">
+  <!-- Favicon provisoire dérivé du logo (hexagone + molécule).
+       À remplacer par un favicon HD issu du logo vectoriel (cf. A-VALIDER.md). -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a2a5f"/>
+      <stop offset="0.5" stop-color="#9c2f6f"/>
+      <stop offset="1" stop-color="#c2317b"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#g)" d="M32 3 56 17v30L32 61 8 47V17z"/>
+  <g fill="#fff">
+    <circle cx="24" cy="40" r="5.5"/>
+    <circle cx="17" cy="33" r="3.5"/>
+    <circle cx="33" cy="33" r="3.5"/>
+    <rect x="22.5" y="31" width="3" height="11" rx="1.5"/>
+    <rect x="18" y="33.5" width="13" height="3" rx="1.5"/>
+  </g>
+</svg>
