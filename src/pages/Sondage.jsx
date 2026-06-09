@@ -3,7 +3,9 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import DepthScale from '../components/DepthScale.jsx';
+import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import CtaBand from '../components/CtaBand.jsx';
+import heroForeuse from '../assets/images/hero-foreuse.webp';
 
 const prestations = [
   { icon: 'drill', t: 'Forage destructif et semi-destructif', d: "Reconnaissance rapide de la stratigraphie et des horizons traversés, pour dresser la coupe du sol." },
@@ -45,6 +47,29 @@ export default function Sondage() {
           </div>
           <Reveal className="mt-6">
             <p className="text-slate">Nous réalisons également la <strong className="text-ink">reconnaissance de fondations</strong> d'ouvrages existants.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Visuels terrain */}
+      <section className="section-tight">
+        <div className="container-safe grid gap-4 md:grid-cols-3">
+          <Reveal className="md:col-span-2">
+            <figure className="rounded-xl2 overflow-hidden shadow-sfmd h-full">
+              <img src={heroForeuse} alt="Atelier de sondage SAFE en intervention sur un chantier" className="w-full h-full object-cover aspect-[16/10]" loading="lazy" />
+            </figure>
+          </Reveal>
+          <Reveal delay={100}>
+            <ImagePlaceholder ratio="4 / 5" icon="core" hint="Carottes de sol (photo à fournir)" className="h-full" />
+          </Reveal>
+          <Reveal>
+            <ImagePlaceholder ratio="4 / 3" icon="gauge" hint="Sonde pressiométrique (photo à fournir)" />
+          </Reveal>
+          <Reveal delay={100}>
+            <ImagePlaceholder ratio="4 / 3" icon="water" hint="Piézomètre posé (photo à fournir)" />
+          </Reveal>
+          <Reveal delay={150}>
+            <ImagePlaceholder ratio="4 / 3" icon="cavity" hint="Recherche de cavités (photo à fournir)" />
           </Reveal>
         </div>
       </section>

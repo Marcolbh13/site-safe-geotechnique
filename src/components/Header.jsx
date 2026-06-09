@@ -33,8 +33,9 @@ export default function Header() {
           <Logo height={44} />
         </Link>
 
-        <nav className="hidden lg:block" aria-label="Navigation principale">
+        <nav className="hidden xl:block" aria-label="Navigation principale">
           <ul className="flex items-center gap-1">
+            <li><NavLink to="/" end className={linkClass}>Accueil</NavLink></li>
             {NAV.map((item) => (
               <li key={item.to}><NavLink to={item.to} className={linkClass}>{item.label}</NavLink></li>
             ))}
@@ -47,7 +48,7 @@ export default function Header() {
           </a>
           <Link to="/contact" className="btn btn-primary btn-sm hidden sm:inline-flex">Demander un devis</Link>
           <button
-            className="lg:hidden grid place-items-center w-11 h-11 rounded-[10px] border border-line bg-white"
+            className="xl:hidden grid place-items-center w-11 h-11 rounded-[10px] border border-line bg-white"
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={open} aria-controls="mnav"
             onClick={() => setOpen((v) => !v)}
           >
@@ -61,7 +62,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav id="mnav" className="lg:hidden border-t border-line bg-white px-[clamp(1.1rem,4vw,2rem)] pb-6 pt-3" aria-label="Navigation mobile">
+        <nav id="mnav" className="xl:hidden border-t border-line bg-white px-[clamp(1.1rem,4vw,2rem)] pb-6 pt-3" aria-label="Navigation mobile">
           <ul className="grid gap-0.5">
             <li><NavLink to="/" className={linkClass + ' block !py-3 border-b border-mist'}>Accueil</NavLink></li>
             {NAV.map((item) => (

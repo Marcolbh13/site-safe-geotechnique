@@ -24,7 +24,7 @@ export default function LoiElan() {
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const d = new FormData(form);
     const g = (k) => String(d.get(k) ?? '').trim();
-    const subject = `Étude de sol G1 (loi ELAN) - ${g('type')} - ${g('nom')} ${g('prenom')}`;
+    const subject = `Étude de sol G1 (loi ELAN) · ${g('type')} · ${g('nom')} ${g('prenom')}`;
     const body = [
       `Nom : ${g('nom')}`, `Prénom : ${g('prenom')}`,
       `Téléphone : ${g('telephone')}`, `E-mail : ${g('email')}`,

@@ -1,6 +1,7 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 
 import laboEchantillon from '../assets/images/labo-echantillon.webp';
@@ -22,7 +23,7 @@ const mecaniques = [
 
 const gallery = [
   [laboEchantillon, 'Préparation des échantillons', "Préparation d'un échantillon de sol"],
-  [laboProctor, 'Compactage — Proctor + IPI', 'Essai de compactage Proctor'],
+  [laboProctor, 'Compactage (Proctor + IPI)', 'Essai de compactage Proctor'],
   [laboPresse, 'Essais mécaniques', 'Essai mécanique sur échantillon'],
 ];
 
@@ -53,7 +54,7 @@ export default function Laboratoire() {
       <PageHero
         label="Nos activités · Laboratoire"
         title="Identifier les sols par leur nature et leur résistance"
-        intro="En laboratoire, chaque échantillon prélevé devient une donnée exploitable. Nos essais permettent d'abord d'identifier le sol — sa nature, son état — puis de mesurer sa résistance mécanique."
+        intro="En laboratoire, chaque échantillon prélevé devient une donnée exploitable. Nos essais permettent d'abord d'identifier le sol (sa nature, son état), puis de mesurer sa résistance mécanique."
       />
 
       {/* Galerie */}
@@ -87,6 +88,15 @@ export default function Laboratoire() {
               />
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Visuels complémentaires */}
+      <section className="section-tight">
+        <div className="container-safe grid gap-4 sm:grid-cols-3">
+          <Reveal><ImagePlaceholder ratio="4 / 3" icon="target" hint="Essai triaxial (photo à fournir)" /></Reveal>
+          <Reveal delay={90}><ImagePlaceholder ratio="4 / 3" icon="flask" hint="Valeur au bleu (VBS) (photo à fournir)" /></Reveal>
+          <Reveal delay={150}><ImagePlaceholder ratio="4 / 3" icon="layers" hint="Granulométrie / tamisage (photo à fournir)" /></Reveal>
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
+import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import { COMPANY } from '../data/site.js';
 
 const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol – vente de terrain (loi ELAN)', 'Autre demande'];
@@ -15,7 +16,7 @@ export default function Contact() {
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const d = new FormData(form);
     const g = (k) => String(d.get(k) ?? '').trim();
-    const subject = `Demande de devis - ${g('besoin')} - ${g('nom')}`;
+    const subject = `Demande de devis · ${g('besoin')} · ${g('nom')}`;
     const body = [
       `Nom et prénom : ${g('nom')}`,
       `Société / organisme : ${g('structure') || '(non renseigné)'}`,
@@ -58,6 +59,7 @@ export default function Contact() {
             <InfoBlock icon="mail" title="E-mail">
               <a className="font-semibold" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
             </InfoBlock>
+            <ImagePlaceholder ratio="4 / 3" icon="pin" hint="Photo des locaux ou plan d'accès (à fournir)" />
           </Reveal>
 
           {/* Formulaire : mailto par défaut (envoi serveur documenté dans le README). */}

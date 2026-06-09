@@ -4,9 +4,12 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
+import ClientsCarousel from '../components/ClientsCarousel.jsx';
+import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
+import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboPresse from '../assets/images/labo-presse.webp';
 
 const services = [
@@ -224,6 +227,52 @@ export default function Home() {
             ))}
           </div>
           <p className="text-muted text-[0.85rem] mt-4">Les liens ouvrent les sites de nos partenaires dans un nouvel onglet.</p>
+        </div>
+      </section>
+
+      {/* ===== CLIENTS (carousel) ===== */}
+      <section className="section-tight bg-mist border-y border-line">
+        <div className="container-safe">
+          <Reveal className="max-w-[680px] mb-7">
+            <p className="label mb-4">Ils nous font confiance</p>
+            <h2>Des clients publics comme privés</h2>
+            <p className="text-slate mt-4">
+              Collectivités, services de l'État et entreprises nous confient la
+              reconnaissance de leurs sols, des grands ouvrages aux projets les
+              plus locaux.
+            </p>
+          </Reveal>
+          <ClientsCarousel />
+        </div>
+      </section>
+
+      {/* ===== SUR LE TERRAIN (emplacements images) ===== */}
+      <section className="section">
+        <div className="container-safe">
+          <Reveal className="max-w-[680px] mb-7">
+            <p className="label mb-4">Sur le terrain</p>
+            <h2>Nos équipes en intervention</h2>
+            <p className="text-slate mt-4">Quelques aperçus de nos chantiers et de notre laboratoire.</p>
+          </Reveal>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Reveal className="md:col-span-2">
+              <figure className="rounded-xl2 overflow-hidden shadow-sfmd h-full">
+                <img src={camionSafe} alt="Atelier de sondage et véhicule SAFE sur un chantier" className="w-full h-full object-cover aspect-[16/10]" loading="lazy" />
+              </figure>
+            </Reveal>
+            <Reveal delay={100}>
+              <ImagePlaceholder ratio="4 / 5" icon="core" hint="Carottes / prélèvements (photo à fournir)" className="h-full" />
+            </Reveal>
+            <Reveal>
+              <ImagePlaceholder ratio="4 / 3" icon="gauge" hint="Essai pressiométrique (photo à fournir)" />
+            </Reveal>
+            <Reveal delay={100}>
+              <ImagePlaceholder ratio="4 / 3" icon="water" hint="Pose de piézomètre (photo à fournir)" />
+            </Reveal>
+            <Reveal delay={150}>
+              <ImagePlaceholder ratio="4 / 3" icon="microscope" hint="Travail au laboratoire (photo à fournir)" />
+            </Reveal>
+          </div>
         </div>
       </section>
 

@@ -59,7 +59,7 @@ export default function Footer() {
       </div>
 
       <div className="container-safe flex flex-wrap justify-between gap-2 py-[1.4rem] text-[0.86rem] text-[#a99bad] border-t border-white/10">
-        <p>© SAFE {year} — {COMPANY.name}. Tous droits réservés.</p>
+        <p>© SAFE {year} · {COMPANY.name}. Tous droits réservés.</p>
         <p><Link to="/mentions-legales" className="text-[#a99bad] hover:text-white">Mentions légales</Link></p>
       </div>
     </footer>

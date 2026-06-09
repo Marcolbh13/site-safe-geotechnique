@@ -8,7 +8,7 @@ const SOC = {
   siret: '[SIRET / RCS à compléter]',
   tva: '[N° TVA intracommunautaire à compléter]',
   directeur: '[Directeur de la publication à compléter]',
-  hebergeur: '[Hébergeur à compléter — nom, adresse, téléphone]',
+  hebergeur: '[Hébergeur à compléter (nom, adresse, téléphone)]',
 };
 
 function Row({ label, children }) {
