@@ -1,43 +1,39 @@
-/* Losanges décoratifs (écho du logo SAFE), très discrets.
-   Règles : 2 formes maximum, dans des coins OPPOSÉS, qui débordent hors du
-   cadre (donc seulement « rognées » par le bord, jamais coupées en plein
-   milieu ni superposées), et toujours derrière le contenu (parent
-   `relative overflow-hidden`, contenu en `relative z-10`). */
+/* Losanges décoratifs (écho du logo SAFE).
+   Règles : formes ENTIÈRES (jamais rognées), placées dans des coins opposés
+   avec une marge, donc jamais superposées ni sous le texte. Discrètes.
+   Masquées sur mobile (le texte y occupe toute la largeur).
+   Le parent doit être `relative overflow-hidden` et le contenu `relative z-10`. */
 
-// décalage : la forme déborde de ~60 % hors du coin -> seul un angle apparaît.
-const PEEK = 0.62;
+// marge interne : garantit que le losange (carré pivoté à 45°) reste entier.
+const PAD = 44;
 
 const LAYOUTS = {
-  // coin haut-droit (rempli) + coin bas-gauche (contour)
   soft: [
-    { corner: 'tr', s: 300, fill: true },
-    { corner: 'bl', s: 340, fill: false },
+    { vx: 'right', vy: 'top', s: 122, fill: false },
+    { vx: 'left', vy: 'bottom', s: 88, fill: true },
   ],
   dark: [
-    { corner: 'tr', s: 320, fill: false, dark: true },
-    { corner: 'bl', s: 300, fill: true, dark: true },
+    { vx: 'right', vy: 'top', s: 130, fill: false, dark: true },
+    { vx: 'left', vy: 'bottom', s: 92, fill: true, dark: true },
   ],
 };
 
-function pos(corner, s) {
-  const off = -Math.round(s * PEEK);
-  switch (corner) {
-    case 'tr': return { top: off, right: off };
-    case 'bl': return { bottom: off, left: off };
-    case 'tl': return { top: off, left: off };
-    default: return { bottom: off, right: off };
-  }
+function pos(vx, vy) {
+  return {
+    [vy === 'top' ? 'top' : 'bottom']: PAD,
+    [vx === 'left' ? 'left' : 'right']: PAD,
+  };
 }
 
-function Shape({ corner, s, fill, dark }) {
-  const magentaFill = 'linear-gradient(135deg, rgba(192,48,123,.07), rgba(110,35,80,.03))';
-  const whiteFill = 'linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03))';
-  const border = dark ? '1.5px solid rgba(255,255,255,.12)' : '1.5px solid rgba(141,42,99,.11)';
+function Shape({ vx, vy, s, fill, dark }) {
+  const magentaFill = 'linear-gradient(135deg, rgba(192,48,123,.12), rgba(110,35,80,.05))';
+  const whiteFill = 'linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04))';
+  const border = dark ? '1.5px solid rgba(255,255,255,.18)' : '1.5px solid rgba(141,42,99,.16)';
   return (
     <span
-      className="absolute block rounded-[26%]"
+      className="absolute block rounded-[24%]"
       style={{
-        ...pos(corner, s),
+        ...pos(vx, vy),
         width: s, height: s, transform: 'rotate(45deg)',
         background: fill ? (dark ? whiteFill : magentaFill) : 'transparent',
         border: fill ? 'none' : border,
@@ -49,7 +45,7 @@ function Shape({ corner, s, fill, dark }) {
 export default function Decor({ variant = 'soft' }) {
   const shapes = LAYOUTS[variant] || LAYOUTS.soft;
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden z-0" aria-hidden="true">
+    <div className="hidden sm:block pointer-events-none absolute inset-0 overflow-hidden z-0" aria-hidden="true">
       {shapes.map((sh, i) => <Shape key={i} {...sh} />)}
     </div>
   );
