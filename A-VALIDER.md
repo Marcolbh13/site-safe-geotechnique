@@ -62,8 +62,11 @@ nouvelle structure.
 
 - **Téléphone** et **adresse postale** : non affichés (non fournis). À ajouter
   page Contact + pied de page (`src/data/site.js` pour centraliser si besoin).
-- **Mentions légales** : page à rédiger (SIRET, forme juridique, hébergeur,
-  directeur de publication). Lien présent dans le pied de page (cible à créer).
+- **Mentions légales** : page **créée** (`/mentions-legales`, liée au pied de
+  page) avec un cadre prêt à l'emploi. **À compléter** par SAFE : raison
+  sociale, forme juridique/capital, adresse du siège, SIRET/RCS, TVA, directeur
+  de la publication, et coordonnées de l'hébergeur (champs entre crochets dans
+  `src/pages/MentionsLegales.jsx`).
 - **RSE** : la mention « panneaux solaires » est conservée **sans chiffres**
   (puissance, production). Paragraphes qualité/sécurité/environnement et
   indicateurs à fournir pour enrichir la page.

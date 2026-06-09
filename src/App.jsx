@@ -5,6 +5,7 @@ import Expertise from './pages/Expertise.jsx';
 import APropos from './pages/APropos.jsx';
 import Recrutement from './pages/Recrutement.jsx';
 import Contact from './pages/Contact.jsx';
+import MentionsLegales from './pages/MentionsLegales.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/a-propos" element={<APropos />} />
         <Route path="/recrutement" element={<Recrutement />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
 
         {/* Anciennes URLs -> nouvelle structure */}
         <Route path="/sondages" element={<Navigate to="/expertise#sondages" replace />} />

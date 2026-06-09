@@ -70,7 +70,7 @@ export default function Footer() {
       <div className="container-safe flex flex-wrap justify-between gap-2 py-[1.4rem] text-[0.88rem] text-[#8f8295] border-t border-white/10">
         <p>© {year} SAFE Géotechnique. Tous droits réservés.</p>
         <p>
-          <Link to="/contact" className="text-[#8f8295] hover:text-white">
+          <Link to="/mentions-legales" className="text-[#8f8295] hover:text-white">
             Mentions légales
           </Link>
         </p>
