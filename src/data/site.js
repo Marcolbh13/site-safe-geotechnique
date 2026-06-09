@@ -20,17 +20,26 @@ export const NAV = [
 
 export const QUALIFS = ['AIPR', 'H0B0', 'SST'];
 
-// SAFE Géotechnique est l'entité « études géotechniques » du Groupe RESUM.
-export const GROUP = { name: 'Groupe RESUM', url: 'https://www.resum.fr/' };
+import foretudeLogo from '../assets/logos/foretude.svg';
+import stpaLogo from '../assets/logos/stpa.webp';
+import sftpLogo from '../assets/logos/sftp.webp';
+import resumLogo from '../assets/logos/resum.svg';
 
-// Partenaires / sociétés du groupe (liens sortants).
-// STPA et SFTP : pas de site dédié vérifié -> renvoi vers le Groupe RESUM
-// (à mettre à jour si une URL officielle est confirmée — cf. A-VALIDER.md).
+// SAFE Géotechnique est l'entité « études géotechniques » du Groupe RESUM.
+export const GROUP = { name: 'Groupe RESUM', url: 'https://www.resum.fr/', logo: resumLogo };
+
+// SAFOR : entité juridique qui réunit SAFE Géotechnique et Foretude Ingénierie.
+export const SAFOR = {
+  name: 'SAFOR',
+  d: "L'entité juridique qui réunit SAFE Géotechnique et Foretude Ingénierie, alliant la reconnaissance des sols et l'ingénierie du forage dirigé.",
+};
+
+// Partenaires / sociétés du groupe (liens sortants vers leurs sites officiels).
 export const PARTNERS = [
-  { nom: 'Foretude Ingénierie', d: "Bureau d'études spécialisé dans le forage dirigé et les travaux sans tranchée, depuis plus de 15 ans.", url: 'https://www.foretude-ingenierie.fr/' },
-  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans, société mère du Groupe RESUM.', url: 'https://ftcs-forage.com/' },
-  { nom: 'STPA', d: 'Forage dirigé et tarière, société du Groupe RESUM.', url: 'https://www.resum.fr/' },
-  { nom: 'SFTP', d: 'Société du Groupe RESUM au service des projets de travaux sans tranchée.', url: 'https://www.resum.fr/' },
+  { nom: 'Foretude Ingénierie', d: "Bureau d'études spécialisé dans le forage dirigé et les travaux sans tranchée, depuis plus de 15 ans.", url: 'https://www.foretude-ingenierie.fr/', logo: foretudeLogo },
+  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans, société mère du Groupe RESUM.', url: 'https://ftcs-forage.com/', logo: null },
+  { nom: 'STPA Forage', d: 'Forage dirigé et tarière, travaux sans tranchée (Groupe RESUM).', url: 'https://www.stpa-forage.fr/', logo: stpaLogo },
+  { nom: 'SFTP Forage', d: 'Sud Forages TP : forage horizontal dirigé et travaux sans tranchée (Groupe RESUM).', url: 'https://www.sftp-forage.com/', logo: sftpLogo },
 ];
 
 // Missions géotechniques G1 à G5 (référentiel NF P94-500), reformulées pour

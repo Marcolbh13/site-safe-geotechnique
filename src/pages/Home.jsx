@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ClientsCarousel from '../components/ClientsCarousel.jsx';
-import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP } from '../data/site.js';
+import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP, SAFOR } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
@@ -212,7 +212,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PARTENAIRES / GROUPE ===== */}
+      {/* ===== GROUPE / SAFOR / PARTENAIRES ===== */}
       <section className="section">
         <div className="container-safe">
           <Reveal className="max-w-[720px] mb-[clamp(1.75rem,4vw,2.5rem)]">
@@ -226,14 +226,30 @@ export default function Home() {
               vous assurer les meilleures prestations.
             </p>
           </Reveal>
+
+          {/* SAFOR */}
+          <Reveal className="rounded-xl2 bg-safe-soft border border-line p-[clamp(1.5rem,3vw,2.25rem)] mb-[clamp(1.5rem,3vw,2rem)]">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+              <span className="font-mono font-bold text-[1.4rem] text-safe-magenta tracking-tight">SAFOR</span>
+              <span className="hidden sm:inline text-line">|</span>
+              <span className="font-semibold text-ink">SAFE Géotechnique <span className="text-muted font-normal">+</span> Foretude Ingénierie</span>
+            </div>
+            <p className="text-slate max-w-[70ch]">{SAFOR.d}</p>
+          </Reveal>
+
+          {/* Logos partenaires */}
           <div className="grid gap-4 sm:grid-cols-2">
             {PARTNERS.map((p, i) => (
               <Reveal key={p.nom} delay={(i % 2) * 90}>
                 <a href={p.url} target="_blank" rel="noopener noreferrer"
-                  className="card card-link flex items-start gap-4 h-full group">
-                  <span className="icon-badge shrink-0"><Icon name="compass" /></span>
-                  <div className="flex-1">
-                    <h3 className="text-[1.15rem] mb-1 flex items-center gap-2">
+                  className="card card-link flex flex-col gap-4 h-full">
+                  <div className="h-14 flex items-center">
+                    {p.logo
+                      ? <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-12 max-w-[190px] w-auto object-contain" loading="lazy" />
+                      : <span className="font-extrabold text-[1.4rem] tracking-tight text-ink">{p.nom}</span>}
+                  </div>
+                  <div>
+                    <h3 className="text-[1.1rem] mb-1 flex items-center gap-2">
                       {p.nom}
                       <Icon name="arrow" className="arrow w-[16px] h-[16px] text-safe-magenta -rotate-45" />
                     </h3>

@@ -21,10 +21,15 @@ page 404. Anciennes URLs redirigées (`/expertise`, `/missions-g1-a-g5`,
 - **Profondeur EMCI 7.50 = 100 m** et **« unique objectif »** : repris **tels
   quels du site officiel** (ils contredisent les consignes initiales « 80 m » et
   « principal objectif » — à trancher).
-- **Partenaires (liens sortants)** : Foretude → foretude-ingenierie.fr, FTCS →
-  ftcs-forage.com (vérifiés). **STPA** et **SFTP** : pas d'URL dédiée vérifiée →
-  renvoi provisoire vers le **Groupe RESUM** (resum.fr). À remplacer par leurs
-  sites officiels si disponibles.
+- **Partenaires (liens + logos)** : Foretude → foretude-ingenierie.fr,
+  FTCS → ftcs-forage.com, **STPA → stpa-forage.fr**, **SFTP → sftp-forage.com**
+  (liens corrigés vers leurs vrais sites). **Logos** téléchargés depuis les sites
+  officiels du groupe (`src/assets/logos/`) : Foretude, STPA, SFTP, RESUM. Le
+  **logo FTCS** n'était pas disponible en fichier propre → affiché en nom stylé,
+  à fournir. Logos utilisés au titre de l'appartenance au Groupe RESUM (à
+  confirmer si diffusion publique souhaitée).
+- **SAFOR** : présenté comme l'entité juridique réunissant SAFE Géotechnique et
+  Foretude Ingénierie (texte fourni par le client, à compléter si besoin).
 - **Couleurs** : suppression des fonds violet/sombre froids ; palette resserrée
   sur le magenta/fuchsia du logo + neutres clairs (fond clair dominant).
 - **Carousel clients** (accueil) : noms affichés en **texte** (publics et privés).
