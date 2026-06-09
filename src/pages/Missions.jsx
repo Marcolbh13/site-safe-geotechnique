@@ -3,6 +3,7 @@ import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import Decor from '../components/Decor.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import { MISSIONS } from '../data/site.js';
 
@@ -18,34 +19,36 @@ export default function Missions() {
         intro="Nous interprétons les essais et rassemblons les documents géologiques et cartographiques du site pour étudier le comportement mécanique des sols et des roches. La norme structure cette ingénierie en cinq missions : voici, simplement, à quoi sert chacune."
       />
 
-      <section className="section">
-        <div className="container-safe grid gap-8">
-          {MISSIONS.map((m, i) => (
-            <Reveal as="article" key={m.code} delay={(i % 2) * 60}
-              className="rounded-xl2 border border-line bg-white shadow-sfsm overflow-hidden">
-              {/* En-tête de la mission */}
-              <div className="p-[clamp(1.5rem,3vw,2.25rem)]">
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="inline-grid place-items-center w-14 h-14 rounded-[16px] bg-safe-gradient text-white font-mono font-semibold text-[1.25rem] shrink-0">{m.code}</span>
-                  <h2 className="text-[1.3rem] flex-1 min-w-[200px]">{m.t}</h2>
-                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-safe-magenta bg-safe-soft border border-line rounded-full px-3 py-1">{m.phase}</span>
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10">
+          <ol className="relative grid gap-[clamp(2.5rem,5vw,4rem)] sm:pl-12 sm:before:absolute sm:before:left-[19px] sm:before:top-2 sm:before:bottom-2 sm:before:w-px sm:before:bg-line">
+            {MISSIONS.map((m) => (
+              <Reveal as="li" key={m.code} className="relative">
+                {/* nœud losange (écho du logo) */}
+                <span className="hidden sm:grid place-items-center absolute -left-12 top-0.5 w-10 h-10" aria-hidden="true">
+                  <span className="absolute inset-0 rotate-45 rounded-[28%] bg-safe-gradient" />
+                  <span className="relative font-mono text-white text-[0.7rem] font-bold">{m.code}</span>
+                </span>
+
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+                  <h2 className="text-[1.3rem]"><span className="font-mono text-safe-magenta mr-2 sm:hidden">{m.code}</span>{m.t}</h2>
+                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted">{m.phase}</span>
                 </div>
 
-                {/* En clair (accessible) */}
-                <p className="flex gap-3 text-ink text-[1.05rem] bg-safe-soft border border-line rounded-2xl p-4 mb-4">
-                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-safe-magenta shrink-0 mt-1">En clair</span>
-                  <span>{m.plain}</span>
+                <p className="border-l-2 border-safe-magenta/50 pl-4 text-ink text-[1.05rem] mb-3">
+                  <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-safe-magenta block mb-0.5">En clair</span>
+                  {m.plain}
                 </p>
 
-                <p className="text-slate">{m.detail}</p>
+                <p className="text-slate max-w-[75ch]">{m.detail}</p>
 
-                {/* Sous-étapes */}
                 {m.steps.length > 0 && (
-                  <ul className="grid gap-3 mt-5 sm:grid-cols-2">
+                  <ul className="grid sm:grid-cols-2 gap-x-[clamp(1.5rem,4vw,3rem)] mt-4">
                     {m.steps.map((s) => (
-                      <li key={s.t} className="rounded-2xl border border-line bg-cloud p-4">
-                        <span className="flex items-center gap-2 font-semibold text-ink mb-1">
-                          <Icon name="check" className="w-[18px] h-[18px] text-safe-magenta" /> {s.t}
+                      <li key={s.t} className="border-t border-line py-3">
+                        <span className="flex items-center gap-2 font-semibold text-ink mb-0.5">
+                          <Icon name="check" className="w-[17px] h-[17px] text-safe-magenta shrink-0" /> {s.t}
                         </span>
                         <span className="block text-slate text-[0.93rem]">{s.d}</span>
                       </li>
@@ -53,17 +56,17 @@ export default function Missions() {
                   </ul>
                 )}
 
-                <p className="font-mono text-[0.78rem] text-muted mt-5">À la charge : <span className="text-safe-magenta">{m.charge}</span></p>
-              </div>
-            </Reveal>
-          ))}
+                <p className="font-mono text-[0.78rem] text-muted mt-4">À la charge : <span className="text-safe-magenta">{m.charge}</span></p>
+              </Reveal>
+            ))}
+          </ol>
 
-          <Reveal className="rounded-xl2 bg-safe-soft border border-line p-[clamp(1.5rem,3vw,2rem)] flex flex-wrap items-center gap-5 justify-between">
+          <Reveal className="border-l-4 border-safe-magenta/60 pl-5 sm:pl-6 mt-[clamp(2.5rem,5vw,4rem)] sm:flex sm:items-center sm:justify-between gap-6">
             <div className="max-w-[640px]">
               <h2 className="text-[1.25rem] mb-1.5">Vente d'un terrain à bâtir ?</h2>
               <p className="text-slate">La mission G1 peut être exigée par la loi ELAN, à la charge du vendeur, en zone d'argiles.</p>
             </div>
-            <Link to="/loi-elan" className="btn btn-primary shrink-0">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
+            <Link to="/loi-elan" className="btn btn-primary shrink-0 mt-4 sm:mt-0">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
           </Reveal>
         </div>
       </section>

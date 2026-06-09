@@ -95,9 +95,8 @@
   }
   .ticks strong { @apply text-ink; }
 
-  /* Encadré note */
-  .note { @apply bg-safe-soft text-slate rounded-[14px]; border: 1px solid #ece5ed; border-left: 4px solid #8d2a63;
-    padding: 1.1rem 1.3rem; font-size: 0.98rem; }
+  /* Note : simple filet à gauche (pas d'encadré) */
+  .note { @apply text-slate; border-left: 3px solid #8d2a63; padding: 0.15rem 0 0.15rem 1.1rem; font-size: 0.98rem; }
 
   /* Filet éditorial */
   .rule { height: 3px; width: 60px; border-radius: 3px; background: linear-gradient(135deg, #6e2350, #c0307b); }
@@ -120,8 +119,8 @@
   .reveal.is-in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
-  /* Formulaires */
-  .form-card { @apply bg-white rounded-xl2 shadow-sfmd grid gap-[1.1rem]; border: 1px solid #ece5ed; padding: clamp(1.5rem, 3vw, 2.2rem); }
+  /* Formulaires (ouverts, sans boîte encadrée) */
+  .form-card { @apply grid gap-[1.1rem]; }
   .field { @apply grid gap-1.5; }
   .field label { @apply font-semibold text-ink; font-size: 0.95rem; }
   .form-card input, .form-card select, .form-card textarea {

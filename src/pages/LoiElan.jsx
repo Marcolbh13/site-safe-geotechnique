@@ -65,9 +65,9 @@ export default function LoiElan() {
               <Icon name="map" className="w-[18px] h-[18px]" /> Consulter la carte des argiles
             </a>
           </Reveal>
-          <Reveal delay={120} className="grid gap-3">
+          <Reveal delay={120} className="grid">
             {reperes.map((r) => (
-              <div key={r.t} className="flex gap-4 rounded-2xl border border-line bg-cloud p-5">
+              <div key={r.t} className="flex gap-4 py-4 border-t border-line">
                 <Icon name="check" className="w-6 h-6 text-safe-magenta shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-[1.05rem] mb-1">{r.t}</h3>

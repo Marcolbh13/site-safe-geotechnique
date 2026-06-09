@@ -4,9 +4,11 @@
 
 const SOFT = [
   { t: '-7%', l: '-4%', s: 260, fill: true },
-  { t: '12%', r: '6%', s: 120, fill: false },
+  { t: '10%', r: '5%', s: 130, fill: false },
   { b: '-10%', r: '-3%', s: 300, fill: false },
-  { b: '8%', l: '10%', s: 90, fill: true },
+  { b: '6%', l: '9%', s: 96, fill: true },
+  { t: '44%', l: '40%', s: 70, fill: false },
+  { t: '60%', r: '22%', s: 60, fill: true },
 ];
 
 const DARK = [
@@ -16,9 +18,9 @@ const DARK = [
 ];
 
 function Shape({ t, b, l, r, s, fill, dark }) {
-  const magentaFill = 'linear-gradient(135deg, rgba(192,48,123,.10), rgba(110,35,80,.05))';
+  const magentaFill = 'linear-gradient(135deg, rgba(192,48,123,.13), rgba(110,35,80,.06))';
   const whiteFill = 'linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.05))';
-  const border = dark ? '1.5px solid rgba(255,255,255,.16)' : '1.5px solid rgba(141,42,99,.14)';
+  const border = dark ? '1.5px solid rgba(255,255,255,.16)' : '1.5px solid rgba(141,42,99,.18)';
   return (
     <span
       className="absolute block rounded-[26%]"

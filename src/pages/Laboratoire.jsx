@@ -26,9 +26,9 @@ const gallery = [
   [laboPresse, 'Essais mécaniques', 'Essai mécanique sur échantillon'],
 ];
 
-function EssaisCard({ label, intro, items, note }) {
+function EssaisCard({ label, intro, items, note, divider }) {
   return (
-    <div className="bg-white rounded-xl2 border border-line p-[clamp(1.5rem,3vw,2rem)] h-full">
+    <div className={divider ? 'lg:border-l lg:border-line lg:pl-[clamp(1.5rem,3vw,3rem)]' : ''}>
       <p className="label mb-3">{label}</p>
       <p className="text-slate mb-5">{intro}</p>
       <dl className="grid gap-4">
@@ -80,6 +80,7 @@ export default function Laboratoire() {
             </Reveal>
             <Reveal delay={120}>
               <EssaisCard
+                divider
                 label="Résistance mécanique"
                 intro="On mesure ensuite comment le sol se comporte sous charge : sa capacité à supporter un ouvrage et à résister au cisaillement."
                 items={mecaniques}

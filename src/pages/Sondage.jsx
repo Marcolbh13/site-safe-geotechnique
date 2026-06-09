@@ -79,13 +79,13 @@ export default function Sondage() {
                 respect des normes en vigueur. Nous mobilisons l'atelier adapté à
                 la profondeur recherchée et à l'accessibilité du site.
               </p>
-              <div className="grid gap-4 sm:grid-cols-2 max-w-[480px]">
-                <div className="rounded-2xl border border-line bg-white p-5">
+              <div className="grid gap-7 sm:grid-cols-2 max-w-[500px]">
+                <div>
                   <span className="mono-tag text-[1.05rem]">EMCI 4.50</span>
                   <div className="stat my-1.5"><b>40 m</b></div>
                   <p className="text-slate text-[0.9rem]">Profondeur de sondage.</p>
                 </div>
-                <div className="rounded-2xl border border-line bg-white p-5">
+                <div className="sm:border-l sm:border-line sm:pl-7">
                   <span className="mono-tag text-[1.05rem]">EMCI 7.50</span>
                   <div className="stat my-1.5"><b>100 m</b></div>
                   <p className="text-slate text-[0.9rem]">Profondeur de sondage.</p>

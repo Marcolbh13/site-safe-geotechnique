@@ -67,8 +67,9 @@ export default function Home() {
       </section>
 
       {/* ===== SERVICES ===== */}
-      <section className="section">
-        <div className="container-safe">
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10">
           <Reveal className="max-w-[680px] mb-[clamp(2rem,4vw,3rem)]">
             <p className="label mb-4">Nos activités</p>
             <h2>Trois savoir-faire, une seule équipe</h2>
@@ -129,27 +130,29 @@ export default function Home() {
               l'étude préalable jusqu'au diagnostic de l'ouvrage.
             </p>
           </Reveal>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid sm:grid-cols-2 gap-x-[clamp(2rem,5vw,4rem)]">
             {MISSIONS.map((m, i) => (
-              <Reveal key={m.code} delay={i * 60} className="rounded-2xl border border-line bg-white p-5 shadow-sfsm">
-                <span className="font-mono font-semibold text-safe-magenta text-[1.05rem]">{m.code}</span>
-                <h3 className="text-[1.05rem] mt-1 mb-1.5">{m.t}</h3>
-                <p className="text-slate text-[0.92rem]">{m.short}</p>
+              <Reveal key={m.code} delay={(i % 2) * 70} className="flex gap-5 py-5 border-t border-line">
+                <span className="font-mono font-bold text-safe-magenta text-[1.15rem] shrink-0 w-10 mt-0.5">{m.code}</span>
+                <div>
+                  <h3 className="text-[1.05rem] mb-1">{m.t}</h3>
+                  <p className="text-slate text-[0.93rem]">{m.short}</p>
+                </div>
               </Reveal>
             ))}
-            <Reveal delay={MISSIONS.length * 60} className="rounded-2xl bg-safe-gradient p-5 flex flex-col justify-center text-white">
-              <p className="font-semibold mb-3">Une mission à cadrer ?</p>
-              <Link to="/missions" className="btn btn-light btn-sm self-start">
-                Voir le détail <Icon name="arrow" className="arrow w-[16px] h-[16px]" />
-              </Link>
-            </Reveal>
           </div>
+          <Reveal className="mt-9">
+            <Link to="/missions" className="btn btn-primary">
+              Voir le détail des missions <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       {/* ===== MATÉRIEL + ÉCHELLE ===== */}
-      <section className="section">
-        <div className="container-safe grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[0.85fr_1.15fr]">
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10 grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal className="flex justify-center">
             <DepthScale className="w-full max-w-[300px] h-auto" />
           </Reveal>
@@ -160,15 +163,15 @@ export default function Home() {
               Sondages pressiométriques, destructifs et carottés, dans le respect
               des normes en vigueur.
             </p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="card">
+            <div className="grid gap-7 sm:grid-cols-2">
+              <div>
                 <span className="mono-tag text-[1.05rem]">EMCI 4.50</span>
-                <div className="stat my-2"><b>40 m</b></div>
+                <div className="stat my-1.5"><b>40 m</b></div>
                 <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 40 m de profondeur.</p>
               </div>
-              <div className="card">
+              <div className="sm:border-l sm:border-line sm:pl-7">
                 <span className="mono-tag text-[1.05rem]">EMCI 7.50</span>
-                <div className="stat my-2"><b>100 m</b></div>
+                <div className="stat my-1.5"><b>100 m</b></div>
                 <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 100 m de profondeur.</p>
               </div>
             </div>
@@ -177,24 +180,22 @@ export default function Home() {
       </section>
 
       {/* ===== QUALITÉ / SÉCURITÉ ===== */}
-      <section className="section-tight">
-        <div className="container-safe">
-          <Reveal className="rounded-xl2 border border-line bg-mist p-[clamp(1.75rem,4vw,2.75rem)] grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
-            <div>
-              <p className="label mb-4">Sécurité &amp; règles de l'art</p>
-              <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Le respect de la législation, dans les règles de l'art</h2>
-              <p className="text-slate mt-4 max-w-[60ch]">
-                Nos équipes mettent un point d'honneur à respecter la législation
-                en matière de sécurité des biens et des personnes. Notre personnel
-                est qualifié et porte une attention particulière à la sécurité des
-                réseaux existants.
-              </p>
-            </div>
-            <ul className="flex flex-wrap gap-2.5 lg:justify-end">
-              {QUALIFS.map((q) => (
-                <li key={q} className="font-mono font-semibold text-safe-magenta bg-white border border-line rounded-xl px-4 py-3 text-center min-w-[88px] shadow-sfsm">{q}</li>
-              ))}
-            </ul>
+      <section className="section bg-mist border-y border-line">
+        <div className="container-safe grid lg:grid-cols-[1.2fr_0.8fr] gap-x-[clamp(2rem,5vw,4rem)] gap-y-8 items-center">
+          <Reveal>
+            <p className="label mb-4">Sécurité &amp; règles de l'art</p>
+            <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Le respect de la législation, dans les règles de l'art</h2>
+            <p className="text-slate mt-4 max-w-[60ch]">
+              Nos équipes mettent un point d'honneur à respecter la législation
+              en matière de sécurité des biens et des personnes. Notre personnel
+              est qualifié et porte une attention particulière à la sécurité des
+              réseaux existants.
+            </p>
+          </Reveal>
+          <Reveal delay={120} className="flex flex-wrap gap-x-8 gap-y-2 lg:justify-end">
+            {QUALIFS.map((q) => (
+              <span key={q} className="font-mono font-bold text-safe-magenta text-[1.6rem] tracking-tight">{q}</span>
+            ))}
           </Reveal>
         </div>
       </section>
@@ -225,8 +226,9 @@ export default function Home() {
       </section>
 
       {/* ===== GROUPE / SAFOR / PARTENAIRES ===== */}
-      <section className="section">
-        <div className="container-safe">
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10">
           <Reveal className="max-w-[720px] mb-[clamp(1.75rem,4vw,2.5rem)]">
             <p className="label mb-4">Notre groupe & nos partenaires</p>
             <h2>De l'étude de sol aux travaux sans tranchée</h2>
@@ -240,39 +242,38 @@ export default function Home() {
             </p>
           </Reveal>
 
-          {/* SAFOR */}
-          <Reveal className="rounded-xl2 bg-safe-soft border border-line p-[clamp(1.5rem,3vw,2.25rem)] mb-[clamp(1.5rem,3vw,2rem)]">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
-              <span className="font-mono font-bold text-[1.4rem] text-safe-magenta tracking-tight">SAFOR</span>
-              <span className="hidden sm:inline text-line">|</span>
-              <span className="font-semibold text-ink">SAFE Géotechnique <span className="text-muted font-normal">+</span> Foretude Ingénierie</span>
+          {/* SAFOR — lockup ouvert */}
+          <Reveal className="border-l-4 border-safe-magenta/60 pl-5 sm:pl-6 mb-[clamp(2rem,4vw,3rem)]">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+              <span className="font-mono font-bold text-[1.5rem] text-safe-magenta tracking-tight">SAFOR</span>
+              <span className="font-semibold text-ink">SAFE Géotechnique <span className="text-muted font-normal">×</span> Foretude Ingénierie</span>
             </div>
-            <p className="text-slate max-w-[70ch]">{SAFOR.d}</p>
+            <p className="text-slate max-w-[72ch]">{SAFOR.d}</p>
           </Reveal>
 
-          {/* Logos partenaires */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          {/* Mur de logos partenaires (sans cadres) */}
+          <div className="grid sm:grid-cols-2 gap-x-[clamp(2rem,5vw,4rem)]">
             {PARTNERS.map((p, i) => (
               <Reveal key={p.nom} delay={(i % 2) * 90}>
                 <a href={p.url} target="_blank" rel="noopener noreferrer"
-                  className="card card-link flex flex-col gap-4 h-full">
-                  <div className="h-14 flex items-center">
+                  className="group flex items-center gap-5 py-6 border-t border-line">
+                  <div className="w-[140px] shrink-0 flex items-center justify-center">
                     {p.logo
-                      ? <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-12 max-w-[190px] w-auto object-contain" loading="lazy" />
-                      : <span className="font-extrabold text-[1.4rem] tracking-tight text-ink">{p.nom}</span>}
+                      ? <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-12 max-w-[140px] w-auto object-contain" loading="lazy" />
+                      : <span className="font-extrabold text-[1.3rem] tracking-tight text-ink">{p.nom}</span>}
                   </div>
-                  <div>
-                    <h3 className="text-[1.1rem] mb-1 flex items-center gap-2">
+                  <div className="flex-1">
+                    <h3 className="text-[1.05rem] mb-1 inline-flex items-center gap-2 group-hover:text-safe-magenta transition-colors">
                       {p.nom}
-                      <Icon name="arrow" className="arrow w-[16px] h-[16px] text-safe-magenta -rotate-45" />
+                      <Icon name="arrow" className="arrow w-[15px] h-[15px] text-safe-magenta -rotate-45" />
                     </h3>
-                    <p className="text-slate text-[0.95rem]">{p.d}</p>
+                    <p className="text-slate text-[0.93rem]">{p.d}</p>
                   </div>
                 </a>
               </Reveal>
             ))}
           </div>
-          <p className="text-muted text-[0.85rem] mt-4">Les liens ouvrent les sites de nos partenaires dans un nouvel onglet.</p>
+          <p className="text-muted text-[0.85rem] mt-5">Les liens ouvrent les sites de nos partenaires dans un nouvel onglet.</p>
         </div>
       </section>
 
@@ -292,18 +293,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== LOI ELAN ===== */}
-      <section className="section-tight">
-        <div className="container-safe">
-          <Reveal className="rounded-xl2 border border-line bg-safe-soft p-[clamp(1.75rem,4vw,2.75rem)] sm:flex sm:items-center sm:justify-between gap-8">
-            <div className="max-w-[640px]">
-              <p className="label mb-3">Vente de terrain</p>
-              <h2 className="text-[clamp(1.5rem,3vw,2rem)]">La loi ELAN et l'étude de sol obligatoire</h2>
-              <p className="text-slate mt-3">Vous vendez un terrain constructible en zone argileuse ? Une étude géotechnique préalable peut être requise. Nous vous expliquons tout.</p>
-            </div>
-            <div className="mt-6 sm:mt-0 shrink-0">
-              <Link to="/loi-elan" className="btn btn-primary">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
-            </div>
+      {/* ===== LOI ELAN (bande pleine largeur) ===== */}
+      <section className="relative overflow-hidden bg-safe-soft border-y border-line">
+        <Decor />
+        <div className="container-safe relative z-10 section-tight sm:flex sm:items-center sm:justify-between gap-8">
+          <Reveal className="max-w-[640px]">
+            <p className="label mb-3">Vente de terrain</p>
+            <h2 className="text-[clamp(1.5rem,3vw,2rem)]">La loi ELAN et l'étude de sol obligatoire</h2>
+            <p className="text-slate mt-3">Vous vendez un terrain constructible en zone argileuse ? Une étude géotechnique préalable peut être requise. Nous vous expliquons tout.</p>
+          </Reveal>
+          <Reveal delay={120} className="mt-6 sm:mt-0 shrink-0">
+            <Link to="/loi-elan" className="btn btn-primary">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
           </Reveal>
         </div>
       </section>
