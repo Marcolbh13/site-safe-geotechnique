@@ -5,7 +5,6 @@ import Reveal from '../components/Reveal.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ClientsCarousel from '../components/ClientsCarousel.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
@@ -85,6 +84,24 @@ export default function Home() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BANDE PHOTO TERRAIN ===== */}
+      <section className="relative">
+        <div className="relative h-[clamp(320px,46vw,520px)] overflow-hidden">
+          <img src={camionSafe} alt="Atelier de sondage et véhicule SAFE installés sur un chantier" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(110,35,80,.82) 0%, rgba(110,35,80,.4) 52%, rgba(110,35,80,0) 100%)' }} />
+          <div className="container-safe relative h-full flex items-center">
+            <Reveal className="max-w-[560px] text-white">
+              <p className="label on-dark mb-3">Sur le terrain</p>
+              <h2 className="text-white">Nous venons reconnaître vos sols, au plus près de votre projet</h2>
+              <p className="mt-4 text-white/90 text-[1.06rem]">
+                Nos ateliers se déplacent sur vos chantiers, en ville comme en
+                rase campagne, dans le respect des règles de sécurité.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -243,36 +260,6 @@ export default function Home() {
             </p>
           </Reveal>
           <ClientsCarousel />
-        </div>
-      </section>
-
-      {/* ===== SUR LE TERRAIN (emplacements images) ===== */}
-      <section className="section">
-        <div className="container-safe">
-          <Reveal className="max-w-[680px] mb-7">
-            <p className="label mb-4">Sur le terrain</p>
-            <h2>Nos équipes en intervention</h2>
-            <p className="text-slate mt-4">Quelques aperçus de nos chantiers et de notre laboratoire.</p>
-          </Reveal>
-          <div className="grid gap-4 md:grid-cols-3">
-            <Reveal className="md:col-span-2">
-              <figure className="rounded-xl2 overflow-hidden shadow-sfmd h-full">
-                <img src={camionSafe} alt="Atelier de sondage et véhicule SAFE sur un chantier" className="w-full h-full object-cover aspect-[16/10]" loading="lazy" />
-              </figure>
-            </Reveal>
-            <Reveal delay={100}>
-              <ImagePlaceholder ratio="4 / 5" icon="core" hint="Carottes / prélèvements (photo à fournir)" className="h-full" />
-            </Reveal>
-            <Reveal>
-              <ImagePlaceholder ratio="4 / 3" icon="gauge" hint="Essai pressiométrique (photo à fournir)" />
-            </Reveal>
-            <Reveal delay={100}>
-              <ImagePlaceholder ratio="4 / 3" icon="water" hint="Pose de piézomètre (photo à fournir)" />
-            </Reveal>
-            <Reveal delay={150}>
-              <ImagePlaceholder ratio="4 / 3" icon="microscope" hint="Travail au laboratoire (photo à fournir)" />
-            </Reveal>
-          </div>
         </div>
       </section>
 

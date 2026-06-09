@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import { COMPANY } from '../data/site.js';
+import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 
 const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol – vente de terrain (loi ELAN)', 'Autre demande'];
 
@@ -59,7 +59,9 @@ export default function Contact() {
             <InfoBlock icon="mail" title="E-mail">
               <a className="font-semibold" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
             </InfoBlock>
-            <ImagePlaceholder ratio="4 / 3" icon="pin" hint="Photo des locaux ou plan d'accès (à fournir)" />
+            <figure className="rounded-xl2 overflow-hidden shadow-sfmd mt-1">
+              <img src={camionSafe} alt="Atelier de sondage et véhicule SAFE Géotechnique" className="w-full object-cover aspect-[4/3]" loading="lazy" />
+            </figure>
           </Reveal>
 
           {/* Formulaire : mailto par défaut (envoi serveur documenté dans le README). */}

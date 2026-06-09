@@ -3,7 +3,6 @@ import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import { MISSIONS } from '../data/site.js';
 
@@ -65,15 +64,6 @@ export default function Missions() {
               <p className="text-slate">La mission G1 peut être exigée par la loi ELAN, à la charge du vendeur, en zone d'argiles.</p>
             </div>
             <Link to="/loi-elan" className="btn btn-primary shrink-0">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Emplacement d'image (chantier / ingénierie) */}
-      <section className="section-tight">
-        <div className="container-safe">
-          <Reveal>
-            <ImagePlaceholder ratio="21 / 9" icon="compass" hint="Photo d'équipe ou de chantier géotechnique (à fournir)" className="w-full" />
           </Reveal>
         </div>
       </section>

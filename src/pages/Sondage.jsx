@@ -3,7 +3,6 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import DepthScale from '../components/DepthScale.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 
@@ -51,26 +50,17 @@ export default function Sondage() {
         </div>
       </section>
 
-      {/* Visuels terrain */}
-      <section className="section-tight">
-        <div className="container-safe grid gap-4 md:grid-cols-3">
-          <Reveal className="md:col-span-2">
-            <figure className="rounded-xl2 overflow-hidden shadow-sfmd h-full">
-              <img src={heroForeuse} alt="Atelier de sondage SAFE en intervention sur un chantier" className="w-full h-full object-cover aspect-[16/10]" loading="lazy" />
-            </figure>
-          </Reveal>
-          <Reveal delay={100}>
-            <ImagePlaceholder ratio="4 / 5" icon="core" hint="Carottes de sol (photo à fournir)" className="h-full" />
-          </Reveal>
-          <Reveal>
-            <ImagePlaceholder ratio="4 / 3" icon="gauge" hint="Sonde pressiométrique (photo à fournir)" />
-          </Reveal>
-          <Reveal delay={100}>
-            <ImagePlaceholder ratio="4 / 3" icon="water" hint="Piézomètre posé (photo à fournir)" />
-          </Reveal>
-          <Reveal delay={150}>
-            <ImagePlaceholder ratio="4 / 3" icon="cavity" hint="Recherche de cavités (photo à fournir)" />
-          </Reveal>
+      {/* Bande photo terrain */}
+      <section className="relative">
+        <div className="relative h-[clamp(280px,40vw,460px)] overflow-hidden">
+          <img src={heroForeuse} alt="Atelier de sondage SAFE EMCI en intervention sur un chantier" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(110,35,80,.8) 0%, rgba(110,35,80,.3) 55%, rgba(110,35,80,0) 100%)' }} />
+          <div className="container-safe relative h-full flex items-center">
+            <Reveal className="max-w-[540px] text-white">
+              <h2 className="text-white text-[clamp(1.5rem,3vw,2.1rem)]">Du terrain à l'échantillon, sans rupture</h2>
+              <p className="mt-3 text-white/90">Nos foreuses prélèvent les sols que notre laboratoire analyse ensuite : une chaîne maîtrisée de bout en bout.</p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

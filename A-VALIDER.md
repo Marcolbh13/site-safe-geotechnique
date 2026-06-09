@@ -30,9 +30,10 @@ page 404. Anciennes URLs redirigées (`/expertise`, `/missions-g1-a-g5`,
 - **Carousel clients** (accueil) : noms affichés en **texte** (publics et privés).
   À confirmer : droit d'afficher chaque client + fourniture des **logos** pour
   remplacer le texte. Liste dans `src/data/site.js` (`CLIENTS`).
-- **Emplacements d'images** (`ImagePlaceholder`, « Visuel à venir ») répartis sur
-  les pages : à remplacer par de vraies photos SAFE (carottes, pressiomètre,
-  piézomètre, essais labo, locaux, équipe). Aucune image cassée en attendant.
+- **Photos** : les cases « Visuel à venir » ont été retirées (effet trop
+  « IA »). Les 5 vraies photos SAFE sont réparties dans des bandes éditoriales
+  sur tout le site. Fournir davantage de photos (carottes, pressiomètre,
+  piézomètre, équipe, locaux) permettra d'enrichir encore ces bandes.
 - **Missions G1 à G5** : explications reprises du site officiel et reformulées
   pour rester techniques mais accessibles (bloc « En clair » + détail + phases).
 

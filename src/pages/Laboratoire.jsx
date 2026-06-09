@@ -1,7 +1,6 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 
 import laboEchantillon from '../assets/images/labo-echantillon.webp';
@@ -88,15 +87,6 @@ export default function Laboratoire() {
               />
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* Visuels complémentaires */}
-      <section className="section-tight">
-        <div className="container-safe grid gap-4 sm:grid-cols-3">
-          <Reveal><ImagePlaceholder ratio="4 / 3" icon="target" hint="Essai triaxial (photo à fournir)" /></Reveal>
-          <Reveal delay={90}><ImagePlaceholder ratio="4 / 3" icon="flask" hint="Valeur au bleu (VBS) (photo à fournir)" /></Reveal>
-          <Reveal delay={150}><ImagePlaceholder ratio="4 / 3" icon="layers" hint="Granulométrie / tamisage (photo à fournir)" /></Reveal>
         </div>
       </section>
 
