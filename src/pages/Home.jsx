@@ -4,7 +4,7 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
-import { COMPANY, QUALIFS, MISSIONS } from '../data/site.js';
+import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import laboPresse from '../assets/images/labo-presse.webp';
@@ -16,11 +16,6 @@ const services = [
     text: "Classification GTR, VBS, Atterberg, granulométrie, sédimentométrie, masse volumique, Proctor + IPI, cisaillement : identifier les sols par leur nature et leur résistance." },
   { icon: 'compass', title: 'Ingénierie', to: '/expertise#missions',
     text: "Interprétation des essais, recherche des documents géologiques et cartographiques, missions G1 à G5 : étudier le comportement mécanique des sols et des roches." },
-];
-
-const partenaires = [
-  { nom: 'Foretude', d: "Bureau d'études spécialisé dans le forage dirigé depuis plus de 15 ans." },
-  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans.' },
 ];
 
 export default function Home() {
@@ -91,27 +86,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== MISSIONS G1-G5 (bande sombre) ===== */}
-      <section className="relative bg-plum text-white strata overflow-hidden">
-        <div className="container-safe section">
+      {/* ===== MISSIONS G1-G5 (clair) ===== */}
+      <section className="section bg-mist border-y border-line">
+        <div className="container-safe">
           <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label on-dark mb-4">Notre expertise au service de votre projet</p>
-            <h2 className="text-white">Les missions géotechniques G1 à G5</h2>
-            <p className="mt-4 text-white/80 text-[1.08rem] max-w-[60ch]">
+            <p className="label mb-4">Notre expertise au service de votre projet</p>
+            <h2>Les missions géotechniques G1 à G5</h2>
+            <p className="mt-4 text-slate text-[1.08rem] max-w-[62ch]">
               SAFE Géotechnique vous accompagne tout au long de votre projet, de
               l'étude préalable jusqu'au diagnostic de l'ouvrage.
             </p>
           </Reveal>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {MISSIONS.map((m, i) => (
-              <Reveal key={m.code} delay={i * 60} className="rounded-2xl border border-white/12 bg-white/[0.04] p-5">
-                <span className="font-mono font-semibold text-safe-rose text-[1.05rem]">{m.code}</span>
-                <h3 className="text-white text-[1.08rem] mt-1 mb-1.5">{m.t}</h3>
-                <p className="text-white/70 text-[0.92rem]">{m.d}</p>
+              <Reveal key={m.code} delay={i * 60} className="rounded-2xl border border-line bg-white p-5 shadow-sfsm">
+                <span className="font-mono font-semibold text-safe-magenta text-[1.05rem]">{m.code}</span>
+                <h3 className="text-[1.05rem] mt-1 mb-1.5">{m.t}</h3>
+                <p className="text-slate text-[0.92rem]">{m.short}</p>
               </Reveal>
             ))}
-            <Reveal delay={MISSIONS.length * 60} className="rounded-2xl bg-safe-gradient p-5 flex flex-col justify-center">
-              <p className="text-white font-semibold mb-3">Une mission à cadrer ?</p>
+            <Reveal delay={MISSIONS.length * 60} className="rounded-2xl bg-safe-gradient p-5 flex flex-col justify-center text-white">
+              <p className="font-semibold mb-3">Une mission à cadrer ?</p>
               <Link to="/expertise#missions" className="btn btn-light btn-sm self-start">
                 Voir le détail <Icon name="arrow" className="arrow w-[16px] h-[16px]" />
               </Link>
@@ -197,29 +192,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PARTENAIRES ===== */}
-      <section className="section-tight">
+      {/* ===== PARTENAIRES / GROUPE ===== */}
+      <section className="section">
         <div className="container-safe">
-          <Reveal className="max-w-[680px] mb-8">
-            <p className="label mb-4">Nos partenaires</p>
-            <h2>Jusqu'aux travaux sans tranchée</h2>
-            <p className="text-slate mt-4">
-              De l'étude de sol à la phase finale des travaux sans tranchée, nous
-              collaborons avec nos partenaires pour vous assurer les meilleures
-              prestations.
+          <Reveal className="max-w-[720px] mb-[clamp(1.75rem,4vw,2.5rem)]">
+            <p className="label mb-4">Notre groupe & nos partenaires</p>
+            <h2>De l'étude de sol aux travaux sans tranchée</h2>
+            <p className="text-slate mt-4 max-w-[64ch]">
+              SAFE Géotechnique est l'entité études géotechniques du{' '}
+              <a href={GROUP.url} target="_blank" rel="noopener noreferrer" className="text-safe-magenta font-semibold underline-offset-2 hover:underline">{GROUP.name}</a>.
+              De la reconnaissance des sols jusqu'à la phase finale des travaux
+              sans tranchée, nous collaborons avec des sociétés spécialisées pour
+              vous assurer les meilleures prestations.
             </p>
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {partenaires.map((p, i) => (
-              <Reveal key={p.nom} delay={i * 90} className="card flex items-start gap-4">
-                <span className="icon-badge shrink-0"><Icon name="compass" /></span>
-                <div>
-                  <h3 className="text-[1.15rem] mb-1">{p.nom}</h3>
-                  <p className="text-slate text-[0.95rem]">{p.d}</p>
-                </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {PARTNERS.map((p, i) => (
+              <Reveal key={p.nom} delay={(i % 2) * 90}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer"
+                  className="card card-link flex items-start gap-4 h-full group">
+                  <span className="icon-badge shrink-0"><Icon name="compass" /></span>
+                  <div className="flex-1">
+                    <h3 className="text-[1.15rem] mb-1 flex items-center gap-2">
+                      {p.nom}
+                      <Icon name="arrow" className="arrow w-[16px] h-[16px] text-safe-magenta -rotate-45" />
+                    </h3>
+                    <p className="text-slate text-[0.95rem]">{p.d}</p>
+                  </div>
+                </a>
               </Reveal>
             ))}
           </div>
+          <p className="text-muted text-[0.85rem] mt-4">Les liens ouvrent les sites de nos partenaires dans un nouvel onglet.</p>
         </div>
       </section>
 

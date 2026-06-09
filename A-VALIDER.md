@@ -11,6 +11,22 @@ Missions G1→G5 `#missions`), **Loi ELAN**, **Contact**, + **Mentions légales*
 et page 404. Anciennes URLs redirigées (`/sondage`, `/laboratoire`,
 `/missions-g1-a-g5`, `/loi_elan`, `/nous-contacter`).
 
+## Logo, partenaires et choix de design (à valider)
+
+- **Logo vectoriel (SVG)** : recréé proprement (hexagone + molécule + wordmark),
+  fond transparent, s'adaptant au fond clair/sombre. C'est une **reproduction**
+  de l'esprit du logo SAFE, à **remplacer par le logo officiel vectoriel** dès
+  qu'il sera fourni (composant unique `src/components/Logo.jsx`).
+- **Profondeur EMCI 7.50 = 100 m** et **« unique objectif »** : repris **tels
+  quels du site officiel** (ils contredisent les consignes initiales « 80 m » et
+  « principal objectif » — à trancher).
+- **Partenaires (liens sortants)** : Foretude → foretude-ingenierie.fr, FTCS →
+  ftcs-forage.com (vérifiés). **STPA** et **SFTP** : pas d'URL dédiée vérifiée →
+  renvoi provisoire vers le **Groupe RESUM** (resum.fr). À remplacer par leurs
+  sites officiels si disponibles.
+- **Couleurs** : suppression des fonds violet/sombre froids ; palette resserrée
+  sur le magenta/fuchsia du logo + neutres clairs (fond clair dominant).
+
 ## Contenu repris du site officiel (fiable)
 
 - **Accroche** : « Bureau d'études en géotechnique ».

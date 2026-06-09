@@ -19,7 +19,7 @@ export default {
         line: '#ece5ed',
         mist: '#f8f4f8',
         cloud: '#fdfbfd',
-        plum: '#160f1b', // fond sombre / footer
+        plum: '#241019', // fond sombre chaud (teinte magenta, sans violet)
       },
       fontFamily: {
         sans: ['Manrope', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
