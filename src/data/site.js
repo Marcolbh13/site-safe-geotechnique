@@ -12,7 +12,9 @@ export const COMPANY = {
 };
 
 export const NAV = [
-  { to: '/expertise', label: 'Expertise' },
+  { to: '/sondage', label: 'Sondage' },
+  { to: '/laboratoire', label: 'Laboratoire' },
+  { to: '/missions', label: 'Missions G1 à G5' },
   { to: '/loi-elan', label: 'Loi ELAN' },
 ];
 

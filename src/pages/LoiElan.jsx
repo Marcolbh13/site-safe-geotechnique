@@ -1,113 +1,145 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
+import PageHero from '../components/PageHero.jsx';
 import { COMPANY } from '../data/site.js';
 
-const concernes = [
-  { icon: 'home', t: 'Les vendeurs de terrain', d: "Vendeur d'un terrain non bâti constructible situé en zone d'exposition moyenne ou forte au retrait-gonflement des argiles." },
-  { icon: 'doc', t: 'Lors de la transaction', d: "L'étude géotechnique préalable est annexée à la promesse, puis à l'acte de vente, et reste valable 30 ans." },
-  { icon: 'building', t: 'Avant de construire', d: "Elle éclaire les précautions de fondation face au mouvement des sols argileux (gonflement et retrait)." },
+const GEORISQUES = 'https://www.georisques.gouv.fr/';
+
+const reperes = [
+  { t: 'Une étude de type G1', d: "L'étude géotechnique préalable (mission G1) identifie les risques liés au sol avant la construction." },
+  { t: 'À la charge du vendeur', d: "Lors de la vente d'un terrain non bâti constructible concerné, l'étude est fournie par le vendeur." },
+  { t: 'Valable 30 ans', d: "Annexée à la promesse puis à l'acte de vente, elle reste valable trente ans tant que le terrain n'est pas remanié." },
 ];
 
+const types = ['Construction', 'Achat', 'Vente', 'Autre'];
+
 export default function LoiElan() {
+  const [status, setStatus] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const d = new FormData(form);
+    const g = (k) => String(d.get(k) ?? '').trim();
+    const subject = `Étude de sol G1 (loi ELAN) - ${g('type')} - ${g('nom')} ${g('prenom')}`;
+    const body = [
+      `Nom : ${g('nom')}`, `Prénom : ${g('prenom')}`,
+      `Téléphone : ${g('telephone')}`, `E-mail : ${g('email')}`,
+      `Type de projet : ${g('type')}`,
+      `Surface du terrain : ${g('surface') || '(non renseignée)'}`,
+      `Adresse du terrain : ${g('adresse') || ''} ${g('cp') || ''} ${g('ville') || ''}`.trim(),
+      '', 'Détails : ', g('details') || '(aucun)',
+    ].join('\n');
+    window.location.href = `mailto:${COMPANY.devisEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus('Votre logiciel de messagerie va s’ouvrir avec votre demande d’étude G1 pré-remplie.');
+  };
+
   return (
     <>
       <Seo title="Loi ELAN : l'étude de sol obligatoire"
-        description="La loi ELAN rend l'étude de sol obligatoire dans certaines zones argileuses lors de la vente d'un terrain constructible. SAFE Géotechnique réalise l'étude géotechnique préalable (G1)." />
+        description="Depuis la loi ELAN, l'étude de sol (G1) est obligatoire pour les terrains à bâtir en zone d'argiles. SAFE Géotechnique réalise votre étude géotechnique préalable." />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-safe-gradient text-white">
-        <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 w-[340px] h-[340px] rounded-full" style={{ background: 'radial-gradient(circle,rgba(255,255,255,.16),transparent 70%)' }} />
-        <div className="container-safe relative" style={{ paddingBlock: 'clamp(2.75rem,6vw,4.75rem)' }}>
-          <p className="label on-dark mb-4">Vente de terrain</p>
-          <h1 className="text-white max-w-[20ch]">Loi ELAN : l'étude de sol devenue obligatoire</h1>
-          <p className="mt-5 max-w-[60ch] text-white/90 text-[1.12rem]">
-            Dans certaines zones argileuses, la vente d'un terrain constructible
-            impose une étude géotechnique préalable. SAFE Géotechnique la réalise
-            et sécurise votre transaction.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link to="/contact" className="btn btn-light">Demander un devis <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
-            <a href={COMPANY.phoneHref} className="btn text-white" style={{ borderColor: 'rgba(255,255,255,.55)' }}><Icon name="phone" className="w-[18px] h-[18px]" /> {COMPANY.phone}</a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Loi ELAN"
+        title="L'étude de sol devenue obligatoire"
+        intro="Un projet de construction ou de vente ? Vous souhaitez réaliser une étude de sol G1 ? Depuis le 10 août 2020, la loi ELAN vise à simplifier les normes d'urbanisation en rendant l'étude de sol obligatoire dans certaines zones."
+      />
 
-      {/* QU'EST-CE QUE + OBJECTIFS */}
+      {/* SUIS-JE CONCERNÉ */}
       <section className="section">
-        <div className="container-safe grid gap-[clamp(1.5rem,4vw,3rem)] lg:grid-cols-2">
+        <div className="container-safe grid gap-[clamp(1.5rem,4vw,3rem)] lg:grid-cols-2 items-start">
           <Reveal>
-            <p className="label mb-4">Qu'est-ce que la loi ELAN ?</p>
-            <p className="text-slate text-[1.05rem]">
-              La loi ELAN (Évolution du Logement, de l'Aménagement et du
-              Numérique) a été promulguée le <strong className="text-ink">23 novembre 2018</strong>.
-              Elle vise à simplifier les normes d'urbanisation en rendant l'étude
-              de sol obligatoire dans certaines zones.
+            <p className="label mb-4">Suis-je concerné ?</p>
+            <h2>Les terrains à bâtir en zone d'argiles</h2>
+            <p className="text-slate mt-4 text-[1.05rem]">
+              L'étude G1 est obligatoire pour les terrains à bâtir situés dans des
+              zones soumises à l'aléa de <strong className="text-ink">retrait /
+              gonflement des sols argileux</strong>. Pour savoir si votre commune
+              est concernée, consultez la carte interactive et cochez la case
+              « Argiles » dans les paramètres des couches.
             </p>
+            <a href={GEORISQUES} target="_blank" rel="noopener noreferrer" className="btn btn-ghost mt-6">
+              <Icon name="map" className="w-[18px] h-[18px]" /> Consulter la carte des argiles
+            </a>
           </Reveal>
-          <Reveal delay={120}>
-            <p className="label mb-4">Les objectifs de la loi</p>
-            <p className="text-slate text-[1.05rem]">
-              Mise en vigueur le <strong className="text-ink">1ᵉʳ janvier 2020</strong>, la
-              loi ELAN a pour objectif de prévenir les désordres liés au
-              retrait-gonflement des argiles (RGA), qui fait gonfler puis se
-              rétracter certains sols au fil des saisons et peut fissurer les
-              constructions.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* QUI EST CONCERNÉ */}
-      <section className="section bg-mist border-y border-line">
-        <div className="container-safe">
-          <Reveal className="max-w-[680px] mb-[clamp(1.75rem,4vw,2.75rem)]">
-            <p className="label mb-4">Qui est concerné ?</p>
-            <h2>Principalement les vendeurs de terrains à bâtir</h2>
-          </Reveal>
-          <div className="grid gap-[clamp(1.25rem,2.5vw,1.75rem)] md:grid-cols-3">
-            {concernes.map((c, i) => (
-              <Reveal key={c.t} delay={i * 80} className="card">
-                <span className="icon-badge mb-[1.1rem]"><Icon name={c.icon} /></span>
-                <h3 className="mb-[0.6rem] text-[1.1rem]">{c.t}</h3>
-                <p className="text-slate text-[0.95rem]">{c.d}</p>
-              </Reveal>
+          <Reveal delay={120} className="grid gap-3">
+            {reperes.map((r) => (
+              <div key={r.t} className="flex gap-4 rounded-2xl border border-line bg-cloud p-5">
+                <Icon name="check" className="w-6 h-6 text-safe-magenta shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-[1.05rem] mb-1">{r.t}</h3>
+                  <p className="text-slate text-[0.95rem]">{r.d}</p>
+                </div>
+              </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* CE QUE DIT LA LOI + SAFE */}
-      <section className="section">
-        <div className="container-safe grid gap-[clamp(1.5rem,4vw,3rem)] lg:grid-cols-[1.3fr_0.7fr] items-start">
+      {/* DEVIS G1 */}
+      <section className="section bg-mist border-y border-line">
+        <div className="container-safe grid gap-[clamp(1.75rem,4vw,3rem)] lg:grid-cols-[0.8fr_1.2fr] items-start">
           <Reveal>
-            <p className="label mb-4">Ce que dit la loi</p>
-            <h2>Une étude géotechnique préalable (G1)</h2>
+            <p className="label mb-4">Demande d'étude</p>
+            <h2>Réaliser votre étude de sol G1</h2>
             <p className="lead mt-4">
-              Lors de la vente d'un terrain non bâti constructible situé en zone
-              d'exposition moyenne ou forte au retrait-gonflement des argiles,
-              une étude géotechnique préalable de type G1 doit être réalisée, à la
-              charge du vendeur.
+              Décrivez votre projet : nous vous adressons un devis pour l'étude
+              géotechnique préalable adaptée à votre terrain.
             </p>
-            <p className="mt-4 text-slate">
-              Codifiée aux articles L.112-20 et suivants du Code de la
-              construction et de l'habitation, elle est annexée à la promesse puis
-              à l'acte de vente et reste valable trente ans tant que le terrain
-              n'a pas été remanié.
-            </p>
-            <p className="note mt-6">Le périmètre exact (zones concernées, contenu de la mission) est fixé par la réglementation en vigueur et peut évoluer ; nous vous orientons selon votre situation précise.</p>
+            <ul className="grid gap-3 mt-6 text-slate text-[0.97rem]">
+              <li className="flex items-center gap-2.5"><Icon name="phone" className="w-[18px] h-[18px] text-safe-magenta" /><a href={COMPANY.phoneHref} className="font-mono font-semibold">{COMPANY.phone}</a></li>
+              <li className="flex items-center gap-2.5"><Icon name="mail" className="w-[18px] h-[18px] text-safe-magenta" /><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></li>
+            </ul>
           </Reveal>
-          <Reveal delay={120} className="bg-safe-soft border border-line rounded-xl2 p-[clamp(1.5rem,3vw,2rem)]">
-            <h3 className="mb-2 text-[1.15rem]">SAFE réalise votre étude</h3>
-            <p className="text-slate mb-5 text-[0.97rem]">Nous prenons en charge l'étude géotechnique préalable attendue lors de la vente, du sondage à la remise du rapport.</p>
-            <div className="grid gap-3">
-              <Link to="/contact" className="btn btn-primary">Demander un devis <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
-              <a href={`mailto:${COMPANY.email}`} className="btn btn-ghost btn-sm"><Icon name="mail" className="w-[16px] h-[16px]" /> {COMPANY.email}</a>
-            </div>
+
+          {/* Formulaire G1 — mailto (envoi serveur documenté dans le README). */}
+          <Reveal delay={120}>
+            <form className="form-card" onSubmit={onSubmit} noValidate>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <Field label="Nom *" id="e-nom" name="nom" autoComplete="family-name" required />
+                <Field label="Prénom *" id="e-prenom" name="prenom" autoComplete="given-name" required />
+              </div>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <Field label="Téléphone *" id="e-tel" name="telephone" type="tel" autoComplete="tel" required />
+                <Field label="E-mail *" id="e-email" name="email" type="email" autoComplete="email" required />
+              </div>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <div className="field">
+                  <label htmlFor="e-type">Type de projet *</label>
+                  <select id="e-type" name="type" required defaultValue="">
+                    <option value="" disabled>Choisissez</option>
+                    {types.map((t) => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                </div>
+                <Field label="Surface du terrain" id="e-surface" name="surface" placeholder="en m²" />
+              </div>
+              <div className="grid gap-[1.1rem] sm:grid-cols-[1fr_2fr]">
+                <Field label="Code postal" id="e-cp" name="cp" autoComplete="postal-code" />
+                <Field label="Ville" id="e-ville" name="ville" autoComplete="address-level2" />
+              </div>
+              <Field label="Adresse du terrain" id="e-adresse" name="adresse" autoComplete="street-address" />
+              <div className="field">
+                <label htmlFor="e-details">Détails supplémentaires</label>
+                <textarea id="e-details" name="details" rows="4" placeholder="Toute précision utile sur votre projet." />
+              </div>
+              <button type="submit" className="btn btn-primary justify-self-start">Demander mon devis G1 <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></button>
+              {status && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">{status}</p>}
+            </form>
           </Reveal>
         </div>
       </section>
     </>
+  );
+}
+
+function Field({ label, id, name, type = 'text', required, autoComplete, placeholder }) {
+  return (
+    <div className="field">
+      <label htmlFor={id}>{label}</label>
+      <input id={id} name={name} type={type} required={required} autoComplete={autoComplete} placeholder={placeholder} />
+    </div>
   );
 }

@@ -10,11 +10,11 @@ import heroForeuse from '../assets/images/hero-foreuse.webp';
 import laboPresse from '../assets/images/labo-presse.webp';
 
 const services = [
-  { icon: 'drill', title: 'Sondage', to: '/expertise#sondage',
+  { icon: 'drill', title: 'Sondage', to: '/sondage',
     text: "Forage semi-destructif, forage destructif, carottage, prélèvements environnementaux : nos solutions d'identification et de classification des sols." },
-  { icon: 'flask', title: 'Laboratoire', to: '/expertise#laboratoire',
+  { icon: 'flask', title: 'Laboratoire', to: '/laboratoire',
     text: "Classification GTR, VBS, Atterberg, granulométrie, sédimentométrie, masse volumique, Proctor + IPI, cisaillement : identifier les sols par leur nature et leur résistance." },
-  { icon: 'compass', title: 'Ingénierie', to: '/expertise#missions',
+  { icon: 'compass', title: 'Ingénierie', to: '/missions',
     text: "Interprétation des essais, recherche des documents géologiques et cartographiques, missions G1 à G5 : étudier le comportement mécanique des sols et des roches." },
 ];
 
@@ -39,7 +39,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-[0.85rem]">
               <Link to="/contact" className="btn btn-primary">Demander un devis <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
-              <Link to="/expertise" className="btn btn-ghost">Découvrir notre expertise</Link>
+              <Link to="/sondage" className="btn btn-ghost">Découvrir notre expertise</Link>
             </div>
             <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Qualifications">
               {QUALIFS.map((q) => (
@@ -107,7 +107,7 @@ export default function Home() {
             ))}
             <Reveal delay={MISSIONS.length * 60} className="rounded-2xl bg-safe-gradient p-5 flex flex-col justify-center text-white">
               <p className="font-semibold mb-3">Une mission à cadrer ?</p>
-              <Link to="/expertise#missions" className="btn btn-light btn-sm self-start">
+              <Link to="/missions" className="btn btn-light btn-sm self-start">
                 Voir le détail <Icon name="arrow" className="arrow w-[16px] h-[16px]" />
               </Link>
             </Reveal>
@@ -187,7 +187,7 @@ export default function Home() {
               <li><strong>État et compactage</strong> : teneur en eau, masse volumique, Proctor + IPI.</li>
               <li><strong>Résistance mécanique</strong> : cisaillement de Casagrande et essais triaxiaux.</li>
             </ul>
-            <div className="mt-7"><Link to="/expertise#laboratoire" className="btn btn-ghost">Le laboratoire en détail <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link></div>
+            <div className="mt-7"><Link to="/laboratoire" className="btn btn-ghost">Le laboratoire en détail <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link></div>
           </Reveal>
         </div>
       </section>

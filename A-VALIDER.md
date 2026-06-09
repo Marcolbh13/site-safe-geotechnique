@@ -4,12 +4,13 @@ Site **entièrement refait** à partir du contenu du site officiel
 **safe-geotechnique.fr** (textes repris fidèlement), dans une version moderne et
 premium. Ce document liste les points à confirmer et les éléments à fournir.
 
-## Structure (4 pages + utilitaires)
+## Structure — calquée sur le site officiel (6 pages + utilitaires)
 
-**Accueil**, **Expertise** (Sondage `#sondage` + Laboratoire `#laboratoire` +
-Missions G1→G5 `#missions`), **Loi ELAN**, **Contact**, + **Mentions légales**
-et page 404. Anciennes URLs redirigées (`/sondage`, `/laboratoire`,
-`/missions-g1-a-g5`, `/loi_elan`, `/nous-contacter`).
+Mêmes pages que safe-geotechnique.fr : **Accueil**, **Sondage** (`/sondage`),
+**Laboratoire** (`/laboratoire`), **Missions G1 à G5** (`/missions`),
+**Loi ELAN** (`/loi-elan`), **Contact** (`/contact`) + **Mentions légales** et
+page 404. Anciennes URLs redirigées (`/expertise`, `/missions-g1-a-g5`,
+`/loi_elan`, `/nous-contacter`).
 
 ## Logo, partenaires et choix de design (à valider)
 

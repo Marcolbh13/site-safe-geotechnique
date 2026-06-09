@@ -4,10 +4,11 @@ import Icon from './Icon.jsx';
 import { COMPANY, PARTNERS, GROUP } from '../data/site.js';
 
 const expertiseLinks = [
-  { to: '/expertise#sondage', label: 'Sondage' },
-  { to: '/expertise#laboratoire', label: 'Laboratoire' },
-  { to: '/expertise#missions', label: 'Missions G1 à G5' },
+  { to: '/sondage', label: 'Sondage' },
+  { to: '/laboratoire', label: 'Laboratoire' },
+  { to: '/missions', label: 'Missions G1 à G5' },
   { to: '/loi-elan', label: 'Loi ELAN' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 export default function Footer() {
