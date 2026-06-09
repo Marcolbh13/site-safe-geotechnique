@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ClientsCarousel from '../components/ClientsCarousel.jsx';
+import Decor from '../components/Decor.jsx';
 import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP, SAFOR } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
@@ -29,7 +30,8 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden border-b border-line bg-safe-soft">
         <div className="absolute inset-0 strata opacity-60" aria-hidden="true" />
-        <div className="container-safe relative grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[1.05fr_0.95fr]" style={{ paddingBlock: 'clamp(2.75rem,6vw,5rem)' }}>
+        <Decor />
+        <div className="container-safe relative z-10 grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[1.05fr_0.95fr]" style={{ paddingBlock: 'clamp(2.75rem,6vw,5rem)' }}>
           <div>
             <p className="label mb-5">{COMPANY.baseline}</p>
             <h1 className="animate-fade-up">Garantir la sécurité de vos projets</h1>
@@ -51,7 +53,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <Reveal className="relative">
+          <div className="relative">
             <figure className="rounded-xl2 overflow-hidden shadow-sflg">
               <img src={heroForeuse} alt="Atelier de sondage SAFE Géotechnique sur un chantier"
                 className="w-full object-cover aspect-[4/3]" width="1600" height="1200" fetchpriority="high" />
@@ -60,7 +62,7 @@ export default function Home() {
               <span className="block font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted">Missions gérées</span>
               <span className="block font-mono font-semibold text-[1.4rem] text-safe-magenta mt-0.5">G1 → G5</span>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -71,14 +73,24 @@ export default function Home() {
             <p className="label mb-4">Nos activités</p>
             <h2>Trois savoir-faire, une seule équipe</h2>
           </Reveal>
-          <div className="grid gap-[clamp(1.25rem,2.5vw,1.75rem)] md:grid-cols-3">
+          <div className="grid md:grid-cols-3">
             {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 90}>
-                <Link to={s.to} className="card card-link flex flex-col">
-                  <span className="icon-badge mb-5"><Icon name={s.icon} /></span>
-                  <h3 className="mb-2.5">{s.title}</h3>
+              <Reveal key={s.title} delay={i * 90}
+                className={
+                  'group ' +
+                  (i > 0
+                    ? 'border-t border-line pt-9 mt-9 md:border-t-0 md:pt-0 md:mt-0 md:border-l md:pl-[clamp(1.5rem,3vw,2.75rem)]'
+                    : 'md:pr-[clamp(1.5rem,3vw,2.75rem)]')
+                }
+              >
+                <Link to={s.to} className="block">
+                  <span className="relative inline-grid place-items-center w-12 h-12 mb-5" aria-hidden="true">
+                    <span className="absolute inset-0 rotate-45 rounded-[26%] border-2 border-safe-magenta/35 transition-colors group-hover:border-safe-magenta" />
+                    <Icon name={s.icon} className="relative w-6 h-6 text-safe-magenta" />
+                  </span>
+                  <h3 className="mb-2.5 transition-colors group-hover:text-safe-magenta">{s.title}</h3>
                   <p className="text-slate text-[0.97rem]">{s.text}</p>
-                  <span className="mt-auto pt-5 inline-flex items-center gap-1.5 font-bold text-safe-magenta text-[0.95rem]">
+                  <span className="mt-4 inline-flex items-center gap-1.5 font-bold text-safe-magenta text-[0.95rem]">
                     En savoir plus <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
                   </span>
                 </Link>
@@ -219,7 +231,8 @@ export default function Home() {
             <p className="label mb-4">Notre groupe & nos partenaires</p>
             <h2>De l'étude de sol aux travaux sans tranchée</h2>
             <p className="text-slate mt-4 max-w-[64ch]">
-              SAFE Géotechnique est l'entité études géotechniques du{' '}
+              SAFE Géotechnique forme, avec Foretude Ingénierie, l'entité{' '}
+              <strong className="text-ink">SAFOR</strong>, et appartient au{' '}
               <a href={GROUP.url} target="_blank" rel="noopener noreferrer" className="text-safe-magenta font-semibold underline-offset-2 hover:underline">{GROUP.name}</a>.
               De la reconnaissance des sols jusqu'à la phase finale des travaux
               sans tranchée, nous collaborons avec des sociétés spécialisées pour

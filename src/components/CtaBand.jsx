@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Icon from './Icon.jsx';
+import Decor from './Decor.jsx';
 import { COMPANY } from '../data/site.js';
 
 export default function CtaBand({
@@ -10,6 +11,7 @@ export default function CtaBand({
     <section className="section-tight">
       <div className="container-safe">
         <div className="cta-band text-center">
+          <Decor variant="dark" />
           <h2 className="relative text-white">{title}</h2>
           <p className="relative mx-auto mt-3 mb-7 max-w-[560px] text-white/90">{text}</p>
           <div className="relative flex flex-wrap justify-center gap-[0.85rem]">

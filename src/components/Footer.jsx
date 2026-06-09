@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
 import Icon from './Icon.jsx';
+import Decor from './Decor.jsx';
 import { COMPANY, PARTNERS, GROUP } from '../data/site.js';
 
 const expertiseLinks = [
@@ -14,8 +15,9 @@ const expertiseLinks = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-plum text-[#e3d8e0]" style={{ paddingTop: 'clamp(3rem,6vw,4.5rem)' }}>
-      <div className="container-safe grid gap-[clamp(1.75rem,4vw,2.75rem)] pb-11 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+    <footer className="relative overflow-hidden bg-plum text-[#e3d8e0]" style={{ paddingTop: 'clamp(3rem,6vw,4.5rem)' }}>
+      <Decor variant="dark" />
+      <div className="relative z-10 container-safe grid gap-[clamp(1.75rem,4vw,2.75rem)] pb-11 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
         <div className="sm:col-span-2 lg:col-span-1">
           <Logo height={46} tone="light" />
           <p className="mt-[1.1rem] mb-[1.3rem] text-[#c3b6c6] text-[0.97rem] max-w-[36ch]">
@@ -58,7 +60,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-safe flex flex-wrap justify-between gap-2 py-[1.4rem] text-[0.86rem] text-[#a99bad] border-t border-white/10">
+      <div className="relative z-10 container-safe flex flex-wrap justify-between gap-2 py-[1.4rem] text-[0.86rem] text-[#a99bad] border-t border-white/10">
         <p>© SAFE {year} · {COMPANY.name}. Tous droits réservés.</p>
         <p><Link to="/mentions-legales" className="text-[#a99bad] hover:text-white">Mentions légales</Link></p>
       </div>
