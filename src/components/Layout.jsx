@@ -3,16 +3,29 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
-// Remonte en haut de page à chaque navigation.
-function useScrollTop() {
-  const { pathname } = useLocation();
+// Remonte en haut à chaque changement de page, ou défile vers l'ancre (#id).
+function useScrollManagement() {
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
-  }, [pathname]);
+    if (hash) {
+      // Laisse le temps au DOM de la nouvelle page de se monter.
+      const id = decodeURIComponent(hash.slice(1));
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        window.scrollTo({ top: 0 });
+      });
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname, hash]);
 }
 
 export default function Layout({ children }) {
-  useScrollTop();
+  useScrollManagement();
   return (
     <>
       <a href="#main" className="skip-link">

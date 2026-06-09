@@ -12,19 +12,19 @@ const metiers = [
   {
     icon: 'drill',
     title: 'Sondages',
-    to: '/sondages',
+    to: '/expertise#sondages',
     text: "Forage destructif et semi-destructif, carottage, prélèvements et piézométrie. Nos équipes interviennent sur le terrain avec un parc de machines dédié.",
   },
   {
     icon: 'flask',
     title: 'Laboratoire',
-    to: '/laboratoire',
+    to: '/expertise#laboratoire',
     text: "Essais sur sols réalisés selon un protocole normalisé : identification, compactage, résistance mécanique, dont l'essai triaxial.",
   },
   {
     icon: 'compass',
     title: 'Ingénierie',
-    to: '/ingenierie',
+    to: '/expertise#ingenierie',
     text: "Missions géotechniques G1 et G2, de l'avant-projet à la phase projet, appuyées sur des outils de calcul reconnus.",
   },
 ];
@@ -216,7 +216,7 @@ export default function Home() {
               </li>
             </ul>
             <div className="mt-7">
-              <Link to="/laboratoire" className="btn btn-ghost">
+              <Link to="/expertise#laboratoire" className="btn btn-ghost">
                 Le laboratoire en détail{' '}
                 <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
               </Link>
@@ -251,12 +251,12 @@ export default function Home() {
               </li>
             </ul>
             <div className="mt-7 flex flex-wrap gap-[0.85rem]">
-              <Link to="/references" className="btn btn-ghost">
-                Voir nos références{' '}
+              <Link to="/a-propos" className="btn btn-ghost">
+                Qui sommes-nous{' '}
                 <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
               </Link>
-              <Link to="/rse" className="btn btn-ghost">
-                Notre engagement RSE
+              <Link to="/expertise" className="btn btn-ghost">
+                Notre expertise
               </Link>
             </div>
           </div>

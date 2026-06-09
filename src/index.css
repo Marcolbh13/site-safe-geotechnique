@@ -37,6 +37,9 @@
 
   a { @apply text-safe-magenta; text-decoration: none; }
 
+  /* Décalage pour les ancres (#sondages…) sous le header collant */
+  section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+
   :focus-visible {
     outline: 3px solid #c2317b;
     outline-offset: 2px;
@@ -75,6 +78,35 @@
     @apply rounded;
     background: linear-gradient(135deg, #7a2a5f, #c2317b);
   }
+  /* Kicker sur fond sombre */
+  .kicker.on-dark { color: #f3c6df; }
+  .kicker.on-dark::before { background: linear-gradient(135deg, #f3c6df, #ce5a93); }
+
+  /* Numéro de section (01 / 02 / 03) */
+  .num-eyebrow {
+    @apply font-extrabold leading-none;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    background: linear-gradient(135deg, #c2317b, #7a2a5f);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: 0.9;
+  }
+
+  /* Filet de séparation éditorial */
+  .rule { height: 3px; width: 56px; border-radius: 3px;
+    background: linear-gradient(135deg, #7a2a5f, #c2317b); }
+
+  /* Pastille statistique réutilisable */
+  .stat {
+    @apply bg-white border border-line rounded-[14px] shadow-sfsm;
+    padding: 1.1rem 1.3rem;
+  }
+  .stat b {
+    @apply block font-extrabold tracking-tight;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #7a2a5f, #c2317b);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .stat span { @apply block text-slate; font-size: 0.92rem; margin-top: 0.15rem; }
 
   .lead {
     @apply text-slate;

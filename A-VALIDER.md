@@ -7,6 +7,20 @@ aucune certification ni chiffre précis n'a été inventé. Ce document garde la
 
 ---
 
+## 0. Structure du site (mise à jour)
+
+Le site a été resserré à **5 pages** au design différencié (fini le gabarit
+répété) : **Accueil**, **Expertise** (Sondages + Laboratoire + Ingénierie réunis,
+ancres `#sondages`, `#laboratoire`, `#ingenierie`), **Qui sommes-nous**
+(métier + valeurs + RSE + « ils nous font confiance »), **Recrutement**,
+**Contact**. Les anciennes URLs (`/sondages`, `/rse`, etc.) redirigent vers la
+nouvelle structure.
+
+- Page **Qui sommes-nous** : mention « nous nous appuyons sur des moyens de
+  forage et de chantier éprouvés ». Formulation prudente faisant écho au groupe
+  (RESUM / FTCS Forage) sans l'affirmer nommément — **à confirmer / préciser**
+  selon ce que SAFE souhaite communiquer sur son appartenance de groupe.
+
 ## 1. Décisions rédactionnelles prises (formulations sûres)
 
 - **Effectifs** : aucun chiffre. Formulation retenue « une équipe de

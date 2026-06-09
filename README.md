@@ -83,8 +83,12 @@ src/
     PageHero.jsx        Bandeau d'en-tête des pages intérieures
     CtaBand.jsx         Bandeau d'appel à l'action réutilisable
   pages/
-    Home.jsx Sondages.jsx Laboratoire.jsx Ingenierie.jsx
-    References.jsx Rse.jsx Recrutement.jsx Contact.jsx NotFound.jsx
+    Home.jsx        Accueil
+    Expertise.jsx   Sondages + Laboratoire + Ingénierie (ancres #sondages…)
+    APropos.jsx     Qui sommes-nous (métier, valeurs, RSE, références)
+    Recrutement.jsx Recrutement (formulaire)
+    Contact.jsx     Contact / devis (formulaire)
+    NotFound.jsx    Page 404
 public/
   favicon.svg           Favicon provisoire (à remplacer, cf. A-VALIDER.md)
   _redirects            Réécriture SPA (hébergement type Netlify)

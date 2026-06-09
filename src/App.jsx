@@ -1,11 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
-import Sondages from './pages/Sondages.jsx';
-import Laboratoire from './pages/Laboratoire.jsx';
-import Ingenierie from './pages/Ingenierie.jsx';
-import References from './pages/References.jsx';
-import Rse from './pages/Rse.jsx';
+import Expertise from './pages/Expertise.jsx';
+import APropos from './pages/APropos.jsx';
 import Recrutement from './pages/Recrutement.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
@@ -15,13 +12,18 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/sondages" element={<Sondages />} />
-        <Route path="/laboratoire" element={<Laboratoire />} />
-        <Route path="/ingenierie" element={<Ingenierie />} />
-        <Route path="/references" element={<References />} />
-        <Route path="/rse" element={<Rse />} />
+        <Route path="/expertise" element={<Expertise />} />
+        <Route path="/a-propos" element={<APropos />} />
         <Route path="/recrutement" element={<Recrutement />} />
         <Route path="/contact" element={<Contact />} />
+
+        {/* Anciennes URLs -> nouvelle structure */}
+        <Route path="/sondages" element={<Navigate to="/expertise#sondages" replace />} />
+        <Route path="/laboratoire" element={<Navigate to="/expertise#laboratoire" replace />} />
+        <Route path="/ingenierie" element={<Navigate to="/expertise#ingenierie" replace />} />
+        <Route path="/references" element={<Navigate to="/a-propos" replace />} />
+        <Route path="/rse" element={<Navigate to="/a-propos" replace />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

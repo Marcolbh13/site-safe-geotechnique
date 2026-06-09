@@ -5,30 +5,27 @@ export const EMAILS = {
   recrutement: 'v.lebihan@ftcs-forage.com',
 };
 
-// Navigation principale (l'accueil est accessible via le logo).
+// Navigation principale (l'accueil est accessible via le logo,
+// le contact via le bouton « Demander un devis »).
 export const NAV = [
-  { to: '/sondages', label: 'Sondages' },
-  { to: '/laboratoire', label: 'Laboratoire' },
-  { to: '/ingenierie', label: 'Ingénierie' },
-  { to: '/references', label: 'Références' },
-  { to: '/rse', label: 'RSE' },
+  { to: '/expertise', label: 'Expertise' },
+  { to: '/a-propos', label: 'Qui sommes-nous' },
   { to: '/recrutement', label: 'Recrutement' },
 ];
 
 export const FOOTER_COLS = [
   {
-    title: 'Métiers',
+    title: 'Expertise',
     links: [
-      { to: '/sondages', label: 'Sondages' },
-      { to: '/laboratoire', label: 'Laboratoire' },
-      { to: '/ingenierie', label: 'Ingénierie géotechnique' },
+      { to: '/expertise#sondages', label: 'Sondages' },
+      { to: '/expertise#laboratoire', label: 'Laboratoire' },
+      { to: '/expertise#ingenierie', label: 'Ingénierie géotechnique' },
     ],
   },
   {
     title: 'Entreprise',
     links: [
-      { to: '/references', label: 'Références' },
-      { to: '/rse', label: 'RSE' },
+      { to: '/a-propos', label: 'Qui sommes-nous' },
       { to: '/recrutement', label: 'Recrutement' },
       { to: '/contact', label: 'Contact' },
     ],
