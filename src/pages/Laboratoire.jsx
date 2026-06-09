@@ -1,7 +1,23 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import Steps from '../components/Steps.jsx';
+import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
+
+const processus = [
+  { t: 'Réception & conditionnement', d: 'Chaque échantillon est référencé et préparé pour les essais.' },
+  { t: 'Essais d\'identification', d: 'Nature du sol, granulométrie, argilosité (VBS) et état hydrique.' },
+  { t: 'Essais mécaniques', d: 'Compactage (Proctor + IPI), cisaillement et essais triaxiaux.' },
+  { t: 'Interprétation & rapport', d: 'Les résultats deviennent des données fiables pour l\'ingénierie.' },
+];
+
+const atouts = [
+  { icon: 'microscope', t: 'Des essais complets', d: 'De l\'identification (GTR, VBS, Atterberg) à la résistance (triaxial, cisaillement).' },
+  { icon: 'check', t: 'Le respect des normes', d: 'Des modes opératoires conformes aux normes en vigueur.' },
+  { icon: 'compass', t: 'Intégré à l\'étude', d: 'Un lien direct entre l\'essai et la mission géotechnique G1 à G5.' },
+  { icon: 'gauge', t: 'Des délais maîtrisés', d: 'Laboratoire interne : nous gardons la main sur les délais de vos projets.' },
+];
 
 import laboEchantillon from '../assets/images/labo-echantillon.webp';
 import laboProctor from '../assets/images/labo-proctor.webp';
@@ -90,6 +106,20 @@ export default function Laboratoire() {
           </div>
         </div>
       </section>
+
+      <Steps
+        label="Notre processus"
+        title="De l'échantillon au résultat"
+        intro="Chaque échantillon suit un parcours maîtrisé, de sa réception au rapport."
+        steps={processus}
+        tone="mist"
+      />
+
+      <Reasons
+        label="Pourquoi notre laboratoire"
+        title="Un laboratoire au service de vos projets"
+        items={atouts}
+      />
 
       <CtaBand title="Des échantillons à analyser ?" text="Confiez-nous vos prélèvements ou intégrez le laboratoire à votre mission de reconnaissance des sols." />
     </>

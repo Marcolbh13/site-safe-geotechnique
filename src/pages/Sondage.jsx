@@ -3,8 +3,24 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import DepthScale from '../components/DepthScale.jsx';
+import Steps from '../components/Steps.jsx';
+import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import heroForeuse from '../assets/images/hero-foreuse.webp';
+
+const deroulement = [
+  { t: 'Préparation & déclarations', d: 'Repérage des réseaux (DICT) et organisation de l\'intervention en sécurité.' },
+  { t: 'Implantation', d: 'Positionnement des points de sondage selon le projet et l\'accessibilité du site.' },
+  { t: 'Forage & prélèvements', d: 'Forage, carottage et essais in situ ; conditionnement des échantillons prélevés.' },
+  { t: 'Restitution', d: 'Transmission des données de terrain, prêtes pour le laboratoire et l\'étude.' },
+];
+
+const garanties = [
+  { icon: 'drill', t: 'Un parc d\'ateliers EMCI', d: 'Sondages pressiométriques, destructifs et carottés jusqu\'à 100 m de profondeur.' },
+  { icon: 'shield', t: 'La sécurité des réseaux', d: 'Personnel qualifié AIPR, attentif aux réseaux existants sur chaque chantier.' },
+  { icon: 'flask', t: 'Une chaîne intégrée', d: 'Les sols prélevés sont analysés par notre propre laboratoire, sans rupture.' },
+  { icon: 'check', t: 'Le respect des normes', d: 'Des sondages conduits dans le respect des normes en vigueur.' },
+];
 
 const prestations = [
   { icon: 'drill', t: 'Forage destructif et semi-destructif', d: "Reconnaissance rapide de la stratigraphie et des horizons traversés, pour dresser la coupe du sol." },
@@ -49,6 +65,15 @@ export default function Sondage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Déroulement */}
+      <Steps
+        label="Le déroulement"
+        title="Comment se déroule un sondage"
+        intro="De la préparation en sécurité à la restitution des données, chaque étape est cadrée."
+        steps={deroulement}
+        tone="mist"
+      />
 
       {/* Bande photo terrain */}
       <section className="relative">
@@ -95,6 +120,12 @@ export default function Sondage() {
           </Reveal>
         </div>
       </section>
+
+      <Reasons
+        label="Vos garanties"
+        title="Pourquoi confier vos sondages à SAFE"
+        items={garanties}
+      />
 
       <CtaBand title="Un sondage à programmer ?" text="Décrivez-nous votre site et vos contraintes : nous vous proposons les moyens de reconnaissance adaptés." />
     </>

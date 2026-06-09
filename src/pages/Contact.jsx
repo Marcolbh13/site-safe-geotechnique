@@ -2,8 +2,16 @@ import { useState } from 'react';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Reasons from '../components/Reasons.jsx';
+import Decor from '../components/Decor.jsx';
 import { COMPANY } from '../data/site.js';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
+
+const engagements = [
+  { icon: 'phone', t: 'Une réponse rapide', d: 'Nous revenons vers vous au plus vite après votre demande.' },
+  { icon: 'compass', t: 'Un conseil clair', d: 'Nous vous orientons vers la prestation réellement utile à votre projet.' },
+  { icon: 'doc', t: 'Un devis adapté', d: 'Une proposition ajustée à votre terrain et à vos contraintes.' },
+];
 
 const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol – vente de terrain (loi ELAN)', 'Autre demande'];
 
@@ -93,6 +101,37 @@ export default function Contact() {
               <button type="submit" className="btn btn-primary justify-self-start">Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></button>
               {status && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">{status}</p>}
             </form>
+          </Reveal>
+        </div>
+      </section>
+
+      <Reasons
+        label="Nos engagements"
+        title="Ce que vous pouvez attendre de nous"
+        items={engagements}
+        tone="mist"
+      />
+
+      {/* Zone d'intervention */}
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10 grid gap-[clamp(1.5rem,4vw,3rem)] lg:grid-cols-[0.8fr_1.2fr] items-start">
+          <Reveal>
+            <p className="label mb-4">Zone d'intervention</p>
+            <h2>Hauts-de-France et alentours</h2>
+          </Reveal>
+          <Reveal delay={120} className="text-slate text-[1.05rem] max-w-[64ch]">
+            <p>
+              Basés à <strong className="text-ink">Fretin</strong> ({COMPANY.address}),
+              nous intervenons sur l'ensemble des Hauts-de-France et les
+              départements limitrophes, des grands ouvrages aux projets les plus
+              locaux. Nous nous déplaçons selon la nature et l'ampleur de votre
+              opération.
+            </p>
+            <p className="mt-4">
+              Un doute sur notre secteur d'intervention ?{' '}
+              <a href={COMPANY.phoneHref} className="text-safe-magenta font-semibold">{COMPANY.phone}</a>.
+            </p>
           </Reveal>
         </div>
       </section>

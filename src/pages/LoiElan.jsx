@@ -3,7 +3,22 @@ import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import Steps from '../components/Steps.jsx';
+import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
+
+const risque = [
+  { icon: 'water', t: 'Le retrait-gonflement', d: 'Les sols argileux gonflent avec l\'eau, puis se rétractent en séchant, au fil des saisons.' },
+  { icon: 'building', t: 'Des désordres coûteux', d: 'Ce mouvement du sol peut fissurer les murs et endommager les fondations.' },
+  { icon: 'shield', t: 'Une prévention', d: 'L\'étude de sol adapte la construction au comportement réel du terrain.' },
+];
+
+const accompagnement = [
+  { t: 'Prise de contact', d: 'Vous nous décrivez le terrain, sa localisation et votre projet.' },
+  { t: 'Sondage sur site', d: 'Reconnaissance des sols adaptée à la parcelle concernée.' },
+  { t: 'Essais & analyse', d: 'Caractérisation des sols argileux dans notre laboratoire.' },
+  { t: 'Rapport G1', d: 'Un rapport d\'étude géotechnique préalable, à annexer à la vente.' },
+];
 
 const GEORISQUES = 'https://www.georisques.gouv.fr/';
 
@@ -78,6 +93,23 @@ export default function LoiElan() {
           </Reveal>
         </div>
       </section>
+
+      {/* POURQUOI CETTE OBLIGATION */}
+      <Reasons
+        label="Le risque"
+        title="Pourquoi cette obligation ?"
+        intro="La loi vise à prévenir les désordres causés par les sols argileux, fréquents dans certaines régions."
+        items={risque}
+        tone="mist"
+      />
+
+      {/* ACCOMPAGNEMENT */}
+      <Steps
+        label="Notre accompagnement"
+        title="Comment SAFE vous accompagne"
+        intro="De la prise de contact à la remise du rapport, nous prenons en charge votre étude G1."
+        steps={accompagnement}
+      />
 
       {/* DEVIS G1 */}
       <section className="section bg-mist border-y border-line">

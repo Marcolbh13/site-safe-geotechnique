@@ -4,8 +4,24 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import Decor from '../components/Decor.jsx';
+import Steps from '../components/Steps.jsx';
+import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import { MISSIONS } from '../data/site.js';
+
+const enjeux = [
+  { icon: 'shield', t: 'Sécuriser l\'ouvrage', d: 'Comprendre le sol, c\'est éviter tassements, fissures et désordres après construction.' },
+  { icon: 'target', t: 'Maîtriser les coûts', d: 'Anticiper les risques du sol limite les mauvaises surprises en cours de chantier.' },
+  { icon: 'doc', t: 'Respecter la réglementation', d: 'Certaines études sont exigées, par exemple lors de la vente d\'un terrain (loi ELAN).' },
+  { icon: 'compass', t: 'Dimensionner juste', d: 'Des fondations adaptées au sol : ni surdimensionnées, ni risquées.' },
+];
+
+const moments = [
+  { t: 'Avant le projet — G1', d: 'Première reconnaissance des risques géotechniques du site.' },
+  { t: 'À la conception — G2', d: 'Dimensionnement des ouvrages géotechniques (AVP, PRO, DCE).' },
+  { t: 'Pendant les travaux — G3 / G4', d: 'Étude, suivi et supervision de l\'exécution.' },
+  { t: 'Sur un ouvrage — G5', d: 'Diagnostic ciblé d\'un désordre ou d\'un élément spécifique.' },
+];
 
 export default function Missions() {
   return (
@@ -17,6 +33,14 @@ export default function Missions() {
         label="Ingénierie · Missions G1 à G5"
         title="De l'étude préalable au diagnostic d'ouvrage"
         intro="Nous interprétons les essais et rassemblons les documents géologiques et cartographiques du site pour étudier le comportement mécanique des sols et des roches. La norme structure cette ingénierie en cinq missions : voici, simplement, à quoi sert chacune."
+      />
+
+      <Reasons
+        label="L'enjeu"
+        title="Pourquoi une étude géotechnique ?"
+        intro="Le sol conditionne la tenue de tout ouvrage. L'étude géotechnique le caractérise pour construire sereinement."
+        items={enjeux}
+        tone="mist"
       />
 
       <section className="section relative overflow-hidden">
@@ -70,6 +94,14 @@ export default function Missions() {
           </Reveal>
         </div>
       </section>
+
+      <Steps
+        label="Repères"
+        title="Le bon moment pour chaque mission"
+        intro="Chaque mission correspond à une étape précise de la vie de votre projet."
+        steps={moments}
+        tone="mist"
+      />
 
       <CtaBand title="Une mission à cadrer ?" text="G1 préalable, G2 de conception, G3 et G4 en exécution ou G5 de diagnostic : nous définissons ensemble la mission adaptée à l'avancement de votre projet." />
     </>

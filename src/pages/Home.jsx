@@ -5,7 +5,23 @@ import Reveal from '../components/Reveal.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ClientsCarousel from '../components/ClientsCarousel.jsx';
 import Decor from '../components/Decor.jsx';
+import Reasons from '../components/Reasons.jsx';
+import Steps from '../components/Steps.jsx';
 import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP, SAFOR } from '../data/site.js';
+
+const reasons = [
+  { icon: 'layers', t: 'Une chaîne intégrée', d: 'Sondage, laboratoire et ingénierie réunis : la donnée de terrain reste cohérente jusqu\'à la recommandation.' },
+  { icon: 'shield', t: 'Une équipe qualifiée', d: 'Personnel qualifié AIPR, H0B0 et SST, attentif à la sécurité des réseaux existants.' },
+  { icon: 'check', t: 'Le respect des normes', d: 'Essais et missions conduits dans le respect de la législation et des règles de l\'art.' },
+  { icon: 'compass', t: 'L\'appui d\'un groupe', d: 'Membre du Groupe RESUM, pionnier du forage sans tranchée depuis plus de 20 ans.' },
+];
+
+const methode = [
+  { t: 'Écoute & cadrage', d: 'Nous analysons votre projet, votre terrain et vos contraintes pour définir la mission adaptée.' },
+  { t: 'Sondages sur le terrain', d: 'Nos ateliers reconnaissent les sols et prélèvent les échantillons directement sur site.' },
+  { t: 'Essais en laboratoire', d: 'Les échantillons sont identifiés et caractérisés selon un protocole d\'essais normalisé.' },
+  { t: 'Rapport & recommandations', d: 'Nous interprétons les résultats et remettons des recommandations claires et exploitables.' },
+];
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
@@ -118,6 +134,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== POURQUOI NOUS CHOISIR (réassurance) ===== */}
+      <Reasons
+        label="Pourquoi nous choisir"
+        title="La sécurité de vos projets, par une équipe spécialisée"
+        intro="Nous réunissons les conditions d'une reconnaissance des sols fiable, du terrain à l'étude."
+        items={reasons}
+      />
+
       {/* ===== MISSIONS G1-G5 (clair) ===== */}
       <section className="section bg-mist border-y border-line">
         <div className="container-safe">
@@ -168,6 +192,14 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ===== MÉTHODE ===== */}
+      <Steps
+        label="Notre méthode"
+        title="Comment nous travaillons"
+        intro="Une démarche simple et lisible, du premier échange à la remise du rapport."
+        steps={methode}
+      />
 
       {/* ===== LABORATOIRE (visuel) ===== */}
       <section className="section">
