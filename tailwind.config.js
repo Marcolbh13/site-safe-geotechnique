@@ -15,7 +15,7 @@ export default {
         },
         ink: '#1b141d',
         slate: { DEFAULT: '#5a5060' },
-        muted: '#8a8090',
+        muted: '#6e6576', // ≈ 5:1 sur blanc (WCAG AA pour le texte normal)
         line: '#ece5ed',
         mist: '#f8f4f8',
         cloud: '#fdfbfd',
