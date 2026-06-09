@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
-import PageHero from '../components/PageHero.jsx';
 import Icon from '../components/Icon.jsx';
-import { EMAILS, PHONE, PHONE_HREF } from '../data/site.js';
+import Reveal from '../components/Reveal.jsx';
+import { COMPANY } from '../data/site.js';
 
-const besoins = [
-  'Sondages / reconnaissance des sols',
-  'Essais en laboratoire',
-  'Mission d’ingénierie (G1 / G2)',
-  'Étude géotechnique pour vente de terrain (loi Élan)',
-  'Projet de particulier',
-  'Autre demande',
-];
+const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol – vente de terrain (loi ELAN)', 'Autre demande'];
 
 export default function Contact() {
   const [status, setStatus] = useState('');
@@ -20,127 +12,84 @@ export default function Contact() {
   const onSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    const data = new FormData(form);
-    const get = (k) => String(data.get(k) ?? '').trim();
-
-    const subject = `Demande de devis - ${get('besoin')} - ${get('nom')}`;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const d = new FormData(form);
+    const g = (k) => String(d.get(k) ?? '').trim();
+    const subject = `Demande de devis - ${g('besoin')} - ${g('nom')}`;
     const body = [
-      `Nom et prénom : ${get('nom')}`,
-      `Société / organisme : ${get('structure') || '(non renseigné)'}`,
-      `E-mail : ${get('email')}`,
-      `Téléphone : ${get('telephone') || '(non renseigné)'}`,
-      `Besoin : ${get('besoin')}`,
-      `Localisation : ${get('lieu') || '(non renseignée)'}`,
-      '',
-      'Message :',
-      get('message'),
+      `Nom et prénom : ${g('nom')}`,
+      `Société / organisme : ${g('structure') || '(non renseigné)'}`,
+      `E-mail : ${g('email')}`,
+      `Téléphone : ${g('telephone') || '(non renseigné)'}`,
+      `Besoin : ${g('besoin')}`,
+      `Localisation : ${g('lieu') || '(non renseignée)'}`,
+      '', 'Message :', g('message'),
     ].join('\n');
-
-    window.location.href = `mailto:${EMAILS.devis}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    setStatus(
-      'Votre logiciel de messagerie va s’ouvrir avec votre demande pré-remplie. Validez l’envoi pour nous la transmettre.'
-    );
+    window.location.href = `mailto:${COMPANY.devisEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus('Votre logiciel de messagerie va s’ouvrir avec votre demande pré-remplie. Validez l’envoi pour nous la transmettre.');
   };
 
   return (
     <>
-      <Seo
-        title="Contact et devis"
-        description="Contactez SAFE Géotechnique pour un devis : sondages, laboratoire ou ingénierie géotechnique. Une équipe à l'écoute de vos projets, des plus modestes aux plus importants."
-      />
-      <PageHero
-        kicker="Contact"
-        title="Parlons de votre projet"
-        intro="Décrivez-nous votre besoin et votre site : nous revenons vers vous avec une proposition adaptée. Aucun projet n'est trop petit ni trop grand."
-      />
+      <Seo title="Contact et devis"
+        description="Contactez SAFE Géotechnique : 660 rue des Famards, 59273 Fretin. Téléphone 03 20 60 12 67. Demandez un devis pour vos sondages, essais et missions G1 à G5." />
+
+      <section className="bg-white border-b border-line">
+        <div className="container-safe" style={{ paddingBlock: 'clamp(2.5rem,5vw,4rem)' }}>
+          <p className="label mb-4">Contactez-nous</p>
+          <h1>Travaillons ensemble</h1>
+          <div className="rule my-6" />
+          <p className="lead max-w-[60ch]">Effectuez votre demande : nous vous contacterons le plus rapidement possible.</p>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container-safe grid items-start gap-[clamp(1.75rem,4vw,3rem)] lg:grid-cols-[0.85fr_1.15fr]">
-          {/* Coordonnées */}
-          <aside className="grid gap-7">
+          <Reveal className="grid gap-7">
+            <InfoBlock icon="pin" title="Adresse">
+              <p className="text-slate">{COMPANY.address}</p>
+              <a className="inline-flex items-center gap-1.5 mt-1.5 font-semibold text-safe-magenta text-[0.92rem]"
+                href="https://www.google.com/maps/search/?api=1&query=660+rue+des+Famards+59273+Fretin"
+                target="_blank" rel="noopener noreferrer">Voir sur la carte <Icon name="arrow" className="w-[15px] h-[15px]" /></a>
+            </InfoBlock>
             <InfoBlock icon="phone" title="Téléphone">
-              <a className="inline-block font-bold mt-1 text-[1.05rem]" href={PHONE_HREF}>
-                {PHONE}
-              </a>
+              <a className="font-mono font-semibold text-[1.05rem]" href={COMPANY.phoneHref}>{COMPANY.phone}</a>
             </InfoBlock>
-
             <InfoBlock icon="mail" title="E-mail">
-              <p className="text-slate text-[0.97rem]">Pour toute demande d'étude ou de devis :</p>
-              <a className="inline-block font-bold mt-1" href={`mailto:${EMAILS.contact}`}>
-                {EMAILS.contact}
-              </a>
+              <a className="font-semibold" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
             </InfoBlock>
+          </Reveal>
 
-            <InfoBlock icon="users" title="Recrutement">
-              <p className="text-slate text-[0.97rem]">Vous souhaitez nous rejoindre ?</p>
-              <a className="inline-block font-bold mt-1" href={`mailto:${EMAILS.recrutement}`}>
-                {EMAILS.recrutement}
-              </a>
-              <p className="mt-2">
-                <Link to="/recrutement">Accéder au formulaire de recrutement</Link>
-              </p>
-            </InfoBlock>
-
-            <InfoBlock icon="map" title="Secteur d'intervention">
-              <p className="text-slate text-[0.97rem]">
-                Hauts-de-France et régions limitrophes. Nous nous déplaçons selon
-                la nature et l'ampleur de votre projet.
-              </p>
-            </InfoBlock>
-          </aside>
-
-          {/*
-            Formulaire de devis branché par DÉFAUT en mailto vers le service devis.
-            Pour un envoi serveur, brancher un service d'envoi (voir README).
-          */}
-          <form className="form-card" onSubmit={onSubmit} noValidate>
-            <h2 className="text-[1.45rem]">Demander un devis</h2>
-
-            <div className="grid gap-[1.1rem] sm:grid-cols-2">
-              <Field label="Nom et prénom *" id="c-nom" name="nom" autoComplete="name" required />
-              <Field label="Société / organisme" id="c-structure" name="structure" autoComplete="organization" />
-            </div>
-            <div className="grid gap-[1.1rem] sm:grid-cols-2">
-              <Field label="E-mail *" id="c-email" name="email" type="email" autoComplete="email" required />
-              <Field label="Téléphone" id="c-tel" name="telephone" type="tel" autoComplete="tel" />
-            </div>
-            <div className="grid gap-[1.1rem] sm:grid-cols-2">
-              <div className="field">
-                <label htmlFor="c-besoin">Votre besoin *</label>
-                <select id="c-besoin" name="besoin" required defaultValue="">
-                  <option value="" disabled>Choisissez</option>
-                  {besoins.map((b) => (
-                    <option key={b} value={b}>{b}</option>
-                  ))}
-                </select>
+          {/* Formulaire : mailto par défaut (envoi serveur documenté dans le README). */}
+          <Reveal delay={120}>
+            <form className="form-card" onSubmit={onSubmit} noValidate>
+              <h2 className="text-[1.45rem]">Demander un devis</h2>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <Field label="Nom et prénom *" id="c-nom" name="nom" autoComplete="name" required />
+                <Field label="Société / organisme" id="c-structure" name="structure" autoComplete="organization" />
               </div>
-              <Field label="Localisation du projet" id="c-lieu" name="lieu" placeholder="Commune, département" />
-            </div>
-            <div className="field">
-              <label htmlFor="c-message">Votre message *</label>
-              <textarea
-                id="c-message"
-                name="message"
-                rows="6"
-                required
-                placeholder="Décrivez votre projet, le type d'ouvrage, vos échéances et toute contrainte utile."
-              />
-            </div>
-            <button type="submit" className="btn btn-primary justify-self-start">
-              Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-            </button>
-            {status && (
-              <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">
-                {status}
-              </p>
-            )}
-          </form>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <Field label="E-mail *" id="c-email" name="email" type="email" autoComplete="email" required />
+                <Field label="Téléphone" id="c-tel" name="telephone" type="tel" autoComplete="tel" />
+              </div>
+              <div className="grid gap-[1.1rem] sm:grid-cols-2">
+                <div className="field">
+                  <label htmlFor="c-besoin">Votre besoin *</label>
+                  <select id="c-besoin" name="besoin" required defaultValue="">
+                    <option value="" disabled>Choisissez</option>
+                    {besoins.map((b) => <option key={b} value={b}>{b}</option>)}
+                  </select>
+                </div>
+                <Field label="Localisation du projet" id="c-lieu" name="lieu" placeholder="Commune, département" />
+              </div>
+              <div className="field">
+                <label htmlFor="c-message">Votre message *</label>
+                <textarea id="c-message" name="message" rows="6" required placeholder="Décrivez votre projet, le type d'ouvrage, vos échéances et toute contrainte utile." />
+              </div>
+              <button type="submit" className="btn btn-primary justify-self-start">Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></button>
+              {status && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">{status}</p>}
+            </form>
+          </Reveal>
         </div>
       </section>
     </>
@@ -150,27 +99,17 @@ export default function Contact() {
 function InfoBlock({ icon, title, children }) {
   return (
     <div>
-      <span className="icon-badge mb-2">
-        <Icon name={icon} />
-      </span>
-      <h3 className="mt-1 mb-1">{title}</h3>
+      <span className="icon-badge mb-2"><Icon name={icon} /></span>
+      <h3 className="mt-1 mb-1 text-[1.1rem]">{title}</h3>
       {children}
     </div>
   );
 }
-
 function Field({ label, id, name, type = 'text', required, autoComplete, placeholder }) {
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        required={required}
-        autoComplete={autoComplete}
-        placeholder={placeholder}
-      />
+      <input id={id} name={name} type={type} required={required} autoComplete={autoComplete} placeholder={placeholder} />
     </div>
   );
 }

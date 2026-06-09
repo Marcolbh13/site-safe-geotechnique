@@ -1,266 +1,241 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
+import Reveal from '../components/Reveal.jsx';
+import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
+import { COMPANY, QUALIFS, MISSIONS } from '../data/site.js';
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
-import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboPresse from '../assets/images/labo-presse.webp';
 
-const metiers = [
-  {
-    icon: 'drill',
-    title: 'Sondages',
-    to: '/expertise#sondages',
-    text: "Forage destructif et semi-destructif, carottage, essai pressiométrique, piézométrie, recherche de cavités et prélèvements environnementaux.",
-  },
-  {
-    icon: 'flask',
-    title: 'Laboratoire',
-    to: '/expertise#laboratoire',
-    text: "Essais d'identification et essais mécaniques : GTR, VBS, Atterberg, Proctor + IPI, cisaillement et essais triaxiaux.",
-  },
-  {
-    icon: 'compass',
-    title: 'Ingénierie',
-    to: '/expertise#missions',
-    text: "Missions géotechniques G1 à G5, de l'étude préalable au diagnostic d'ouvrage.",
-  },
+const services = [
+  { icon: 'drill', title: 'Sondage', to: '/expertise#sondage',
+    text: "Forage semi-destructif, forage destructif, carottage, prélèvements environnementaux : nos solutions d'identification et de classification des sols." },
+  { icon: 'flask', title: 'Laboratoire', to: '/expertise#laboratoire',
+    text: "Classification GTR, VBS, Atterberg, granulométrie, sédimentométrie, masse volumique, Proctor + IPI, cisaillement : identifier les sols par leur nature et leur résistance." },
+  { icon: 'compass', title: 'Ingénierie', to: '/expertise#missions',
+    text: "Interprétation des essais, recherche des documents géologiques et cartographiques, missions G1 à G5 : étudier le comportement mécanique des sols et des roches." },
 ];
 
-const projets = [
-  {
-    icon: 'road',
-    title: 'Ouvrages linéaires',
-    text: "Voiries, réseaux, infrastructures et projets d'énergie : des reconnaissances adaptées au tracé et aux contraintes du sol.",
-  },
-  {
-    icon: 'building',
-    title: 'Bâtiments',
-    text: "Logements, équipements publics, locaux d'activité : nous étudions la portance et le comportement des sols sous vos fondations.",
-  },
-  {
-    icon: 'home',
-    title: 'Particuliers',
-    text: "Vous faites construire ou achetez un terrain ? Nous réalisons l'étude géotechnique adaptée à votre projet, dans un cadre clair.",
-  },
+const partenaires = [
+  { nom: 'Foretude', d: "Bureau d'études spécialisé dans le forage dirigé depuis plus de 15 ans." },
+  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans.' },
 ];
 
 export default function Home() {
   return (
     <>
-      <Seo
-        title="SAFE Géotechnique | Sondages, laboratoire et ingénierie des sols"
-        description="SAFE Géotechnique accompagne vos projets de construction : sondages de sol, essais en laboratoire et ingénierie géotechnique, pour les ouvrages linéaires, les bâtiments et les particuliers."
-      />
+      <Seo title="SAFE Géotechnique | Bureau d'études en géotechnique"
+        description="SAFE Géotechnique, bureau d'études en géotechnique : sondages, essais en laboratoire et missions G1 à G5. Garantir la sécurité de vos projets est notre unique objectif." />
 
       {/* ===== HERO ===== */}
-      <section className="border-b border-line bg-safe-soft overflow-hidden">
-        <div
-          className="container-safe grid items-center gap-[clamp(1.75rem,4vw,3.5rem)] lg:grid-cols-2"
-          style={{ paddingBlock: 'clamp(2.75rem,6vw,5rem)' }}
-        >
+      <section className="relative overflow-hidden border-b border-line bg-safe-soft">
+        <div className="absolute inset-0 strata opacity-60" aria-hidden="true" />
+        <div className="container-safe relative grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[1.05fr_0.95fr]" style={{ paddingBlock: 'clamp(2.75rem,6vw,5rem)' }}>
           <div>
-            <p className="kicker mb-[0.9rem]">
-              Géotechnique · Sondages · Laboratoire · Ingénierie
-            </p>
-            <h1 className="animate-fade-up">La géotechnique au service de vos projets</h1>
+            <p className="label mb-5">{COMPANY.baseline}</p>
+            <h1 className="animate-fade-up">Garantir la sécurité de vos projets</h1>
             <p className="lead mt-5 max-w-[52ch]">
-              Des ouvrages linéaires aux bâtiments, et jusqu'aux projets de
-              particuliers, SAFE Géotechnique reconnaît les sols, les analyse en
-              laboratoire et vous accompagne par l'ingénierie. Une chaîne
-              complète, du terrain à l'étude.
+              Chez SAFE Géotechnique, c'est notre unique objectif. De l'étude au
+              diagnostic, nous gérons l'ensemble des missions géotechniques
+              <span className="mono-tag"> G1 à G5</span> et assurons le suivi de
+              chaque étape de votre projet.
             </p>
             <div className="mt-8 flex flex-wrap gap-[0.85rem]">
-              <Link to="/contact" className="btn btn-primary">
-                Demander un devis <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-              </Link>
-              <Link to="/sondages" className="btn btn-ghost">
-                Découvrir nos sondages
-              </Link>
+              <Link to="/contact" className="btn btn-primary">Demander un devis <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
+              <Link to="/expertise" className="btn btn-ghost">Découvrir notre expertise</Link>
             </div>
+            <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Qualifications">
+              {QUALIFS.map((q) => (
+                <li key={q} className="font-mono text-[0.8rem] font-semibold text-safe-magenta bg-white border border-line rounded-full px-3.5 py-1.5">{q}</li>
+              ))}
+              <li className="font-mono text-[0.8rem] text-slate self-center">· sécurité des réseaux existants</li>
+            </ul>
           </div>
 
-          <figure className="relative rounded-xl2 overflow-hidden shadow-sflg order-first lg:order-none">
-            <img
-              src={heroForeuse}
-              alt="Foreuse de sondage SAFE déployée dans un champ, parc éolien en arrière-plan"
-              className="w-full h-full object-cover aspect-[4/3]"
-              width="1600"
-              height="1200"
-              fetchpriority="high"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 px-[1.1rem] pt-6 pb-[0.8rem] text-white text-[0.82rem] bg-gradient-to-t from-black/70 to-transparent">
-              Atelier de sondage SAFE sur chantier.
-            </figcaption>
-          </figure>
+          <Reveal className="relative">
+            <figure className="rounded-xl2 overflow-hidden shadow-sflg">
+              <img src={heroForeuse} alt="Atelier de sondage SAFE Géotechnique sur un chantier"
+                className="w-full object-cover aspect-[4/3]" width="1600" height="1200" fetchpriority="high" />
+            </figure>
+            <div className="absolute -bottom-5 -left-3 sm:left-5 bg-white rounded-2xl shadow-sfmd border border-line px-5 py-3.5">
+              <span className="block font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted">Missions gérées</span>
+              <span className="block font-mono font-semibold text-[1.4rem] text-safe-magenta mt-0.5">G1 → G5</span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ===== TROIS MÉTIERS ===== */}
+      {/* ===== SERVICES ===== */}
       <section className="section">
         <div className="container-safe">
-          <div className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="kicker mb-[0.9rem]">Nos métiers</p>
+          <Reveal className="max-w-[680px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label mb-4">Nos activités</p>
             <h2>Trois savoir-faire, une seule équipe</h2>
-            <p className="lead mt-4">
-              Sonder, analyser, concevoir : nous maîtrisons la reconnaissance
-              des sols de bout en bout, ce qui garantit la cohérence entre la
-              donnée de terrain et la recommandation d'ingénierie.
-            </p>
-          </div>
-
+          </Reveal>
           <div className="grid gap-[clamp(1.25rem,2.5vw,1.75rem)] md:grid-cols-3">
-            {metiers.map((m) => (
-              <Link key={m.to} to={m.to} className="card card-link flex flex-col">
-                <span className="icon-badge mb-[1.1rem]">
-                  <Icon name={m.icon} />
-                </span>
-                <h3 className="mb-[0.6rem]">{m.title}</h3>
-                <p className="text-slate">{m.text}</p>
-                <span className="mt-auto pt-[1.1rem] inline-flex items-center gap-1.5 font-bold text-safe-magenta text-[0.95rem]">
-                  En savoir plus <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-                </span>
-              </Link>
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 90}>
+                <Link to={s.to} className="card card-link flex flex-col">
+                  <span className="icon-badge mb-5"><Icon name={s.icon} /></span>
+                  <h3 className="mb-2.5">{s.title}</h3>
+                  <p className="text-slate text-[0.97rem]">{s.text}</p>
+                  <span className="mt-auto pt-5 inline-flex items-center gap-1.5 font-bold text-safe-magenta text-[0.95rem]">
+                    En savoir plus <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== BANDEAU LOI ÉLAN ===== */}
+      {/* ===== MISSIONS G1-G5 (bande sombre) ===== */}
+      <section className="relative bg-plum text-white strata overflow-hidden">
+        <div className="container-safe section">
+          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label on-dark mb-4">Notre expertise au service de votre projet</p>
+            <h2 className="text-white">Les missions géotechniques G1 à G5</h2>
+            <p className="mt-4 text-white/80 text-[1.08rem] max-w-[60ch]">
+              SAFE Géotechnique vous accompagne tout au long de votre projet, de
+              l'étude préalable jusqu'au diagnostic de l'ouvrage.
+            </p>
+          </Reveal>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {MISSIONS.map((m, i) => (
+              <Reveal key={m.code} delay={i * 60} className="rounded-2xl border border-white/12 bg-white/[0.04] p-5">
+                <span className="font-mono font-semibold text-safe-rose text-[1.05rem]">{m.code}</span>
+                <h3 className="text-white text-[1.08rem] mt-1 mb-1.5">{m.t}</h3>
+                <p className="text-white/70 text-[0.92rem]">{m.d}</p>
+              </Reveal>
+            ))}
+            <Reveal delay={MISSIONS.length * 60} className="rounded-2xl bg-safe-gradient p-5 flex flex-col justify-center">
+              <p className="text-white font-semibold mb-3">Une mission à cadrer ?</p>
+              <Link to="/expertise#missions" className="btn btn-light btn-sm self-start">
+                Voir le détail <Icon name="arrow" className="arrow w-[16px] h-[16px]" />
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== MATÉRIEL + ÉCHELLE ===== */}
+      <section className="section">
+        <div className="container-safe grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[0.85fr_1.15fr]">
+          <Reveal className="flex justify-center">
+            <DepthScale className="w-full max-w-[300px] h-auto" />
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="label mb-4">Notre matériel</p>
+            <h2>Des ateliers EMCI pour atteindre la bonne profondeur</h2>
+            <p className="lead mt-4 mb-7">
+              Sondages pressiométriques, destructifs et carottés, dans le respect
+              des normes en vigueur.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="card">
+                <span className="mono-tag text-[1.05rem]">EMCI 4.50</span>
+                <div className="stat my-2"><b>40 m</b></div>
+                <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 40 m de profondeur.</p>
+              </div>
+              <div className="card">
+                <span className="mono-tag text-[1.05rem]">EMCI 7.50</span>
+                <div className="stat my-2"><b>100 m</b></div>
+                <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 100 m de profondeur.</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== QUALITÉ / SÉCURITÉ ===== */}
       <section className="section-tight">
         <div className="container-safe">
-          <div className="cta-band text-left sm:flex sm:items-center sm:justify-between sm:gap-8">
-            <div className="relative max-w-[640px]">
-              <p className="kicker on-dark mb-3">Vente de terrain</p>
-              <h2 className="text-white">Vous vendez un terrain à bâtir ?</h2>
-              <p className="mt-3 text-white/90">
-                Depuis la loi Élan, une étude géotechnique préalable (G1) est
-                exigée en zone argileuse, à la charge du vendeur. Nous la
-                réalisons pour vous.
+          <Reveal className="rounded-xl2 border border-line bg-mist p-[clamp(1.75rem,4vw,2.75rem)] grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
+            <div>
+              <p className="label mb-4">Sécurité &amp; règles de l'art</p>
+              <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Le respect de la législation, dans les règles de l'art</h2>
+              <p className="text-slate mt-4 max-w-[60ch]">
+                Nos équipes mettent un point d'honneur à respecter la législation
+                en matière de sécurité des biens et des personnes. Notre personnel
+                est qualifié et porte une attention particulière à la sécurité des
+                réseaux existants.
               </p>
             </div>
-            <div className="relative mt-6 sm:mt-0 shrink-0">
-              <Link to="/loi-elan" className="btn btn-light">
-                Comprendre la loi Élan
-                <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-              </Link>
-            </div>
-          </div>
+            <ul className="flex flex-wrap gap-2.5 lg:justify-end">
+              {QUALIFS.map((q) => (
+                <li key={q} className="font-mono font-semibold text-safe-magenta bg-white border border-line rounded-xl px-4 py-3 text-center min-w-[88px] shadow-sfsm">{q}</li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 
-      {/* ===== AU SERVICE DE VOS PROJETS ===== */}
-      <section className="section bg-mist">
-        <div className="container-safe">
-          <div className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="kicker mb-[0.9rem]">Au service de vos projets</p>
-            <h2>Chaque sol a son histoire, chaque projet sa solution</h2>
+      {/* ===== LABORATOIRE (visuel) ===== */}
+      <section className="section">
+        <div className="container-safe grid items-center gap-[clamp(2rem,5vw,3.5rem)] md:grid-cols-2">
+          <Reveal className="order-first md:order-none">
+            <figure className="rounded-xl2 overflow-hidden shadow-sfmd">
+              <img src={laboPresse} alt="Essai mécanique sur échantillon de sol au laboratoire SAFE" className="w-full object-cover aspect-[5/4]" loading="lazy" />
+            </figure>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="label mb-4">Laboratoire intégré</p>
+            <h2>Identifier les sols par leur nature et leur résistance</h2>
             <p className="lead mt-4">
-              Nous adaptons nos moyens à la nature de votre opération, sans
-              jamais opposer les grands chantiers aux projets plus modestes.
+              Nos essais en laboratoire transforment chaque échantillon en données
+              fiables pour l'ingénierie.
             </p>
-          </div>
+            <ul className="ticks mt-6">
+              <li><strong>Identification</strong> : GTR, granulométrie, sédimentométrie, VBS, limites d'Atterberg.</li>
+              <li><strong>État et compactage</strong> : teneur en eau, masse volumique, Proctor + IPI.</li>
+              <li><strong>Résistance mécanique</strong> : cisaillement de Casagrande et essais triaxiaux.</li>
+            </ul>
+            <div className="mt-7"><Link to="/expertise#laboratoire" className="btn btn-ghost">Le laboratoire en détail <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link></div>
+          </Reveal>
+        </div>
+      </section>
 
-          <div className="grid gap-[clamp(1.25rem,2.5vw,1.75rem)] md:grid-cols-3">
-            {projets.map((p) => (
-              <div key={p.title} className="card">
-                <span className="icon-badge mb-[1.1rem]">
-                  <Icon name={p.icon} />
-                </span>
-                <h3 className="mb-[0.6rem]">{p.title}</h3>
-                <p className="text-slate">{p.text}</p>
-              </div>
+      {/* ===== PARTENAIRES ===== */}
+      <section className="section-tight">
+        <div className="container-safe">
+          <Reveal className="max-w-[680px] mb-8">
+            <p className="label mb-4">Nos partenaires</p>
+            <h2>Jusqu'aux travaux sans tranchée</h2>
+            <p className="text-slate mt-4">
+              De l'étude de sol à la phase finale des travaux sans tranchée, nous
+              collaborons avec nos partenaires pour vous assurer les meilleures
+              prestations.
+            </p>
+          </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {partenaires.map((p, i) => (
+              <Reveal key={p.nom} delay={i * 90} className="card flex items-start gap-4">
+                <span className="icon-badge shrink-0"><Icon name="compass" /></span>
+                <div>
+                  <h3 className="text-[1.15rem] mb-1">{p.nom}</h3>
+                  <p className="text-slate text-[0.95rem]">{p.d}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== LABORATOIRE EN AVANT ===== */}
-      <section className="section">
-        <div className="container-safe grid items-center gap-[clamp(1.75rem,4vw,3.5rem)] md:grid-cols-2">
-          <figure className="rounded-xl2 overflow-hidden shadow-sfmd order-first md:order-none">
-            <img
-              src={laboPresse}
-              alt="Technicien SAFE réalisant un essai mécanique sur un échantillon de sol en laboratoire"
-              className="w-full h-full object-cover aspect-[5/4]"
-              loading="lazy"
-            />
-          </figure>
-          <div>
-            <p className="kicker mb-[0.9rem]">Notre laboratoire</p>
-            <h2>De l'échantillon à la donnée fiable</h2>
-            <p className="lead mt-4">
-              Les sols prélevés sur le terrain sont analysés dans notre
-              laboratoire, selon un protocole normalisé. Nous suivons les normes
-              en vigueur pour la conduite de nos essais.
-            </p>
-            <ul className="ticks mt-6">
-              <li>
-                <strong>Identification et état des sols</strong> : granulométrie,
-                limites, Valeur au bleu du sol (VBS).
-              </li>
-              <li>
-                <strong>Compactage</strong> : essai Proctor sur moule normalisé.
-              </li>
-              <li>
-                <strong>Résistance mécanique</strong> : essai triaxial et essai
-                de cisaillement à la boîte (Casagrande).
-              </li>
-            </ul>
-            <div className="mt-7">
-              <Link to="/expertise#laboratoire" className="btn btn-ghost">
-                Le laboratoire en détail{' '}
-                <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-              </Link>
+      {/* ===== LOI ELAN ===== */}
+      <section className="section-tight">
+        <div className="container-safe">
+          <Reveal className="rounded-xl2 border border-line bg-safe-soft p-[clamp(1.75rem,4vw,2.75rem)] sm:flex sm:items-center sm:justify-between gap-8">
+            <div className="max-w-[640px]">
+              <p className="label mb-3">Vente de terrain</p>
+              <h2 className="text-[clamp(1.5rem,3vw,2rem)]">La loi ELAN et l'étude de sol obligatoire</h2>
+              <p className="text-slate mt-3">Vous vendez un terrain constructible en zone argileuse ? Une étude géotechnique préalable peut être requise. Nous vous expliquons tout.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== APPROCHE ===== */}
-      <section className="section bg-mist">
-        <div className="container-safe grid items-center gap-[clamp(1.75rem,4vw,3.5rem)] md:grid-cols-2">
-          <div>
-            <p className="kicker mb-[0.9rem]">Notre approche</p>
-            <h2>Une géotechnique rigoureuse, naturelle et humaine</h2>
-            <p className="lead mt-4">
-              Notre principal objectif est de sécuriser vos projets par une
-              reconnaissance des sols fiable et lisible. Nous y associons une
-              relation directe, faite d'écoute et de conseil.
-            </p>
-            <ul className="ticks mt-6">
-              <li>
-                <strong>Une chaîne intégrée</strong> : sondage, laboratoire et
-                ingénierie au sein de la même équipe.
-              </li>
-              <li>
-                <strong>Une équipe de spécialistes</strong> dont nous
-                entretenons les compétences par la formation continue.
-              </li>
-              <li>
-                <strong>Le respect des normes en vigueur</strong> à chaque étape
-                de l'étude.
-              </li>
-            </ul>
-            <div className="mt-7 flex flex-wrap gap-[0.85rem]">
-              <Link to="/a-propos" className="btn btn-ghost">
-                Qui sommes-nous{' '}
-                <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
-              </Link>
-              <Link to="/expertise" className="btn btn-ghost">
-                Notre expertise
-              </Link>
+            <div className="mt-6 sm:mt-0 shrink-0">
+              <Link to="/loi-elan" className="btn btn-primary">Comprendre la loi ELAN <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
             </div>
-          </div>
-          <figure className="rounded-xl2 overflow-hidden shadow-sfmd order-first md:order-none">
-            <img
-              src={camionSafe}
-              alt="Foreuse de sondage chenillée et fourgon SAFE installés sur un chantier en bord de route"
-              className="w-full h-full object-cover aspect-[5/4]"
-              loading="lazy"
-            />
-          </figure>
+          </Reveal>
         </div>
       </section>
 

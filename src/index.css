@@ -3,238 +3,136 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   SAFE Géotechnique — base & composants (charte du logo)
+   SAFE Géotechnique — système de design premium
    ========================================================================== */
 
 @layer base {
-  :root {
-    --header-h: 76px;
-  }
+  :root { --header-h: 78px; }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-h) + 12px);
+    scroll-padding-top: calc(var(--header-h) + 16px);
     -webkit-text-size-adjust: 100%;
   }
-
   body {
     @apply bg-white text-ink font-sans antialiased;
-    line-height: 1.65;
     font-size: 1.0625rem;
+    line-height: 1.65;
   }
-
-  h1, h2, h3, h4 {
-    @apply text-ink font-bold;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-  h1 { @apply font-extrabold; font-size: clamp(2.1rem, 5vw, 3.4rem); }
-  h2 { font-size: clamp(1.65rem, 3.4vw, 2.4rem); }
-  h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
-
-  p { text-wrap: pretty; }
-
-  a { @apply text-safe-magenta; text-decoration: none; }
-
-  /* Décalage pour les ancres (#sondages…) sous le header collant */
   section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
-  :focus-visible {
-    outline: 3px solid #c2317b;
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
+  h1, h2, h3, h4 { @apply text-ink font-bold; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+  h1 { @apply font-extrabold; font-size: clamp(2.3rem, 5.4vw, 4rem); }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+  p { text-wrap: pretty; }
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible { outline: 3px solid #c0307b; outline-offset: 2px; border-radius: 4px; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
+      animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
     }
   }
 }
 
 @layer components {
-  .container-safe {
-    @apply w-full mx-auto;
-    max-width: var(--maxw, 1180px);
-    padding-inline: clamp(1.1rem, 4vw, 2rem);
-  }
-  .max-w-content { max-width: 1180px; }
-
-  .section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+  .container-safe { @apply w-full mx-auto; max-width: 1200px; padding-inline: clamp(1.1rem, 4vw, 2.25rem); }
+  .section { padding-block: clamp(3.75rem, 8vw, 7rem); }
   .section-tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
-  .kicker {
-    @apply inline-flex items-center gap-2 text-safe-magenta font-bold uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+  /* Étiquette technique (mono) — touche « bureau d'études » */
+  .label {
+    @apply font-mono uppercase text-safe-magenta inline-flex items-center gap-2.5;
+    font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600;
   }
-  .kicker::before {
-    content: '';
-    width: 26px; height: 2px;
-    @apply rounded;
-    background: linear-gradient(135deg, #7a2a5f, #c2317b);
-  }
-  /* Kicker sur fond sombre */
-  .kicker.on-dark { color: #f3c6df; }
-  .kicker.on-dark::before { background: linear-gradient(135deg, #f3c6df, #ce5a93); }
+  .label::before { content: ''; width: 22px; height: 1.5px; background: currentColor; opacity: 0.7; }
+  .label.on-dark { @apply text-safe-rose; }
 
-  /* Numéro de section (01 / 02 / 03) */
-  .num-eyebrow {
-    @apply font-extrabold leading-none;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    background: linear-gradient(135deg, #c2317b, #7a2a5f);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    opacity: 0.9;
-  }
-
-  /* Filet de séparation éditorial */
-  .rule { height: 3px; width: 56px; border-radius: 3px;
-    background: linear-gradient(135deg, #7a2a5f, #c2317b); }
-
-  /* Pastille statistique réutilisable */
-  .stat {
-    @apply bg-white border border-line rounded-[14px] shadow-sfsm;
-    padding: 1.1rem 1.3rem;
-  }
-  .stat b {
-    @apply block font-extrabold tracking-tight;
-    font-size: 2rem;
-    background: linear-gradient(135deg, #7a2a5f, #c2317b);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .stat span { @apply block text-slate; font-size: 0.92rem; margin-top: 0.15rem; }
-
-  .lead {
-    @apply text-slate;
-    font-size: clamp(1.1rem, 1.6vw, 1.28rem);
-    line-height: 1.6;
-  }
+  .lead { @apply text-slate; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; }
 
   /* Boutons */
   .btn {
     @apply inline-flex items-center justify-center gap-2 font-bold rounded-full cursor-pointer;
-    font-size: 1rem;
-    line-height: 1;
-    padding: 0.95rem 1.6rem;
-    border: 1.5px solid transparent;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
-      color 0.18s ease, border-color 0.18s ease;
+    font-size: 1rem; line-height: 1; padding: 1rem 1.7rem; border: 1.5px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
   }
-  .btn:hover { transform: translateY(-1px); text-decoration: none; }
-  .btn-sm { padding: 0.6rem 1.1rem; font-size: 0.92rem; }
-
-  .btn-primary {
-    @apply text-white bg-safe-gradient shadow-sfcta;
-  }
-  .btn-primary:hover { box-shadow: 0 12px 30px rgba(154,47,111,0.36); }
-
-  .btn-ghost {
-    @apply bg-transparent text-safe-magenta;
-    border-color: #e8e0e8;
-  }
-  .btn-ghost:hover { @apply bg-cloud; border-color: #9c2f6f; }
-
+  .btn:hover { transform: translateY(-2px); }
+  .btn-sm { padding: 0.62rem 1.15rem; font-size: 0.92rem; }
+  .btn-primary { @apply text-white bg-safe-gradient shadow-sfcta; }
+  .btn-primary:hover { box-shadow: 0 14px 32px rgba(141,42,99,.38); }
+  .btn-ghost { @apply bg-transparent text-safe-magenta; border-color: #ece5ed; }
+  .btn-ghost:hover { @apply bg-mist; border-color: #8d2a63; }
   .btn-light { @apply bg-white text-safe-magenta; }
   .btn-light:hover { @apply shadow-sfmd; }
-
-  .btn .arrow { transition: transform 0.18s ease; }
-  .btn:hover .arrow { transform: translateX(3px); }
+  .btn .arrow { transition: transform .18s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
 
   /* Cartes */
   .card {
-    @apply bg-white rounded-xl2 shadow-sfsm h-full;
-    border: 1px solid #e8e0e8;
-    padding: clamp(1.5rem, 2.4vw, 2rem);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    @apply bg-white rounded-xl2 h-full; border: 1px solid #ece5ed; box-shadow: 0 1px 2px rgba(27,20,29,.04);
+    padding: clamp(1.5rem, 2.6vw, 2.1rem);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   }
-  .card-link:hover {
-    transform: translateY(-4px);
-    @apply shadow-sfmd;
-    border-color: rgba(154,47,111,0.25);
-  }
+  .card-link:hover { transform: translateY(-5px); @apply shadow-sfmd; border-color: rgba(141,42,99,.25); }
 
-  .icon-badge {
-    @apply grid place-items-center text-safe-magenta bg-safe-soft;
-    width: 52px; height: 52px;
-    border-radius: 14px;
-    border: 1px solid #e8e0e8;
-  }
-  .icon-badge svg { width: 26px; height: 26px; }
+  .icon-badge { @apply grid place-items-center text-safe-magenta; width: 54px; height: 54px; border-radius: 15px;
+    background: linear-gradient(150deg, #fbf2f7, #f4e7f0); border: 1px solid #ece5ed; }
+  .icon-badge svg { width: 27px; height: 27px; }
 
-  /* Listes à puces */
+  /* Code mission / valeur mono */
+  .mono-tag { @apply font-mono font-semibold text-safe-magenta; letter-spacing: 0.02em; }
+
+  /* Listes à coches */
   .ticks { @apply grid gap-3 list-none p-0; }
   .ticks li { @apply relative text-slate; padding-left: 1.9rem; }
   .ticks li::before {
-    content: '';
-    @apply absolute rounded-full;
-    left: 0; top: 0.45em;
-    width: 14px; height: 14px;
-    background: linear-gradient(135deg, #7a2a5f, #c2317b);
-    box-shadow: 0 0 0 4px rgba(194,49,123,0.12);
+    content: ''; @apply absolute; left: 0; top: 0.5em; width: 13px; height: 13px; border-radius: 4px;
+    background: linear-gradient(135deg, #6e2350, #c0307b);
   }
   .ticks strong { @apply text-ink; }
 
   /* Encadré note */
-  .note {
-    @apply bg-safe-soft text-slate rounded-[14px];
-    border: 1px solid #e8e0e8;
-    border-left: 4px solid #9c2f6f;
-    padding: 1.1rem 1.3rem;
-    font-size: 0.98rem;
-  }
+  .note { @apply bg-safe-soft text-slate rounded-[14px]; border: 1px solid #ece5ed; border-left: 4px solid #8d2a63;
+    padding: 1.1rem 1.3rem; font-size: 0.98rem; }
+
+  /* Filet éditorial */
+  .rule { height: 3px; width: 60px; border-radius: 3px; background: linear-gradient(135deg, #6e2350, #c0307b); }
+
+  /* Statistique */
+  .stat b { @apply block font-extrabold tracking-tight font-mono; font-size: 2.1rem;
+    background: linear-gradient(135deg, #6e2350, #c0307b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat span { @apply block text-slate; font-size: 0.9rem; margin-top: 0.15rem; }
+
+  /* Motif strates (lignes géologiques) */
+  .strata { background-image: repeating-linear-gradient(0deg, rgba(141,42,99,.07) 0, rgba(141,42,99,.07) 1px, transparent 1px, transparent 13px); }
 
   /* Bandeau CTA */
-  .cta-band {
-    @apply bg-safe-gradient text-white rounded-xl2 relative overflow-hidden;
-    padding: clamp(2.2rem, 5vw, 3.5rem);
-    text-align: center;
-  }
-  .cta-band::after {
-    content: '';
-    @apply absolute pointer-events-none;
-    right: -40px; bottom: -60px;
-    width: 220px; height: 220px;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 70%);
-  }
+  .cta-band { @apply bg-safe-gradient text-white rounded-xl2 relative overflow-hidden; padding: clamp(2.2rem, 5vw, 3.6rem); }
+  .cta-band::after { content: ''; @apply absolute pointer-events-none; right: -60px; bottom: -80px; width: 260px; height: 260px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.16), transparent 70%); }
 
-  .skip-link {
-    @apply absolute z-[200] bg-ink text-white font-semibold;
-    left: -9999px; top: 0;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0 0 14px 0;
-  }
-  .skip-link:focus { left: 0; text-decoration: none; }
+  /* Révélation au scroll */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
   /* Formulaires */
-  .form-card {
-    @apply bg-white rounded-xl2 shadow-sfmd grid gap-[1.1rem];
-    border: 1px solid #e8e0e8;
-    padding: clamp(1.5rem, 3vw, 2.2rem);
-  }
+  .form-card { @apply bg-white rounded-xl2 shadow-sfmd grid gap-[1.1rem]; border: 1px solid #ece5ed; padding: clamp(1.5rem, 3vw, 2.2rem); }
   .field { @apply grid gap-1.5; }
   .field label { @apply font-semibold text-ink; font-size: 0.95rem; }
-
-  .form-card input,
-  .form-card select,
-  .form-card textarea {
-    @apply w-full bg-cloud text-ink rounded-[10px];
-    font-family: inherit;
-    font-size: 1rem;
-    border: 1.5px solid #e8e0e8;
-    padding: 0.75rem 0.9rem;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  .form-card input, .form-card select, .form-card textarea {
+    @apply w-full bg-cloud text-ink rounded-[11px]; font-family: inherit; font-size: 1rem; border: 1.5px solid #ece5ed;
+    padding: 0.78rem 0.95rem; transition: border-color .15s ease, box-shadow .15s ease;
   }
   .form-card textarea { resize: vertical; }
-  .form-card input[type='file'] { @apply bg-white; padding: 0.55rem 0.7rem; }
-  .form-card input:focus,
-  .form-card select:focus,
-  .form-card textarea:focus {
-    outline: none;
-    border-color: #9c2f6f;
-    box-shadow: 0 0 0 3px rgba(194,49,123,0.15);
+  .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
+    outline: none; border-color: #8d2a63; box-shadow: 0 0 0 3px rgba(192,48,123,.15);
   }
+
+  .skip-link { @apply absolute z-[200] bg-ink text-white font-semibold; left: -9999px; top: 0; padding: .75rem 1.25rem; border-radius: 0 0 14px 0; }
+  .skip-link:focus { left: 0; }
 }

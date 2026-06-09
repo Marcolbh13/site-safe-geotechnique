@@ -71,26 +71,25 @@ src/
   main.jsx              Montage React + Router
   App.jsx               Définition des routes (pages)
   index.css             Base + composants (boutons, cartes, formulaires…)
-  data/site.js          Navigation, e-mails de contact (source unique)
+  data/site.js          Coordonnées, navigation, missions (source unique)
   assets/images/        Images optimisées (WebP) + logo
   components/
     Logo.jsx            ← POINT UNIQUE DE RÉGLAGE DU LOGO
     Header.jsx          En-tête + navigation (menu mobile)
     Footer.jsx          Pied de page
-    Layout.jsx          Gabarit (header + footer + remontée en haut de page)
+    Layout.jsx          Gabarit (header + footer + scroll/ancres)
     Seo.jsx             Titre + meta description par page
     Icon.jsx            Icônes au trait (SVG)
-    PageHero.jsx        Bandeau d'en-tête des pages intérieures
+    Reveal.jsx          Révélation douce au défilement
+    DepthScale.jsx      Échelle de profondeur de sondage (motif signature)
     CtaBand.jsx         Bandeau d'appel à l'action réutilisable
   pages/
-    Home.jsx           Accueil
-    Expertise.jsx      Sondages + Laboratoire + Missions G1→G5 (ancres #sondages…)
-    LoiElan.jsx        Loi Élan (étude de sol obligatoire à la vente)
-    APropos.jsx        Qui sommes-nous (métier, valeurs, partenaires)
-    Recrutement.jsx    Recrutement (formulaire)
-    Contact.jsx        Contact / devis (formulaire)
+    Home.jsx              Accueil
+    Expertise.jsx        Sondage + Laboratoire + Missions G1→G5 (ancres #sondage…)
+    LoiElan.jsx          Loi ELAN (étude de sol obligatoire à la vente)
+    Contact.jsx          Contact / devis (adresse réelle + formulaire)
     MentionsLegales.jsx  Mentions légales
-    NotFound.jsx       Page 404
+    NotFound.jsx         Page 404
 public/
   favicon.svg           Favicon provisoire (à remplacer, cf. A-VALIDER.md)
   _redirects            Réécriture SPA (hébergement type Netlify)
@@ -110,30 +109,26 @@ une version vectorielle ou un PNG HD transparent.
 
 Penser aussi à remplacer `public/favicon.svg`.
 
-## Formulaires (Contact et Recrutement)
+## Formulaire de contact
 
-Les deux formulaires fonctionnent **sans serveur**, via `mailto:` : à la
-validation, le logiciel de messagerie s'ouvre, pré-rempli, vers la bonne
-adresse.
+Le formulaire de devis (page Contact) fonctionne **sans serveur**, via
+`mailto:` : à la validation, le logiciel de messagerie s'ouvre pré-rempli.
 
-- **Devis (page Contact)** → `lebihan@resum.fr`
-- **Recrutement (page Recrutement)** → `v.lebihan@ftcs-forage.com`
+- Coordonnées publiques (affichées) : **contact@safe-geotechnique.fr** ·
+  **03 20 60 12 67** · 660 rue des Famards, 59273 Fretin.
+- Routage du formulaire : la demande est adressée à **`lebihan@resum.fr`**
+  (consigne interne). Tout est centralisé dans **`src/data/site.js`** (objet
+  `COMPANY`, champs `email`, `phone`, `devisEmail`).
 
-Les adresses sont centralisées dans **`src/data/site.js`** (objet `EMAILS`).
+### Activer un envoi réel côté serveur
 
-### Activer un envoi réel (avec pièce jointe)
-
-`mailto:` ne peut pas joindre le fichier CV automatiquement. Pour un envoi
-serveur (transmission directe, pièce jointe, accusé de réception), brancher un
+Pour un envoi direct (sans ouvrir la messagerie du visiteur), brancher un
 service de formulaires, par exemple **Formspree** :
 
 1. Créer un formulaire sur [formspree.io](https://formspree.io/) → URL
    `https://formspree.io/f/XXXXXXX`.
-2. Dans `Contact.jsx` / `Recrutement.jsx`, remplacer le handler `onSubmit`
-   (qui compose le `mailto:`) par un envoi `fetch(url, { method: 'POST', body:
-   new FormData(form) })`, ou poser `action`/`method` sur le `<form>` et retirer
-   le `e.preventDefault()`.
-3. Pour la pièce jointe, conserver le champ `<input type="file" name="cv">`.
+2. Dans `Contact.jsx`, remplacer le handler `onSubmit` (qui compose le
+   `mailto:`) par un `fetch(url, { method: 'POST', body: new FormData(form) })`.
 
 Alternatives : **Netlify Forms** (si hébergé sur Netlify) ou un back-end maison.
 
