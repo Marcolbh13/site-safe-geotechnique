@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
-import DepthScale from '../components/DepthScale.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ClientsCarousel from '../components/ClientsCarousel.jsx';
 import Decor from '../components/Decor.jsx';
@@ -145,36 +144,6 @@ export default function Home() {
             <Link to="/missions" className="btn btn-primary">
               Voir le détail des missions <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
             </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== MATÉRIEL + ÉCHELLE ===== */}
-      <section className="section relative overflow-hidden">
-        <Decor />
-        <div className="container-safe relative z-10 grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[0.85fr_1.15fr]">
-          <Reveal className="flex justify-center">
-            <DepthScale className="w-full max-w-[300px] h-auto" />
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="label mb-4">Notre matériel</p>
-            <h2>Des ateliers EMCI pour atteindre la bonne profondeur</h2>
-            <p className="lead mt-4 mb-7">
-              Sondages pressiométriques, destructifs et carottés, dans le respect
-              des normes en vigueur.
-            </p>
-            <div className="grid gap-7 sm:grid-cols-2">
-              <div>
-                <span className="mono-tag text-[1.05rem]">EMCI 4.50</span>
-                <div className="stat my-1.5"><b>40 m</b></div>
-                <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 40 m de profondeur.</p>
-              </div>
-              <div className="sm:border-l sm:border-line sm:pl-7">
-                <span className="mono-tag text-[1.05rem]">EMCI 7.50</span>
-                <div className="stat my-1.5"><b>100 m</b></div>
-                <p className="text-slate text-[0.93rem]">Sondages pressiométriques, destructifs et carottés jusqu'à 100 m de profondeur.</p>
-              </div>
-            </div>
           </Reveal>
         </div>
       </section>
