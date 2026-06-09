@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
-import { EMAILS, FOOTER_COLS } from '../data/site.js';
+import { EMAILS, FOOTER_COLS, PHONE, PHONE_HREF } from '../data/site.js';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -43,10 +43,18 @@ export default function Footer() {
           <ul className="grid gap-4 list-none p-0">
             <li>
               <span className="block text-[0.78rem] uppercase tracking-[0.08em] text-[#8f8295] mb-0.5">
-                Devis
+                Téléphone
               </span>
-              <a href={`mailto:${EMAILS.devis}`} className="text-[#cabfce] hover:text-white">
-                {EMAILS.devis}
+              <a href={PHONE_HREF} className="text-[#cabfce] hover:text-white">
+                {PHONE}
+              </a>
+            </li>
+            <li>
+              <span className="block text-[0.78rem] uppercase tracking-[0.08em] text-[#8f8295] mb-0.5">
+                E-mail
+              </span>
+              <a href={`mailto:${EMAILS.contact}`} className="text-[#cabfce] hover:text-white">
+                {EMAILS.contact}
               </a>
             </li>
             <li>
@@ -56,12 +64,6 @@ export default function Footer() {
               <a href={`mailto:${EMAILS.recrutement}`} className="text-[#cabfce] hover:text-white">
                 {EMAILS.recrutement}
               </a>
-            </li>
-            <li className="text-[#cabfce] text-[0.97rem]">
-              <span className="block text-[0.78rem] uppercase tracking-[0.08em] text-[#8f8295] mb-0.5">
-                Secteur
-              </span>
-              Hauts-de-France et régions limitrophes
             </li>
           </ul>
         </div>

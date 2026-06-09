@@ -7,19 +7,53 @@ aucune certification ni chiffre précis n'a été inventé. Ce document garde la
 
 ---
 
+## ⚠️ Conflits avec le site officiel safe-geotechnique.fr (à trancher)
+
+Le contenu a été recalé sur le site officiel actuel. Deux points divergent de
+tes consignes initiales :
+
+- **Profondeur de l'atelier EMCI 7.50** : le site officiel indique **100 m**
+  (deux fois). Ta consigne disait **80 m, PAS 100 m**. → J'ai retenu **80 m**
+  (instruction explicite). **À confirmer** : 80 m ou 100 m ?
+- **Routage des e-mails** : le site officiel affiche **contact@safe-geotechnique.fr**
+  (utilisé comme e-mail public + tél **03 20 60 12 67**). Tes consignes
+  demandaient de router le **formulaire de devis vers lebihan@resum.fr** et le
+  **recrutement vers v.lebihan@ftcs-forage.com**. → J'affiche contact@…fr comme
+  e-mail public, et les **formulaires** envoient toujours vers resum.fr (devis)
+  et ftcs-forage.com (recrutement). **À confirmer** : garder ce routage interne,
+  ou tout envoyer vers contact@safe-geotechnique.fr ?
+
+Contenu **vérifié et repris du site officiel** (donc fiable) : services de
+sondage (forage destructif/semi-destructif, carottage, **essai pressiométrique**,
+piézométrie + suivi saisonnier, **recherche de cavités / microgravimétrie**,
+prélèvements environnementaux, reconnaissance de fondations) ; **10 essais de
+laboratoire** (GTR, granulométrie, sédimentométrie, teneur en eau, VBS,
+Atterberg, masse volumique, Proctor + IPI, cisaillement Casagrande, triaxiaux
+UU/CU+u/CD) ; **missions G1 à G5** ; **ateliers EMCI 4.50 / 7.50** ; partenaires
+(Foretude Ingénierie, FTCS Forage, STPA Forage, NGE Fondations, Ingeo, Enedis,
+Engie, IXI Groupe).
+
 ## 0. Structure du site (mise à jour)
 
-Le site a été resserré à **5 pages** au design différencié (fini le gabarit
-répété) : **Accueil**, **Expertise** (Sondages + Laboratoire + Ingénierie réunis,
-ancres `#sondages`, `#laboratoire`, `#ingenierie`), **Qui sommes-nous**
-(métier + valeurs + RSE + « ils nous font confiance »), **Recrutement**,
-**Contact**. Les anciennes URLs (`/sondages`, `/rse`, etc.) redirigent vers la
-nouvelle structure.
+Pages au design différencié (fini le gabarit répété) : **Accueil**,
+**Expertise** (Sondages + Laboratoire + Missions G1→G5, ancres `#sondages`,
+`#laboratoire`, `#missions`), **Loi Élan** (page dédiée, explicative),
+**Qui sommes-nous** (métier + valeurs + partenaires), **Recrutement**,
+**Contact**, **Mentions légales**. Les anciennes URLs (`/sondages`,
+`/missions-g1-a-g5`, `/loi_elan`, `/rse`…) redirigent vers la nouvelle structure.
 
-- Page **Qui sommes-nous** : mention « nous nous appuyons sur des moyens de
-  forage et de chantier éprouvés ». Formulation prudente faisant écho au groupe
-  (RESUM / FTCS Forage) sans l'affirmer nommément — **à confirmer / préciser**
-  selon ce que SAFE souhaite communiquer sur son appartenance de groupe.
+- **Images** : ne sont conservés QUE les visuels réellement géotechniques de
+  SAFE (2 foreuses de sondage + 3 photos de laboratoire). Les photos de forage
+  dirigé / travaux spéciaux / réseaux (FTCS, etc.) ont été **retirées** : ce
+  n'est pas de la géotechnique. Idéalement, fournir davantage de photos SAFE
+  (sondage, pressiomètre, piézomètre, laboratoire) — cf. `CREDITS.md`.
+- **RSE** : la page RSE dédiée et les visuels « panneaux solaires / éoliennes »
+  ont été retirés (non présents sur le site officiel, contenu non sourcé). Les
+  valeurs « sécurité des biens et des personnes / règles de l'art » sont
+  reprises dans « Qui sommes-nous ». À réintroduire si SAFE fournit un contenu
+  RSE réel et chiffré.
+- Ancien point obsolète : la mention « moyens de forage du groupe » a été
+  remplacée par une formulation centrée sur les **ateliers de sondage de SAFE**.
 
 ## 1. Décisions rédactionnelles prises (formulations sûres)
 

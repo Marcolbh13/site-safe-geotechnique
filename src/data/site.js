@@ -1,14 +1,20 @@
 // Données partagées du site SAFE Géotechnique.
 
 export const EMAILS = {
+  // E-mail public officiel (affiché)
+  contact: 'contact@safe-geotechnique.fr',
+  // Routage des formulaires (consignes internes)
   devis: 'lebihan@resum.fr',
   recrutement: 'v.lebihan@ftcs-forage.com',
 };
 
-// Navigation principale (l'accueil est accessible via le logo,
-// le contact via le bouton « Demander un devis »).
+export const PHONE = '03 20 60 12 67';
+export const PHONE_HREF = 'tel:+33320601267';
+
+// Navigation principale (accueil via le logo, contact via le bouton).
 export const NAV = [
   { to: '/expertise', label: 'Expertise' },
+  { to: '/loi-elan', label: 'Loi Élan' },
   { to: '/a-propos', label: 'Qui sommes-nous' },
   { to: '/recrutement', label: 'Recrutement' },
 ];
@@ -19,7 +25,8 @@ export const FOOTER_COLS = [
     links: [
       { to: '/expertise#sondages', label: 'Sondages' },
       { to: '/expertise#laboratoire', label: 'Laboratoire' },
-      { to: '/expertise#ingenierie', label: 'Ingénierie géotechnique' },
+      { to: '/expertise#missions', label: 'Missions G1 à G5' },
+      { to: '/loi-elan', label: 'Loi Élan' },
     ],
   },
   {

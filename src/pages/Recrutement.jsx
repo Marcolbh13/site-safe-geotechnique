@@ -3,7 +3,7 @@ import Seo from '../components/Seo.jsx';
 import PageHero from '../components/PageHero.jsx';
 import Icon from '../components/Icon.jsx';
 import { EMAILS } from '../data/site.js';
-import travauxSpeciaux from '../assets/images/travaux-speciaux.webp';
+import foreuseSafe from '../assets/images/hero-foreuse.webp';
 
 const postes = [
   'Technicien de chantier / sondeur',
@@ -111,8 +111,8 @@ export default function Recrutement() {
 
             <figure className="mt-8 rounded-xl2 overflow-hidden shadow-sfmd hidden md:block">
               <img
-                src={travauxSpeciaux}
-                alt="Intervention du groupe sur un chantier de travaux spéciaux"
+                src={foreuseSafe}
+                alt="Atelier de sondage SAFE Géotechnique sur un chantier"
                 className="w-full h-full object-cover aspect-[4/3]"
                 loading="lazy"
               />

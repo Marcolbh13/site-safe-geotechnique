@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import PageHero from '../components/PageHero.jsx';
 import Icon from '../components/Icon.jsx';
-import { EMAILS } from '../data/site.js';
+import { EMAILS, PHONE, PHONE_HREF } from '../data/site.js';
 
 const besoins = [
   'Sondages / reconnaissance des sols',
@@ -64,10 +64,16 @@ export default function Contact() {
         <div className="container-safe grid items-start gap-[clamp(1.75rem,4vw,3rem)] lg:grid-cols-[0.85fr_1.15fr]">
           {/* Coordonnées */}
           <aside className="grid gap-7">
-            <InfoBlock icon="mail" title="Devis et projets">
+            <InfoBlock icon="phone" title="Téléphone">
+              <a className="inline-block font-bold mt-1 text-[1.05rem]" href={PHONE_HREF}>
+                {PHONE}
+              </a>
+            </InfoBlock>
+
+            <InfoBlock icon="mail" title="E-mail">
               <p className="text-slate text-[0.97rem]">Pour toute demande d'étude ou de devis :</p>
-              <a className="inline-block font-bold mt-1" href={`mailto:${EMAILS.devis}`}>
-                {EMAILS.devis}
+              <a className="inline-block font-bold mt-1" href={`mailto:${EMAILS.contact}`}>
+                {EMAILS.contact}
               </a>
             </InfoBlock>
 

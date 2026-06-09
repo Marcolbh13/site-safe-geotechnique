@@ -6,26 +6,25 @@ import CtaBand from '../components/CtaBand.jsx';
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboPresse from '../assets/images/labo-presse.webp';
-import forageChamp from '../assets/images/forage-champ.webp';
 
 const metiers = [
   {
     icon: 'drill',
     title: 'Sondages',
     to: '/expertise#sondages',
-    text: "Forage destructif et semi-destructif, carottage, prélèvements et piézométrie. Nos équipes interviennent sur le terrain avec un parc de machines dédié.",
+    text: "Forage destructif et semi-destructif, carottage, essai pressiométrique, piézométrie, recherche de cavités et prélèvements environnementaux.",
   },
   {
     icon: 'flask',
     title: 'Laboratoire',
     to: '/expertise#laboratoire',
-    text: "Essais sur sols réalisés selon un protocole normalisé : identification, compactage, résistance mécanique, dont l'essai triaxial.",
+    text: "Essais d'identification et essais mécaniques : GTR, VBS, Atterberg, Proctor + IPI, cisaillement et essais triaxiaux.",
   },
   {
     icon: 'compass',
     title: 'Ingénierie',
-    to: '/expertise#ingenierie',
-    text: "Missions géotechniques G1 et G2, de l'avant-projet à la phase projet, appuyées sur des outils de calcul reconnus.",
+    to: '/expertise#missions',
+    text: "Missions géotechniques G1 à G5, de l'étude préalable au diagnostic d'ouvrage.",
   },
 ];
 
@@ -128,30 +127,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== BANNIÈRE PLEINE LARGEUR ===== */}
-      <section className="relative">
-        <div className="relative h-[clamp(280px,42vw,440px)] overflow-hidden">
-          <img
-            src={forageChamp}
-            alt="Atelier de forage du groupe en intervention dans un champ, éoliennes au loin"
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-plum/85 via-plum/55 to-transparent" />
-          <div className="container-safe relative h-full flex items-center">
-            <div className="max-w-[560px] text-white">
-              <p
-                className="kicker mb-[0.9rem]"
-                style={{ color: '#f3c6df' }}
-              >
-                Du terrain à la donnée
+      {/* ===== BANDEAU LOI ÉLAN ===== */}
+      <section className="section-tight">
+        <div className="container-safe">
+          <div className="cta-band text-left sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <div className="relative max-w-[640px]">
+              <p className="kicker on-dark mb-3">Vente de terrain</p>
+              <h2 className="text-white">Vous vendez un terrain à bâtir ?</h2>
+              <p className="mt-3 text-white/90">
+                Depuis la loi Élan, une étude géotechnique préalable (G1) est
+                exigée en zone argileuse, à la charge du vendeur. Nous la
+                réalisons pour vous.
               </p>
-              <h2 className="text-white">Une présence de terrain, partout où vos projets l'exigent</h2>
-              <p className="mt-4 text-white/90 text-[1.05rem]">
-                Nos ateliers se déplacent sur vos sites, en milieu urbain comme
-                en zone rurale, pour reconnaître les sols dans les meilleures
-                conditions de sécurité.
-              </p>
+            </div>
+            <div className="relative mt-6 sm:mt-0 shrink-0">
+              <Link to="/loi-elan" className="btn btn-light">
+                Comprendre la loi Élan
+                <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
+              </Link>
             </div>
           </div>
         </div>

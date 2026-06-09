@@ -3,7 +3,7 @@
 // Les images sources (lourdes) restent hors du site ; seules les versions
 // optimisées sont importées par l'application.
 import sharp from 'sharp';
-import { mkdirSync, existsSync, copyFileSync } from 'node:fs';
+import { mkdirSync, existsSync, copyFileSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -16,19 +16,20 @@ const OUT = resolve(ROOT, 'src/assets/images');
 mkdirSync(OUT, { recursive: true });
 
 // { source absolue, nom de sortie (sans extension), largeur max }
+// IMPORTANT : on ne garde QUE les visuels réellement géotechniques de SAFE
+// (foreuses de sondage SAFE + laboratoire). Les photos de forage dirigé /
+// travaux spéciaux / réseaux du groupe (FTCS, etc.) ne sont PAS de la
+// géotechnique et ont été volontairement écartées.
 const jobs = [
-  // Ressources fournies par SAFE
   { src: `${RES}/machine-sondage-450-eoliennes.jpg`, out: 'hero-foreuse', maxW: 1600 },
-  { src: `${RES}/machine-sondage-camion-safe.jpg`, out: 'foreuse-camion-safe', maxW: 1400 },
+  { src: `${RES}/machine-sondage-camion-safe.jpg`, out: 'foreuse-camion-safe', maxW: 1500 },
   { src: `${RES}/labo-moule-proctor.png`, out: 'labo-proctor', maxW: 1200 },
   { src: `${RES}/labo-presse-essai.png`, out: 'labo-presse', maxW: 1200 },
   { src: `${RES}/labo-echantillon-sol.png`, out: 'labo-echantillon', maxW: 1200 },
-  // Photos du groupe (trouvées sur le poste de Marco)
-  { src: `${DESKTOP}/IImage chantier .png`, out: 'chantier-nuit', maxW: 1800 },
-  { src: `${DESKTOP}/IImage SFTP 3.jpeg`, out: 'forage-champ', maxW: 1800 },
-  { src: `${DESKTOP}/IImage SFTP.png`, out: 'foreuse-vermeer', maxW: 1400 },
-  { src: `${DESKTOP}/IImage Travaux spéciaux.jpeg`, out: 'travaux-speciaux', maxW: 1100 },
 ];
+
+// référence muette pour éviter l'avertissement de variable inutilisée
+void DESKTOP;
 
 let ok = 0;
 for (const job of jobs) {
@@ -48,9 +49,15 @@ for (const job of jobs) {
 
 // Logo : copié tel quel (JPEG basse déf). À remplacer par une version HD/SVG.
 const logoSrc = `${RES}/logo-safe-geotechnique.jpeg`;
+const logoDest = `${OUT}/logo-safe-geotechnique.jpeg`;
 if (existsSync(logoSrc)) {
-  copyFileSync(logoSrc, `${OUT}/logo-safe-geotechnique.jpeg`);
-  console.log('✓ logo-safe-geotechnique.jpeg (copié)');
+  try {
+    if (existsSync(logoDest)) rmSync(logoDest, { force: true });
+    copyFileSync(logoSrc, logoDest);
+    console.log('✓ logo-safe-geotechnique.jpeg (copié)');
+  } catch (e) {
+    console.warn(`⚠ logo non recopié (déjà présent ?) : ${e.code || e.message}`);
+  }
 }
 
 console.log(`\nTerminé : ${ok} image(s) optimisée(s).`);

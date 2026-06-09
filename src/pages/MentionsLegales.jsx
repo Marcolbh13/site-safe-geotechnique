@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
-import { EMAILS } from '../data/site.js';
+import { EMAILS, PHONE, PHONE_HREF } from '../data/site.js';
 
 /*
   Champs société à COMPLÉTER par SAFE (cf. A-VALIDER.md).
@@ -58,8 +58,11 @@ export default function MentionsLegales() {
             <Row label="Immatriculation">{SOC.siret}</Row>
             <Row label="TVA">{SOC.tva}</Row>
             <Row label="Directeur de la publication">{SOC.directeur}</Row>
+            <Row label="Téléphone">
+              <a href={PHONE_HREF}>{PHONE}</a>
+            </Row>
             <Row label="Contact">
-              <a href={`mailto:${EMAILS.devis}`}>{EMAILS.devis}</a>
+              <a href={`mailto:${EMAILS.contact}`}>{EMAILS.contact}</a>
             </Row>
           </dl>
 
@@ -93,7 +96,7 @@ export default function MentionsLegales() {
             Conformément à la réglementation applicable, vous disposez d'un droit
             d'accès, de rectification et de suppression des données vous
             concernant. Pour l'exercer, écrivez-nous à{' '}
-            <a href={`mailto:${EMAILS.devis}`}>{EMAILS.devis}</a>.
+            <a href={`mailto:${EMAILS.contact}`}>{EMAILS.contact}</a>.
           </p>
 
           <p className="note">
