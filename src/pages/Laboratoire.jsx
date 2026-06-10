@@ -21,6 +21,7 @@ const atouts = [
 
 import imgGtr from '../assets/images/e-gtr.webp';
 import imgGranulo from '../assets/images/e-granulo.webp';
+import imgSedimento from '../assets/images/e-sedimento.webp';
 import imgAtterberg from '../assets/images/e-atterberg.webp';
 import imgVbs from '../assets/images/e-vbs.webp';
 import imgVolumique from '../assets/images/e-volumique.webp';
@@ -30,7 +31,8 @@ import imgTriaxial from '../assets/images/labo-triaxial.webp';
 
 const identification = [
   { img: imgGtr, t: 'Classification GTR', d: "Classe le sol selon sa nature et indique s'il est réemployable en remblai." },
-  { img: imgGranulo, t: 'Granulométrie & sédimentométrie', d: 'Mesurent la répartition des tailles de grains, du sable aux fines (≤ 80 µm).' },
+  { img: imgGranulo, t: 'Analyse granulométrique', d: 'Mesure la répartition des tailles de grains par tamisage.' },
+  { img: imgSedimento, t: 'Analyse sédimentométrique', d: 'Prolonge la granulométrie sur les fines (≤ 80 µm) par sédimentation.' },
   { img: imgAtterberg, t: 'Limites d’Atterberg', d: 'Situent les seuils de plasticité et révèlent la sensibilité au retrait-gonflement des argiles.' },
   { img: imgVbs, t: 'Valeur au bleu du sol (VBS)', d: "Quantifie l'argilosité du sol, déterminante pour son comportement à l'eau." },
   { img: imgVolumique, t: 'Teneur en eau & masse volumique', d: "Décrivent l'état hydrique du sol et la densité des éléments de roche." },

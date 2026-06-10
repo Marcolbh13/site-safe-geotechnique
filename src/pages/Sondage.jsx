@@ -36,7 +36,6 @@ const prestations = [
   { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Mesure du niveau des eaux souterraines et prélèvements, avec suivi saisonnier (déclaration préalable auprès de l'administration)." },
   { img: imgCavites, t: 'Recherche de cavités souterraines', d: 'Forages destructifs et études microgravimétriques pour localiser et caractériser la géométrie des vides.' },
   { img: imgEchantillon, t: 'Prélèvements environnementaux', d: 'Évaluation de la pollution des sols et des eaux ; échantillons analysés en laboratoire.' },
-  { img: imgFondation, t: 'Reconnaissance de fondations', d: "Diagnostic des fondations d'ouvrages existants pour en évaluer la nature et la portance." },
 ];
 
 export default function Sondage() {
@@ -66,6 +65,26 @@ export default function Sondage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Reconnaissance de fondations — bande image + texte */}
+      <section className="section-tight">
+        <div className="container-safe grid items-center gap-[clamp(1.75rem,4vw,3.5rem)] md:grid-cols-2">
+          <Reveal className="order-last md:order-first">
+            <figure className="rounded-xl2 overflow-hidden shadow-sfmd">
+              <img src={imgFondation} alt="Reconnaissance de fondations d'un ouvrage existant" className="w-full object-cover aspect-[16/10]" loading="lazy" />
+            </figure>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="label mb-3">Ouvrages existants</p>
+            <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Reconnaissance de fondations</h2>
+            <p className="text-slate mt-4 max-w-[58ch]">
+              Au-delà des terrains à bâtir, nous diagnostiquons les fondations
+              d'ouvrages existants pour en évaluer la nature, la géométrie et la
+              portance, et éclairer vos travaux de reprise ou d'extension.
+            </p>
+          </Reveal>
         </div>
       </section>
 
