@@ -49,7 +49,9 @@ export default function Home() {
         <div className="container-safe relative z-10 grid items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[1.05fr_0.95fr]" style={{ paddingBlock: 'clamp(2.75rem,6vw,5rem)' }}>
           <div>
             <p className="label mb-5">{COMPANY.baseline}</p>
-            <h1 className="animate-fade-up">Garantir la sécurité de vos projets</h1>
+            <h1 className="animate-fade-up text-balance text-[clamp(2rem,4.4vw,3.15rem)]">
+              Garantir la sécurité<br className="hidden sm:block" /> de vos projets
+            </h1>
             <p className="lead mt-5 max-w-[52ch]">
               Chez SAFE Géotechnique, c'est notre unique objectif. De l'étude au
               diagnostic, nous gérons l'ensemble des missions géotechniques
