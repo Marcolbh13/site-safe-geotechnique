@@ -10,6 +10,7 @@ import imgCarottage from '../assets/images/t-carottage.webp';
 import imgPressio from '../assets/images/t-pressiometre.webp';
 import imgPiezo from '../assets/images/t-piezo.webp';
 import imgCavites from '../assets/images/t-cavites.webp';
+import imgFondation from '../assets/images/t-fondation.webp';
 import imgEchantillon from '../assets/images/labo-echantillon.webp';
 import atelier450 from '../assets/images/atelier-450.webp';
 import atelier750 from '../assets/images/atelier-750.webp';
@@ -35,6 +36,7 @@ const prestations = [
   { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Mesure du niveau des eaux souterraines et prélèvements, avec suivi saisonnier (déclaration préalable auprès de l'administration)." },
   { img: imgCavites, t: 'Recherche de cavités souterraines', d: 'Forages destructifs et études microgravimétriques pour localiser et caractériser la géométrie des vides.' },
   { img: imgEchantillon, t: 'Prélèvements environnementaux', d: 'Évaluation de la pollution des sols et des eaux ; échantillons analysés en laboratoire.' },
+  { img: imgFondation, t: 'Reconnaissance de fondations', d: "Diagnostic des fondations d'ouvrages existants pour en évaluer la nature et la portance." },
 ];
 
 export default function Sondage() {
@@ -64,9 +66,6 @@ export default function Sondage() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-6">
-            <p className="text-slate">Nous réalisons également la <strong className="text-ink">reconnaissance de fondations</strong> d'ouvrages existants.</p>
-          </Reveal>
         </div>
       </section>
 
