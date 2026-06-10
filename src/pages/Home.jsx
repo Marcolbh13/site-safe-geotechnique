@@ -25,7 +25,7 @@ const methode = [
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
-import laboPresse from '../assets/images/labo-presse.webp';
+import laboTriaxial from '../assets/images/labo-triaxial.webp';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -208,7 +208,7 @@ export default function Home() {
         <div className="container-safe grid items-center gap-[clamp(2rem,5vw,3.5rem)] md:grid-cols-2">
           <Reveal className="order-first md:order-none">
             <figure className="rounded-xl2 overflow-hidden shadow-sfmd">
-              <img src={laboPresse} alt="Essai mécanique sur échantillon de sol au laboratoire SAFE" className="w-full object-cover aspect-[5/4]" loading="lazy" />
+              <img src={laboTriaxial} alt="Cellule d'essai triaxial au laboratoire SAFE" className="w-full object-cover aspect-[5/4]" loading="lazy" />
             </figure>
           </Reveal>
           <Reveal delay={120}>

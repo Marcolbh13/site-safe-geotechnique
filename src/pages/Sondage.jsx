@@ -1,5 +1,4 @@
 import Seo from '../components/Seo.jsx';
-import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import DepthScale from '../components/DepthScale.jsx';
@@ -7,6 +6,13 @@ import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import heroForeuse from '../assets/images/hero-foreuse.webp';
+import imgCarottage from '../assets/images/t-carottage.webp';
+import imgPressio from '../assets/images/t-pressiometre.webp';
+import imgPiezo from '../assets/images/t-piezo.webp';
+import imgCavites from '../assets/images/t-cavites.webp';
+import imgEchantillon from '../assets/images/labo-echantillon.webp';
+import atelier450 from '../assets/images/atelier-450.webp';
+import atelier750 from '../assets/images/atelier-750.webp';
 
 const deroulement = [
   { t: 'Préparation & déclarations', d: 'Repérage des réseaux (DICT) et organisation de l\'intervention en sécurité.' },
@@ -23,12 +29,12 @@ const garanties = [
 ];
 
 const prestations = [
-  { icon: 'drill', t: 'Forage destructif et semi-destructif', d: "Reconnaissance rapide de la stratigraphie et des horizons traversés, pour dresser la coupe du sol." },
-  { icon: 'core', t: 'Carottage', d: 'Prélèvement de carottes intactes : observation lithologique et sélection des échantillons pour le laboratoire.' },
-  { icon: 'gauge', t: 'Essai pressiométrique', d: 'Mesure in situ des caractéristiques géomécaniques des sols, base des calculs de dimensionnement.' },
-  { icon: 'water', t: 'Pose de piézomètre et suivi', d: "Mesure du niveau des eaux souterraines et prélèvements, avec suivi saisonnier (déclaration préalable auprès de l'administration)." },
-  { icon: 'cavity', t: 'Recherche de cavités souterraines', d: 'Forages destructifs et études microgravimétriques pour localiser et caractériser la géométrie des vides.' },
-  { icon: 'flask', t: 'Prélèvements environnementaux', d: 'Évaluation de la pollution des sols et des eaux ; échantillons analysés en laboratoire.' },
+  { img: heroForeuse, t: 'Forage destructif et semi-destructif', d: "Reconnaissance rapide de la stratigraphie et des horizons traversés, pour dresser la coupe du sol." },
+  { img: imgCarottage, t: 'Carottage', d: 'Prélèvement de carottes intactes : observation lithologique et sélection des échantillons pour le laboratoire.' },
+  { img: imgPressio, t: 'Essai pressiométrique', d: 'Mesure in situ des caractéristiques géomécaniques des sols, base des calculs de dimensionnement.' },
+  { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Mesure du niveau des eaux souterraines et prélèvements, avec suivi saisonnier (déclaration préalable auprès de l'administration)." },
+  { img: imgCavites, t: 'Recherche de cavités souterraines', d: 'Forages destructifs et études microgravimétriques pour localiser et caractériser la géométrie des vides.' },
+  { img: imgEchantillon, t: 'Prélèvements environnementaux', d: 'Évaluation de la pollution des sols et des eaux ; échantillons analysés en laboratoire.' },
 ];
 
 export default function Sondage() {
@@ -47,16 +53,14 @@ export default function Sondage() {
       <section className="section">
         <div className="container-safe">
           <Reveal><p className="label mb-3">Nos prestations</p><h2 className="mb-[clamp(1.5rem,3vw,2.25rem)]">Des techniques adaptées à chaque reconnaissance</h2></Reveal>
-          <div className="grid sm:grid-cols-2 gap-x-[clamp(2rem,5vw,4rem)]">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
             {prestations.map((p, i) => (
-              <Reveal as="article" key={p.t} delay={(i % 2) * 80} className="flex gap-4 py-6 border-t border-line">
-                <span className="grid place-items-center w-11 h-11 rounded-full border border-safe-magenta/25 text-safe-magenta shrink-0">
-                  <Icon name={p.icon} className="w-[22px] h-[22px]" />
-                </span>
-                <div>
-                  <h3 className="text-[1.12rem] mb-1.5">{p.t}</h3>
-                  <p className="text-slate text-[0.97rem]">{p.d}</p>
-                </div>
+              <Reveal as="article" key={p.t} delay={(i % 3) * 80}>
+                <figure className="rounded-xl2 overflow-hidden shadow-sfsm mb-4">
+                  <img src={p.img} alt={p.t} className="w-full object-cover aspect-[4/3]" loading="lazy" />
+                </figure>
+                <h3 className="text-[1.12rem] mb-1.5">{p.t}</h3>
+                <p className="text-slate text-[0.95rem]">{p.d}</p>
               </Reveal>
             ))}
           </div>
@@ -104,13 +108,19 @@ export default function Sondage() {
                 respect des normes en vigueur. Nous mobilisons l'atelier adapté à
                 la profondeur recherchée et à l'accessibilité du site.
               </p>
-              <div className="grid gap-7 sm:grid-cols-2 max-w-[500px]">
+              <div className="grid gap-7 sm:grid-cols-2 max-w-[560px]">
                 <div>
+                  <figure className="rounded-[16px] overflow-hidden shadow-sfsm mb-3">
+                    <img src={atelier450} alt="Atelier de sondage SAFE EMCI 4.50" className="w-full object-cover aspect-[4/3]" loading="lazy" />
+                  </figure>
                   <span className="mono-tag text-[1.05rem]">EMCI 4.50</span>
                   <div className="stat my-1.5"><b>40 m</b></div>
                   <p className="text-slate text-[0.9rem]">Profondeur de sondage.</p>
                 </div>
-                <div className="sm:border-l sm:border-line sm:pl-7">
+                <div>
+                  <figure className="rounded-[16px] overflow-hidden shadow-sfsm mb-3">
+                    <img src={atelier750} alt="Atelier de sondage SAFE EMCI 7.50" className="w-full object-cover aspect-[4/3]" loading="lazy" />
+                  </figure>
                   <span className="mono-tag text-[1.05rem]">EMCI 7.50</span>
                   <div className="stat my-1.5"><b>100 m</b></div>
                   <p className="text-slate text-[0.9rem]">Profondeur de sondage.</p>

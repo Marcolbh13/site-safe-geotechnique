@@ -26,6 +26,27 @@ const jobs = [
   { src: `${RES}/labo-moule-proctor.png`, out: 'labo-proctor', maxW: 1200 },
   { src: `${RES}/labo-presse-essai.png`, out: 'labo-presse', maxW: 1200 },
   { src: `${RES}/labo-echantillon-sol.png`, out: 'labo-echantillon', maxW: 1200 },
+
+  // Photos reprises du site officiel safe-geotechnique.fr (propriété SAFE).
+  // Ateliers EMCI
+  { src: `${RES}/site/atelier450.png`, out: 'atelier-450', maxW: 900 },
+  { src: `${RES}/site/atelier750.png`, out: 'atelier-750', maxW: 900 },
+  // Sondage — techniques
+  { src: `${RES}/site/carottage.png`, out: 't-carottage', maxW: 900 },
+  { src: `${RES}/site/sondage-pressiometrique.png`, out: 't-pressiometre', maxW: 900 },
+  { src: `${RES}/site/piezo-1024x542.png`, out: 't-piezo', maxW: 900 },
+  { src: `${RES}/site/cavites.png`, out: 't-cavites', maxW: 900 },
+  { src: `${RES}/site/fondation-1024x542.png`, out: 't-fondation', maxW: 900 },
+  // Laboratoire — essais
+  { src: `${RES}/site/gtr.png`, out: 'e-gtr', maxW: 900 },
+  { src: `${RES}/site/granulo.png`, out: 'e-granulo', maxW: 900 },
+  { src: `${RES}/site/sedimentometrie.png`, out: 'e-sedimento', maxW: 900 },
+  { src: `${RES}/site/vbs.png`, out: 'e-vbs', maxW: 900 },
+  { src: `${RES}/site/atterberg-1024x553.png`, out: 'e-atterberg', maxW: 900 },
+  { src: `${RES}/site/proctor.png`, out: 'e-proctor', maxW: 900 },
+  { src: `${RES}/site/cisaillement.png`, out: 'e-cisaillement', maxW: 900 },
+  { src: `${RES}/site/volumique-1024x542.png`, out: 'e-volumique', maxW: 900 },
+  { src: `${RES}/site/IMG_5725-1-1024x757.jpg`, out: 'labo-triaxial', maxW: 1200 },
 ];
 
 // référence muette pour éviter l'avertissement de variable inutilisée

@@ -21,6 +21,24 @@ Optimisées en WebP via `npm run optimize:images` (`scripts/optimize-images.mjs`
 | `labo-echantillon.webp` | `_ressources_claude/labo-echantillon-sol.png` | Laboratoire — échantillon |
 | `logo-safe-geotechnique.jpeg` | `_ressources_claude/logo-safe-geotechnique.jpeg` | Logo SAFE (JPEG basse déf, à remplacer) |
 
+## Photos reprises du site officiel safe-geotechnique.fr (propriété SAFE)
+
+Téléchargées depuis le site officiel de SAFE (leurs propres photos), optimisées
+en WebP. Sources dans `_ressources_claude/site/`.
+
+| Fichier (`src/assets/images/`) | Sujet |
+|--------------------------------|-------|
+| `atelier-450.webp`, `atelier-750.webp` | Ateliers de sondage EMCI 4.50 / 7.50 |
+| `t-carottage.webp` | Carottage |
+| `t-pressiometre.webp` | Essai pressiométrique |
+| `t-piezo.webp` | Pose de piézomètre |
+| `t-cavites.webp` | Recherche de cavités |
+| `t-fondation.webp` | Reconnaissance de fondations |
+| `e-gtr / e-granulo / e-sedimento / e-vbs / e-atterberg / e-proctor / e-cisaillement / e-volumique .webp` | Essais de laboratoire |
+| `labo-triaxial.webp` | Cellule d'essai triaxial (IMG_5725) |
+
+Écartées : vue satellite « background-mission-G1 » (cartographie) et `section1`.
+
 ## À améliorer
 
 - Fournir davantage de **photos SAFE** (pressiomètre, piézomètre, carottes,

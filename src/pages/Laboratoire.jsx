@@ -19,44 +19,37 @@ const atouts = [
   { icon: 'gauge', t: 'Des délais maîtrisés', d: 'Laboratoire interne : nous gardons la main sur les délais de vos projets.' },
 ];
 
-import laboEchantillon from '../assets/images/labo-echantillon.webp';
-import laboProctor from '../assets/images/labo-proctor.webp';
-import laboPresse from '../assets/images/labo-presse.webp';
+import imgGtr from '../assets/images/e-gtr.webp';
+import imgGranulo from '../assets/images/e-granulo.webp';
+import imgAtterberg from '../assets/images/e-atterberg.webp';
+import imgVbs from '../assets/images/e-vbs.webp';
+import imgVolumique from '../assets/images/e-volumique.webp';
+import imgProctor from '../assets/images/e-proctor.webp';
+import imgCisaillement from '../assets/images/e-cisaillement.webp';
+import imgTriaxial from '../assets/images/labo-triaxial.webp';
 
 const identification = [
-  ['Classification GTR', "classe le sol selon sa nature et indique s'il est réemployable en remblai."],
-  ['Granulométrie & sédimentométrie', 'mesurent la répartition des tailles de grains, du sable aux fines (≤ 80 µm).'],
-  ['Limites d’Atterberg', 'situent les seuils de plasticité et révèlent la sensibilité au retrait-gonflement des argiles.'],
-  ['Valeur au bleu du sol (VBS)', "quantifie l'argilosité du sol, déterminante pour son comportement à l'eau."],
-  ['Teneur en eau & masse volumique', "décrivent l'état hydrique du sol et la densité des éléments de roche."],
+  { img: imgGtr, t: 'Classification GTR', d: "Classe le sol selon sa nature et indique s'il est réemployable en remblai." },
+  { img: imgGranulo, t: 'Granulométrie & sédimentométrie', d: 'Mesurent la répartition des tailles de grains, du sable aux fines (≤ 80 µm).' },
+  { img: imgAtterberg, t: 'Limites d’Atterberg', d: 'Situent les seuils de plasticité et révèlent la sensibilité au retrait-gonflement des argiles.' },
+  { img: imgVbs, t: 'Valeur au bleu du sol (VBS)', d: "Quantifie l'argilosité du sol, déterminante pour son comportement à l'eau." },
+  { img: imgVolumique, t: 'Teneur en eau & masse volumique', d: "Décrivent l'état hydrique du sol et la densité des éléments de roche." },
 ];
 const mecaniques = [
-  ['Proctor + IPI', "définissent la teneur en eau optimale de compactage et la portance immédiate d'un matériau."],
-  ['Cisaillement à la boîte (Casagrande)', "donne la cohésion et l'angle de frottement, sous une sollicitation simple."],
-  ['Essais triaxiaux (UU, CU+u, CD)', "mesurent cohésion, angle de frottement interne et dilatance dans des conditions de drainage maîtrisées."],
+  { img: imgProctor, t: 'Proctor + IPI', d: "Définissent la teneur en eau optimale de compactage et la portance immédiate d'un matériau." },
+  { img: imgCisaillement, t: 'Cisaillement à la boîte (Casagrande)', d: "Donne la cohésion et l'angle de frottement, sous une sollicitation simple." },
+  { img: imgTriaxial, t: 'Essais triaxiaux (UU, CU+u, CD)', d: 'Mesurent cohésion, angle de frottement interne et dilatance dans des conditions de drainage maîtrisées.' },
 ];
 
-const gallery = [
-  [laboEchantillon, 'Préparation des échantillons', "Préparation d'un échantillon de sol"],
-  [laboProctor, 'Compactage (Proctor + IPI)', 'Essai de compactage Proctor'],
-  [laboPresse, 'Essais mécaniques', 'Essai mécanique sur échantillon'],
-];
-
-function EssaisCard({ label, intro, items, note, divider }) {
+function EssaiItem({ img, t, d }) {
   return (
-    <div className={divider ? 'lg:border-l lg:border-line lg:pl-[clamp(1.5rem,3vw,3rem)]' : ''}>
-      <p className="label mb-3">{label}</p>
-      <p className="text-slate mb-5">{intro}</p>
-      <dl className="grid gap-4">
-        {items.map(([t, d]) => (
-          <div key={t} className="border-t border-line pt-3">
-            <dt className="font-semibold text-ink">{t}</dt>
-            <dd className="text-slate text-[0.95rem] mt-0.5">{d}</dd>
-          </div>
-        ))}
-      </dl>
-      {note && <p className="note mt-5 text-[0.92rem]">{note}</p>}
-    </div>
+    <Reveal as="article">
+      <figure className="rounded-xl2 overflow-hidden shadow-sfsm mb-4">
+        <img src={img} alt={t} className="w-full object-cover aspect-[4/3]" loading="lazy" />
+      </figure>
+      <h3 className="text-[1.08rem] mb-1.5">{t}</h3>
+      <p className="text-slate text-[0.95rem]">{d}</p>
+    </Reveal>
   );
 }
 
@@ -72,37 +65,30 @@ export default function Laboratoire() {
         intro="En laboratoire, chaque échantillon prélevé devient une donnée exploitable. Nos essais permettent d'abord d'identifier le sol (sa nature, son état), puis de mesurer sa résistance mécanique."
       />
 
-      {/* Galerie */}
+      {/* Identification */}
       <section className="section">
         <div className="container-safe">
-          <div className="grid gap-4 sm:grid-cols-3 mb-[clamp(2rem,4vw,3rem)]">
-            {gallery.map(([src, cap, alt], i) => (
-              <Reveal key={cap} delay={i * 70}>
-                <figure className="rounded-xl2 overflow-hidden shadow-sfmd bg-white">
-                  <img src={src} alt={alt} className="w-full object-cover aspect-[4/3]" loading="lazy" />
-                  <figcaption className="px-4 py-3 text-[0.88rem] font-medium text-ink">{cap}</figcaption>
-                </figure>
-              </Reveal>
-            ))}
+          <Reveal className="max-w-[700px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label mb-3">Identification & état</p>
+            <h2>Connaître le sol avant tout calcul</h2>
+            <p className="text-slate mt-4 text-[1.05rem]">Sa composition, sa teneur en argile et son rapport à l'eau conditionnent toute la suite de l'étude.</p>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
+            {identification.map((e) => <EssaiItem key={e.t} {...e} />)}
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-[clamp(1.5rem,3vw,2.5rem)] lg:grid-cols-2">
-            <Reveal>
-              <EssaisCard
-                label="Identification & état"
-                intro="Avant tout calcul, il faut connaître le sol : sa composition, sa teneur en argile et son rapport à l'eau. Ces essais conditionnent toute la suite de l'étude."
-                items={identification}
-              />
-            </Reveal>
-            <Reveal delay={120}>
-              <EssaisCard
-                divider
-                label="Résistance mécanique"
-                intro="On mesure ensuite comment le sol se comporte sous charge : sa capacité à supporter un ouvrage et à résister au cisaillement."
-                items={mecaniques}
-                note="Cisaillement de Casagrande et essais triaxiaux mesurent la résistance dans des conditions différentes : nous choisissons l'essai selon le besoin de l'étude."
-              />
-            </Reveal>
+      {/* Résistance mécanique */}
+      <section className="section bg-mist border-y border-line">
+        <div className="container-safe">
+          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label mb-3">Résistance mécanique</p>
+            <h2>Mesurer le comportement sous charge</h2>
+            <p className="text-slate mt-4 text-[1.05rem]">La capacité du sol à supporter un ouvrage et à résister au cisaillement. Cisaillement de Casagrande et essais triaxiaux mesurent cette résistance dans des conditions différentes, choisies selon le besoin de l'étude.</p>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
+            {mecaniques.map((e) => <EssaiItem key={e.t} {...e} />)}
           </div>
         </div>
       </section>
@@ -112,13 +98,13 @@ export default function Laboratoire() {
         title="De l'échantillon au résultat"
         intro="Chaque échantillon suit un parcours maîtrisé, de sa réception au rapport."
         steps={processus}
-        tone="mist"
       />
 
       <Reasons
         label="Pourquoi notre laboratoire"
         title="Un laboratoire au service de vos projets"
         items={atouts}
+        tone="mist"
       />
 
       <CtaBand title="Des échantillons à analyser ?" text="Confiez-nous vos prélèvements ou intégrez le laboratoire à votre mission de reconnaissance des sols." />
