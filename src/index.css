@@ -7,7 +7,7 @@
    ========================================================================== */
 
 @layer base {
-  :root { --header-h: 78px; }
+  :root { --header-h: 88px; }
 
   html {
     scroll-behavior: smooth;

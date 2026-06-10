@@ -19,7 +19,7 @@ export default function Footer() {
       <Decor variant="dark" />
       <div className="relative z-10 container-safe grid gap-[clamp(1.75rem,4vw,2.75rem)] pb-11 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Logo height={46} tone="light" />
+          <Logo height={54} tone="light" />
           <p className="mt-[1.1rem] mb-[1.3rem] text-[#c3b6c6] text-[0.97rem] max-w-[36ch]">
             {COMPANY.baseline}. Sondages, laboratoire et missions géotechniques
             G1 à G5 pour garantir la sécurité de vos projets.

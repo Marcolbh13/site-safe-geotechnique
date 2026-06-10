@@ -30,7 +30,7 @@ export default function Header() {
     >
       <div className="container-safe flex items-center justify-between gap-4" style={{ height: 'var(--header-h)' }}>
         <Link to="/" aria-label="SAFE Géotechnique, accueil" className="shrink-0 inline-flex">
-          <Logo height={44} />
+          <Logo height={62} />
         </Link>
 
         <nav className="hidden xl:block" aria-label="Navigation principale">
