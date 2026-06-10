@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
-import PageHero from '../components/PageHero.jsx';
+import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
+import heroForeuse from '../assets/images/hero-foreuse.webp';
 
 const risque = [
   { icon: 'water', t: 'Le retrait-gonflement', d: 'Les sols argileux gonflent avec l\'eau, puis se rétractent en séchant, au fil des saisons.' },
@@ -58,20 +60,30 @@ export default function LoiElan() {
       <Seo title="Loi ELAN : l'étude de sol obligatoire"
         description="Depuis la loi ELAN, l'étude de sol (G1) est obligatoire pour les terrains à bâtir en zone d'argiles. SAFE Géotechnique réalise votre étude géotechnique préalable." />
 
-      <PageHero
-        label="Loi ELAN"
-        title="L'étude de sol devenue obligatoire"
-        intro="Un projet de construction ou de vente ? Vous souhaitez réaliser une étude de sol G1 ? Depuis le 10 août 2020, la loi ELAN vise à simplifier les normes d'urbanisation en rendant l'étude de sol obligatoire dans certaines zones."
-      >
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem]">
-          <a href={ELAN_GOUV} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-safe-magenta hover:underline underline-offset-2">
-            <Icon name="doc" className="w-[16px] h-[16px]" /> La loi ELAN sur ecologie.gouv.fr
-          </a>
-          <a href={GEORISQUES} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-safe-magenta hover:underline underline-offset-2">
-            <Icon name="map" className="w-[16px] h-[16px]" /> Carte des risques · georisques.gouv.fr
-          </a>
+      {/* HERO dégradé (page plus vivante) */}
+      <section className="relative overflow-hidden bg-safe-gradient text-white">
+        <Decor variant="dark" />
+        <div className="container-safe relative z-10" style={{ paddingBlock: 'clamp(2.75rem,6vw,4.75rem)' }}>
+          <Reveal>
+            <p className="label on-dark mb-4">Loi ELAN</p>
+            <h1 className="text-white max-w-[20ch]">L'étude de sol devenue obligatoire</h1>
+            <p className="mt-5 max-w-[60ch] text-white/90 text-[1.12rem]">
+              Un projet de construction ou de vente ? Vous souhaitez réaliser une
+              étude de sol G1 ? Depuis le 10 août 2020, la loi ELAN rend l'étude
+              de sol obligatoire dans certaines zones argileuses.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link to="/contact" className="btn btn-light">Demander un devis G1 <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link>
+              <a href={ELAN_GOUV} target="_blank" rel="noopener noreferrer" className="btn text-white" style={{ borderColor: 'rgba(255,255,255,.55)' }}>
+                <Icon name="doc" className="w-[18px] h-[18px]" /> La loi ELAN · ecologie.gouv.fr
+              </a>
+              <a href={GEORISQUES} target="_blank" rel="noopener noreferrer" className="btn text-white" style={{ borderColor: 'rgba(255,255,255,.55)' }}>
+                <Icon name="map" className="w-[18px] h-[18px]" /> Carte des risques
+              </a>
+            </div>
+          </Reveal>
         </div>
-      </PageHero>
+      </section>
 
       {/* SUIS-JE CONCERNÉ */}
       <section className="section">
@@ -101,6 +113,20 @@ export default function LoiElan() {
               </div>
             ))}
           </Reveal>
+        </div>
+      </section>
+
+      {/* Bande photo */}
+      <section className="relative">
+        <div className="relative h-[clamp(240px,34vw,380px)] overflow-hidden">
+          <img src={heroForeuse} alt="Sondage de reconnaissance sur un terrain à bâtir" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(110,35,80,.85) 0%, rgba(110,35,80,.35) 55%, rgba(110,35,80,0) 100%)' }} />
+          <div className="container-safe relative h-full flex items-center">
+            <Reveal className="max-w-[540px] text-white">
+              <h2 className="text-white text-[clamp(1.5rem,3vw,2.1rem)]">Une étude adaptée à votre terrain</h2>
+              <p className="mt-3 text-white/90">Nous sondons votre parcelle, caractérisons les sols argileux et remettons le rapport G1 attendu pour la vente.</p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

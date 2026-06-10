@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* ===== QUALITÉ / SÉCURITÉ ===== */}
-      <section className="section bg-mist border-y border-line">
+      <section className="section">
         <div className="container-safe grid lg:grid-cols-[1.2fr_0.8fr] gap-x-[clamp(2rem,5vw,4rem)] gap-y-8 items-center">
           <Reveal>
             <p className="label mb-4">Sécurité &amp; règles de l'art</p>
@@ -201,6 +201,7 @@ export default function Home() {
         title="Comment nous travaillons"
         intro="Une démarche simple et lisible, du premier échange à la remise du rapport."
         steps={methode}
+        tone="mist"
       />
 
       {/* ===== LABORATOIRE (visuel) ===== */}
@@ -312,11 +313,11 @@ export default function Home() {
         <div className="container-safe">
           <Reveal className="max-w-[680px] mb-7">
             <p className="label mb-4">Ils nous font confiance</p>
-            <h2>Des clients publics comme privés</h2>
+            <h2>Nos partenaires & clients</h2>
             <p className="text-slate mt-4">
-              Collectivités, services de l'État et entreprises nous confient la
-              reconnaissance de leurs sols, des grands ouvrages aux projets les
-              plus locaux.
+              Sociétés du groupe, partenaires spécialisés et donneurs d'ordre
+              publics comme privés nous accompagnent, des grands ouvrages aux
+              projets les plus locaux.
             </p>
           </Reveal>
           <ClientsCarousel />

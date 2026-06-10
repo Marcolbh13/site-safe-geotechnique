@@ -1,6 +1,7 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import Decor from '../components/Decor.jsx';
 import DepthScale from '../components/DepthScale.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
@@ -36,6 +37,7 @@ const prestations = [
   { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Un tube crépiné est installé dans le forage pour mesurer le niveau de la nappe. Le suivi saisonnier en révèle les variations (déclaration préalable auprès de l'administration)." },
   { img: imgCavites, t: 'Recherche de cavités souterraines', d: "Pour les terrains exposés aux vides (anciennes carrières, dissolutions), on combine forages destructifs et microgravimétrie afin de localiser et caractériser la géométrie des cavités." },
   { img: imgEchantillon, t: 'Prélèvements environnementaux', d: "Des échantillons de sol et d'eau sont prélevés puis analysés en laboratoire pour évaluer une éventuelle pollution du site." },
+  { img: imgFondation, t: 'Reconnaissance de fondations', d: "Au-delà des terrains à bâtir, nous diagnostiquons les fondations d'ouvrages existants pour en évaluer la nature, la géométrie et la portance, et éclairer vos travaux de reprise ou d'extension." },
 ];
 
 export default function Sondage() {
@@ -50,41 +52,29 @@ export default function Sondage() {
         intro="Nos équipes interviennent directement sur votre site pour identifier et classifier les sols. Chaque technique répond à un objectif précis, du repérage des couches à la mesure de leurs caractéristiques."
       />
 
-      {/* Prestations — liste éditoriale */}
-      <section className="section">
-        <div className="container-safe">
-          <Reveal><p className="label mb-3">Nos prestations</p><h2 className="mb-[clamp(1.5rem,3vw,2.25rem)]">Des techniques adaptées à chaque reconnaissance</h2></Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
+      {/* Prestations — une section par technique (lignes alternées) */}
+      <section className="section relative overflow-hidden">
+        <Decor />
+        <div className="container-safe relative z-10">
+          <Reveal className="max-w-[680px] mb-[clamp(2.5rem,5vw,4rem)]">
+            <p className="label mb-3">Nos prestations</p>
+            <h2>Des techniques adaptées à chaque reconnaissance</h2>
+          </Reveal>
+          <div className="grid gap-[clamp(3rem,6vw,5.5rem)]">
             {prestations.map((p, i) => (
-              <Reveal as="article" key={p.t} delay={(i % 3) * 80}>
-                <figure className="rounded-xl2 overflow-hidden shadow-sfsm mb-4">
-                  <img src={p.img} alt={p.t} className="w-full object-cover aspect-[4/3]" loading="lazy" />
+              <Reveal as="article" key={p.t}
+                className="grid items-center gap-[clamp(1.5rem,4vw,3.5rem)] md:grid-cols-2">
+                <figure className={`rounded-xl2 overflow-hidden shadow-sfmd ${i % 2 ? 'md:order-2' : ''}`}>
+                  <img src={p.img} alt={p.t} className="w-full object-cover aspect-[16/10]" loading="lazy" />
                 </figure>
-                <h3 className="text-[1.12rem] mb-1.5">{p.t}</h3>
-                <p className="text-slate text-[0.95rem]">{p.d}</p>
+                <div>
+                  <span className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-safe-magenta">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="text-[clamp(1.3rem,2.4vw,1.7rem)] mt-1 mb-3">{p.t}</h3>
+                  <p className="text-slate text-[1.02rem] max-w-[56ch]">{p.d}</p>
+                </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Reconnaissance de fondations — bande image + texte */}
-      <section className="section-tight">
-        <div className="container-safe grid items-center gap-[clamp(1.75rem,4vw,3.5rem)] md:grid-cols-2">
-          <Reveal className="order-last md:order-first">
-            <figure className="rounded-xl2 overflow-hidden shadow-sfmd">
-              <img src={imgFondation} alt="Reconnaissance de fondations d'un ouvrage existant" className="w-full object-cover aspect-[16/10]" loading="lazy" />
-            </figure>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="label mb-3">Ouvrages existants</p>
-            <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Reconnaissance de fondations</h2>
-            <p className="text-slate mt-4 max-w-[58ch]">
-              Au-delà des terrains à bâtir, nous diagnostiquons les fondations
-              d'ouvrages existants pour en évaluer la nature, la géométrie et la
-              portance, et éclairer vos travaux de reprise ou d'extension.
-            </p>
-          </Reveal>
         </div>
       </section>
 
