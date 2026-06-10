@@ -60,27 +60,33 @@ export default function Missions() {
                   <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted">{m.phase}</span>
                 </div>
 
-                <p className="border-l-2 border-safe-magenta/50 pl-4 text-ink text-[1.05rem] mb-3">
+                <p className="border-l-2 border-safe-magenta/50 pl-4 text-ink text-[1.05rem] mb-1">
                   <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-safe-magenta block mb-0.5">En clair</span>
                   {m.plain}
                 </p>
+                <p className="font-mono text-[0.78rem] text-muted mt-2">À la charge : <span className="text-safe-magenta">{m.charge}</span></p>
 
-                <p className="text-slate max-w-[75ch]">{m.detail}</p>
-
-                {m.steps.length > 0 && (
-                  <ul className="grid sm:grid-cols-2 gap-x-[clamp(1.5rem,4vw,3rem)] mt-4">
-                    {m.steps.map((s) => (
-                      <li key={s.t} className="border-t border-line py-3">
-                        <span className="flex items-center gap-2 font-semibold text-ink mb-0.5">
-                          <Icon name="check" className="w-[17px] h-[17px] text-safe-magenta shrink-0" /> {s.t}
-                        </span>
-                        <span className="block text-slate text-[0.93rem]">{s.d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                <p className="font-mono text-[0.78rem] text-muted mt-4">À la charge : <span className="text-safe-magenta">{m.charge}</span></p>
+                <details className="group mt-3">
+                  <summary className="inline-flex items-center gap-2 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-bold text-safe-magenta text-[0.95rem] select-none">
+                    En savoir plus
+                    <Icon name="arrow" className="w-[16px] h-[16px] rotate-90 transition-transform group-open:rotate-[270deg]" />
+                  </summary>
+                  <div className="mt-3 animate-fade-up">
+                    <p className="text-slate max-w-[75ch]">{m.detail}</p>
+                    {m.steps.length > 0 && (
+                      <ul className="grid sm:grid-cols-2 gap-x-[clamp(1.5rem,4vw,3rem)] mt-4">
+                        {m.steps.map((s) => (
+                          <li key={s.t} className="border-t border-line py-3">
+                            <span className="flex items-center gap-2 font-semibold text-ink mb-0.5">
+                              <Icon name="check" className="w-[17px] h-[17px] text-safe-magenta shrink-0" /> {s.t}
+                            </span>
+                            <span className="block text-slate text-[0.93rem]">{s.d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </details>
               </Reveal>
             ))}
           </ol>

@@ -30,12 +30,12 @@ const garanties = [
 ];
 
 const prestations = [
-  { img: heroForeuse, t: 'Forage destructif et semi-destructif', d: "Reconnaissance rapide de la stratigraphie et des horizons traversés, pour dresser la coupe du sol." },
-  { img: imgCarottage, t: 'Carottage', d: 'Prélèvement de carottes intactes : observation lithologique et sélection des échantillons pour le laboratoire.' },
-  { img: imgPressio, t: 'Essai pressiométrique', d: 'Mesure in situ des caractéristiques géomécaniques des sols, base des calculs de dimensionnement.' },
-  { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Mesure du niveau des eaux souterraines et prélèvements, avec suivi saisonnier (déclaration préalable auprès de l'administration)." },
-  { img: imgCavites, t: 'Recherche de cavités souterraines', d: 'Forages destructifs et études microgravimétriques pour localiser et caractériser la géométrie des vides.' },
-  { img: imgEchantillon, t: 'Prélèvements environnementaux', d: 'Évaluation de la pollution des sols et des eaux ; échantillons analysés en laboratoire.' },
+  { img: heroForeuse, t: 'Forage destructif et semi-destructif', d: "Le forage progresse en broyant le terrain. En semi-destructif, les débris remontés restent analysables. Rapide, il établit la coupe du sol — la succession des couches — et repère la profondeur des horizons rencontrés." },
+  { img: imgCarottage, t: 'Carottage', d: "On prélève des carottes de sol intactes, sous forme de cylindres continus. Elles permettent d'observer le terrain dans sa structure réelle et de sélectionner les échantillons à tester en laboratoire." },
+  { img: imgPressio, t: 'Essai pressiométrique', d: "Réalisé directement dans le forage, il mesure comment le sol se déforme sous pression. Ses résultats alimentent les calculs de portance et de tassement des fondations." },
+  { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Un tube crépiné est installé dans le forage pour mesurer le niveau de la nappe. Le suivi saisonnier en révèle les variations (déclaration préalable auprès de l'administration)." },
+  { img: imgCavites, t: 'Recherche de cavités souterraines', d: "Pour les terrains exposés aux vides (anciennes carrières, dissolutions), on combine forages destructifs et microgravimétrie afin de localiser et caractériser la géométrie des cavités." },
+  { img: imgEchantillon, t: 'Prélèvements environnementaux', d: "Des échantillons de sol et d'eau sont prélevés puis analysés en laboratoire pour évaluer une éventuelle pollution du site." },
 ];
 
 export default function Sondage() {

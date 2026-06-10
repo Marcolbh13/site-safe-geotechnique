@@ -4,6 +4,7 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import Reasons from '../components/Reasons.jsx';
 import Decor from '../components/Decor.jsx';
+import FranceMap from '../components/FranceMap.jsx';
 import { COMPANY } from '../data/site.js';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 
@@ -115,21 +116,22 @@ export default function Contact() {
       {/* Zone d'intervention */}
       <section className="section relative overflow-hidden">
         <Decor />
-        <div className="container-safe relative z-10 grid gap-[clamp(1.5rem,4vw,3rem)] lg:grid-cols-[0.8fr_1.2fr] items-start">
-          <Reveal>
-            <p className="label mb-4">Zone d'intervention</p>
-            <h2>Hauts-de-France et alentours</h2>
+        <div className="container-safe relative z-10 grid gap-[clamp(1.5rem,5vw,3.5rem)] lg:grid-cols-[0.7fr_1.3fr] items-center">
+          <Reveal className="flex flex-col items-center">
+            <FranceMap className="w-full max-w-[240px] h-auto" />
+            <p className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-muted mt-3 text-center">Base Hauts-de-France · toute la France</p>
           </Reveal>
-          <Reveal delay={120} className="text-slate text-[1.05rem] max-w-[64ch]">
-            <p>
-              Basés à <strong className="text-ink">Fretin</strong> ({COMPANY.address}),
-              nous intervenons sur l'ensemble des Hauts-de-France et les
-              départements limitrophes, des grands ouvrages aux projets les plus
-              locaux. Nous nous déplaçons selon la nature et l'ampleur de votre
-              opération.
+          <Reveal delay={120}>
+            <p className="label mb-3">Zone d'intervention</p>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)]">Basés dans les Hauts-de-France, nous intervenons dans toute la France</h2>
+            <p className="text-slate mt-4 text-[1.05rem] max-w-[64ch]">
+              Notre siège est à <strong className="text-ink">Fretin</strong> ({COMPANY.address}),
+              au cœur des Hauts-de-France. De là, nous nous déplaçons sur
+              l'ensemble du territoire national, des grands ouvrages aux projets
+              les plus locaux, selon la nature et l'ampleur de votre opération.
             </p>
-            <p className="mt-4">
-              Un doute sur notre secteur d'intervention ?{' '}
+            <p className="text-slate mt-3">
+              Un doute sur un déplacement ?{' '}
               <a href={COMPANY.phoneHref} className="text-safe-magenta font-semibold">{COMPANY.phone}</a>.
             </p>
           </Reveal>

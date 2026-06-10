@@ -42,6 +42,16 @@ page 404. Anciennes URLs redirigées (`/expertise`, `/missions-g1-a-g5`,
 - **Missions G1 à G5** : explications reprises du site officiel et reformulées
   pour rester techniques mais accessibles (bloc « En clair » + détail + phases).
 
+## Équipe & visuels à fournir
+
+- **Photos de l'équipe** (section « Qui sommes-nous ? » de l'accueil) : Cyrille
+  Le Bihan (Président), Jérôme Hochard (Directeur), Aurélie Moitel (Chargée
+  d'affaires). Emplacements prêts (initiales en attendant) — fournir les portraits.
+- **Carte « zone d'intervention »** (page Contact) : visuel stylisé (l'Hexagone +
+  base Hauts-de-France). Si tu veux les **logos officiels** Région Hauts-de-France
+  / République française, fournis-les (droits d'usage à confirmer) et je les
+  intègre à la place.
+
 ## Contenu repris du site officiel (fiable)
 
 - **Accroche** : « Bureau d'études en géotechnique ».

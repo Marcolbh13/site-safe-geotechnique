@@ -7,7 +7,7 @@ import ClientsCarousel from '../components/ClientsCarousel.jsx';
 import Decor from '../components/Decor.jsx';
 import Reasons from '../components/Reasons.jsx';
 import Steps from '../components/Steps.jsx';
-import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP, SAFOR } from '../data/site.js';
+import { COMPANY, QUALIFS, MISSIONS, PARTNERS, GROUP, SAFOR, TEAM } from '../data/site.js';
 
 const reasons = [
   { icon: 'layers', t: 'Une chaîne intégrée', d: 'Sondage, laboratoire et ingénierie réunis : la donnée de terrain reste cohérente jusqu\'à la recommandation.' },
@@ -225,6 +225,33 @@ export default function Home() {
             </ul>
             <div className="mt-7"><Link to="/laboratoire" className="btn btn-ghost">Le laboratoire en détail <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link></div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ===== QUI SOMMES-NOUS (équipe) ===== */}
+      <section className="section relative overflow-hidden bg-mist border-y border-line">
+        <Decor />
+        <div className="container-safe relative z-10">
+          <Reveal className="max-w-[700px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label mb-4">Qui sommes-nous ?</p>
+            <h2>Une équipe à taille humaine</h2>
+            <p className="text-slate mt-4 text-[1.05rem]">
+              Derrière SAFE Géotechnique, des femmes et des hommes qui suivent
+              vos projets de bout en bout, de la direction au terrain.
+            </p>
+          </Reveal>
+          <div className="grid gap-x-[clamp(1.5rem,4vw,3rem)] gap-y-8 sm:grid-cols-3 max-w-[860px]">
+            {TEAM.map((p, i) => (
+              <Reveal key={p.name} delay={i * 90}>
+                {/* emplacement photo (initiales en attendant la vraie photo) */}
+                <div className="aspect-[4/5] rounded-xl2 mb-4 grid place-items-center bg-safe-soft border border-line overflow-hidden">
+                  <span className="font-mono font-bold text-[2.2rem] text-safe-magenta/65">{p.initials}</span>
+                </div>
+                <h3 className="text-[1.15rem]">{p.name}</h3>
+                <p className="text-safe-magenta font-semibold text-[0.95rem]">{p.role}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

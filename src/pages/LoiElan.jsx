@@ -21,6 +21,7 @@ const accompagnement = [
 ];
 
 const GEORISQUES = 'https://www.georisques.gouv.fr/';
+const ELAN_GOUV = 'https://www.ecologie.gouv.fr/politiques-publiques/loi-portant-evolution-du-logement-lamenagement-du-numerique-elan';
 
 const reperes = [
   { t: 'Une étude de type G1', d: "L'étude géotechnique préalable (mission G1) identifie les risques liés au sol avant la construction." },
@@ -61,7 +62,16 @@ export default function LoiElan() {
         label="Loi ELAN"
         title="L'étude de sol devenue obligatoire"
         intro="Un projet de construction ou de vente ? Vous souhaitez réaliser une étude de sol G1 ? Depuis le 10 août 2020, la loi ELAN vise à simplifier les normes d'urbanisation en rendant l'étude de sol obligatoire dans certaines zones."
-      />
+      >
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem]">
+          <a href={ELAN_GOUV} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-safe-magenta hover:underline underline-offset-2">
+            <Icon name="doc" className="w-[16px] h-[16px]" /> La loi ELAN sur ecologie.gouv.fr
+          </a>
+          <a href={GEORISQUES} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-safe-magenta hover:underline underline-offset-2">
+            <Icon name="map" className="w-[16px] h-[16px]" /> Carte des risques · georisques.gouv.fr
+          </a>
+        </div>
+      </PageHero>
 
       {/* SUIS-JE CONCERNÉ */}
       <section className="section">

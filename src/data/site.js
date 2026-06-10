@@ -20,6 +20,13 @@ export const NAV = [
 
 export const QUALIFS = ['AIPR', 'H0B0', 'SST'];
 
+// Équipe (photos à fournir). Ordre hiérarchique : direction puis affaires.
+export const TEAM = [
+  { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL' },
+  { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH' },
+  { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM' },
+];
+
 import foretudeLogo from '../assets/logos/foretude.svg';
 import stpaLogo from '../assets/logos/stpa.webp';
 import sftpLogo from '../assets/logos/sftp.webp';
