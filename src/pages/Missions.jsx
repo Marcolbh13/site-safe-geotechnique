@@ -4,7 +4,7 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
-import heroForeuse from '../assets/images/hero-foreuse.webp';
+import bandMissions from '../assets/images/labo-proctor.webp';
 import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
@@ -46,8 +46,8 @@ export default function Missions() {
       />
 
       <PhotoBand
-        image={heroForeuse}
-        alt="Atelier de sondage SAFE en reconnaissance des sols"
+        image={bandMissions}
+        alt="Technicien SAFE réalisant un essai géotechnique au laboratoire"
         label="Du préalable au diagnostic"
         title="Une mission adaptée à chaque étape de votre projet"
       >

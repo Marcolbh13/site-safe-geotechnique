@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
-import camionSafe from '../assets/images/foreuse-camion-safe.webp';
+import bandRecrut from '../assets/images/labo-echantillon.webp';
 import { COMPANY } from '../data/site.js';
 import { sendForm, fileToCv } from '../lib/send.js';
 
@@ -66,8 +66,8 @@ export default function Recrutement() {
       <Reasons label="Pourquoi nous rejoindre" title="Travailler chez SAFE Géotechnique" items={atouts} tone="mist" />
 
       <PhotoBand
-        image={camionSafe}
-        alt="Atelier et véhicule SAFE Géotechnique sur un chantier"
+        image={bandRecrut}
+        alt="Préparation d'un échantillon de sol au laboratoire SAFE"
         label="Nos métiers"
         title="Du terrain au laboratoire, des parcours qui ont du sens"
       >

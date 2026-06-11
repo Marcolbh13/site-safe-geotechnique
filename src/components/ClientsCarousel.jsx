@@ -37,7 +37,7 @@ const LOGOS = [
 export default function ClientsCarousel() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <div className="bg-white border-y border-line py-9" aria-label="Nos partenaires et clients">
+    <div className="py-9" aria-label="Nos partenaires et clients">
       <div className="marquee">
         <ul className="marquee__track list-none p-0 items-center">
           {doubled.map((l, i) => (

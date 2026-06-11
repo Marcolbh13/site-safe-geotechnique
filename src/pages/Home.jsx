@@ -356,7 +356,11 @@ export default function Home() {
                   className="group flex items-center gap-5 py-6 border-t border-line">
                   <div className="w-[140px] shrink-0 flex items-center justify-center">
                     {p.logo
-                      ? <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-12 max-w-[140px] w-auto object-contain" loading="lazy" />
+                      ? (p.chip
+                          ? <span className="inline-flex items-center justify-center bg-white rounded-xl2 border border-line shadow-sfsm px-4 py-3">
+                              <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-10 max-w-[110px] w-auto object-contain" loading="lazy" />
+                            </span>
+                          : <img src={p.logo} alt={`Logo ${p.nom}`} className="max-h-12 max-w-[140px] w-auto object-contain" loading="lazy" />)
                       : <span className="font-extrabold text-[1.3rem] tracking-tight text-ink">{p.nom}</span>}
                   </div>
                   <div className="flex-1">

@@ -8,7 +8,7 @@ import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
-import heroForeuse from '../assets/images/hero-foreuse.webp';
+import bandLoiElan from '../assets/images/atelier-450.webp';
 
 const risque = [
   { icon: 'water', t: 'Le retrait-gonflement', d: 'Les sols argileux gonflent avec l\'eau, puis se rétractent en séchant, au fil des saisons.' },
@@ -125,7 +125,7 @@ export default function LoiElan() {
       {/* Bande photo */}
       <section className="relative">
         <div className="relative h-[clamp(240px,34vw,380px)] overflow-hidden">
-          <img src={heroForeuse} alt="Sondage de reconnaissance sur un terrain à bâtir" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <img src={bandLoiElan} alt="Atelier de sondage SAFE sur un terrain à bâtir" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(110,35,80,.85) 0%, rgba(110,35,80,.35) 55%, rgba(110,35,80,0) 100%)' }} />
           <div className="container-safe relative h-full flex items-center">
             <Reveal className="max-w-[540px] text-white">

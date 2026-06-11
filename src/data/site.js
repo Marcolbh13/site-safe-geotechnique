@@ -57,7 +57,7 @@ export const PARTNERS = [
   { nom: 'Foretude Ingénierie', d: "Bureau d'études spécialisé dans le forage dirigé et les travaux sans tranchée, depuis plus de 15 ans.", url: 'https://www.foretude-ingenierie.fr/', logo: foretudeLogo },
   { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans, société mère du Groupe RESUM.', url: 'https://ftcs-forage.com/', logo: ftcsLogo },
   { nom: 'STPA Forage', d: 'Forage dirigé et tarière, travaux sans tranchée (Groupe RESUM).', url: 'https://www.stpa-forage.fr/', logo: stpaLogo },
-  { nom: 'SFTP Forage', d: 'Sud Forages TP : forage horizontal dirigé et travaux sans tranchée (Groupe RESUM).', url: 'https://www.sftp-forage.com/', logo: sftpLogo },
+  { nom: 'SFTP Forage', d: 'Sud Forages TP : forage horizontal dirigé et travaux sans tranchée (Groupe RESUM).', url: 'https://www.sftp-forage.com/', logo: sftpLogo, chip: true },
 ];
 
 // Missions géotechniques G1 à G5 (référentiel NF P94-500), reformulées pour
