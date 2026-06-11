@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* ===== OUTILS DE CALCUL (logiciels) ===== */}
-      <section className="section relative overflow-hidden bg-safe-soft border-y border-line">
+      <section className="section relative overflow-hidden bg-mist border-y border-line">
         <Decor />
         <div className="container-safe relative z-10">
           <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
@@ -280,15 +280,18 @@ export default function Home() {
       </section>
 
       {/* ===== QUI SOMMES-NOUS (équipe) ===== */}
-      <section className="section relative overflow-hidden bg-mist border-y border-line">
+      <section className="section relative overflow-hidden border-y border-line">
         <Decor />
         <div className="container-safe relative z-10">
-          <Reveal className="max-w-[700px] mb-[clamp(2rem,4vw,3rem)]">
+          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
             <p className="label mb-4">Qui sommes-nous ?</p>
             <h2>Une équipe à taille humaine</h2>
             <p className="text-slate mt-4 text-[1.05rem]">
               Derrière SAFE Géotechnique, des femmes et des hommes qui suivent
-              vos projets de bout en bout, de la direction au terrain.
+              vos projets de bout en bout, de la direction au terrain. Pour les
+              investigations, nous disposons de <strong className="text-ink">trois
+              équipes terrain</strong> qui mènent les sondages et la reconnaissance
+              des sols sur vos chantiers.
             </p>
           </Reveal>
           <div className="grid gap-x-[clamp(1.5rem,4vw,2.5rem)] gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -300,6 +303,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-[1.15rem]">{p.name}</h3>
                 <p className="text-safe-magenta font-semibold text-[0.95rem]">{p.role}</p>
+                <p className="text-slate text-[0.9rem] mt-1.5">{p.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -307,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* ===== GROUPE / SAFOR / PARTENAIRES ===== */}
-      <section className="section relative overflow-hidden">
+      <section className="section relative overflow-hidden bg-mist border-y border-line">
         <Decor />
         <div className="container-safe relative z-10">
           <Reveal className="max-w-[720px] mb-[clamp(1.75rem,4vw,2.5rem)]">
@@ -359,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* ===== CLIENTS (carousel) ===== */}
-      <section className="bg-mist border-t border-line pt-[clamp(2.5rem,5vw,4rem)] pb-[clamp(2.5rem,5vw,4rem)]">
+      <section className="border-t border-line pt-[clamp(2.5rem,5vw,4rem)] pb-[clamp(2.5rem,5vw,4rem)]">
         <div className="container-safe">
           <Reveal className="max-w-[680px] mb-8">
             <p className="label mb-4">Ils nous font confiance</p>

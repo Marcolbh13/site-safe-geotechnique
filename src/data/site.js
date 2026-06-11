@@ -9,6 +9,10 @@ export const COMPANY = {
   address: '660 rue des Famards, 59273 Fretin',
   // Routage interne des demandes de devis (consigne client) :
   devisEmail: 'lebihan@resum.fr',
+  social: {
+    instagram: 'https://www.instagram.com/safe_geotechnique/',
+    linkedin: 'https://www.linkedin.com/company/groupe-resum/',
+  },
 };
 
 export const NAV = [
@@ -23,10 +27,14 @@ export const QUALIFS = ['AIPR', 'H0B0', 'SST'];
 
 // Équipe (photos à fournir). Ordre hiérarchique : direction puis affaires.
 export const TEAM = [
-  { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL' },
-  { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH' },
-  { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM' },
-  { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ' },
+  { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL',
+    desc: "Définit la stratégie de SAFE Géotechnique et son ancrage dans le Groupe RESUM." },
+  { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH',
+    desc: "Pilote l'activité du bureau d'études et coordonne les opérations au quotidien." },
+  { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM',
+    desc: "Accompagne les clients, du premier contact à la remise du rapport." },
+  { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ',
+    desc: "Conduit les études géotechniques et l'interprétation des essais (missions G1 à G5)." },
 ];
 
 import foretudeLogo from '../assets/logos/foretude.svg';
