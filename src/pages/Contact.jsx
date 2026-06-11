@@ -6,7 +6,7 @@ import Reasons from '../components/Reasons.jsx';
 import Decor from '../components/Decor.jsx';
 import FranceMap from '../components/FranceMap.jsx';
 import { COMPANY } from '../data/site.js';
-import { sendForm, mailtoFallback } from '../lib/send.js';
+import { sendForm } from '../lib/send.js';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 
 const engagements = [
@@ -41,8 +41,7 @@ export default function Contact() {
       setStatus('ok');
       form.reset();
     } catch {
-      mailtoFallback(COMPANY.devisEmail, `Demande de devis · ${fields.Besoin} · ${fields['Nom et prénom']}`, fields);
-      setStatus('mailto');
+      setStatus('error');
     }
   };
 
@@ -109,8 +108,8 @@ export default function Contact() {
               <button type="submit" disabled={status === 'sending'} className="btn btn-primary justify-self-start disabled:opacity-60">
                 {status === 'sending' ? 'Envoi…' : <>Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></>}
               </button>
-              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status" aria-live="polite">Merci ! Votre demande a bien été envoyée.</p>}
-              {status === 'mailto' && <p className="text-[0.92rem] text-slate" role="status" aria-live="polite">Votre logiciel de messagerie s'est ouvert avec votre demande pré-remplie.</p>}
+              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status" aria-live="polite">Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.</p>}
+              {status === 'error' && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="alert">Une erreur est survenue lors de l'envoi. Merci de réessayer, ou de nous appeler au {COMPANY.phone}.</p>}
             </form>
           </Reveal>
         </div>

@@ -1,6 +1,5 @@
 // Envoi des formulaires vers la fonction serverless /api/contact (Resend).
-// Repli automatique en mailto si l'API n'est pas disponible (site statique,
-// fonction non déployée, etc.) pour que le formulaire fonctionne partout.
+// L'e-mail est transféré automatiquement au bon destinataire. Aucun mailto.
 
 export function fileToCv(file) {
   return new Promise((resolve, reject) => {
@@ -24,12 +23,4 @@ export async function sendForm({ type, fields, cv }) {
     throw new Error(detail || `HTTP ${res.status}`);
   }
   return res.json();
-}
-
-export function mailtoFallback(to, subject, fields) {
-  const body = Object.entries(fields)
-    .filter(([, v]) => v != null && String(v).trim() !== '')
-    .map(([k, v]) => `${k} : ${v}`)
-    .join('\n');
-  window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import { COMPANY } from '../data/site.js';
-import { sendForm, fileToCv, mailtoFallback } from '../lib/send.js';
+import { sendForm, fileToCv } from '../lib/send.js';
 
 const RECRUT_EMAIL = 'v.lebihan@ftcs-forage.com';
 const postes = ['Technicien de chantier / sondeur', 'Technicien de laboratoire', 'Ingénieur géotechnicien', 'Foreur', 'Candidature spontanée'];
@@ -46,9 +46,7 @@ export default function Recrutement() {
       setStatus('ok');
       form.reset();
     } catch {
-      // repli : ouvre le client mail (sans la pièce jointe, à rejoindre à la main)
-      mailtoFallback(RECRUT_EMAIL, `Candidature — ${fields['Poste visé']} — ${fields['Nom et prénom']}`, fields);
-      setStatus('mailto');
+      setStatus('error');
     }
   };
 
@@ -108,9 +106,8 @@ export default function Recrutement() {
               <button type="submit" disabled={status === 'sending'} className="btn btn-primary justify-self-start disabled:opacity-60">
                 {status === 'sending' ? 'Envoi…' : <>Envoyer ma candidature <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></>}
               </button>
-              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status">Merci ! Votre candidature a bien été envoyée.</p>}
-              {status === 'mailto' && <p className="text-[0.92rem] text-slate" role="status">Votre logiciel de messagerie s'est ouvert. Pensez à joindre votre CV avant d'envoyer.</p>}
-              {status === 'error' && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="alert">Le CV dépasse 5 Mo. Réduisez-le, ou écrivez-nous directement à {RECRUT_EMAIL}.</p>}
+              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status">Merci ! Votre candidature a bien été envoyée. Nous reviendrons vers vous rapidement.</p>}
+              {status === 'error' && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="alert">L'envoi a échoué (vérifiez que le CV fait moins de 5 Mo). Merci de réessayer, ou de nous écrire à {RECRUT_EMAIL}.</p>}
             </form>
           </Reveal>
         </div>

@@ -19,7 +19,7 @@ export default function Header() {
 
   const linkClass = ({ isActive }) =>
     [
-      'px-3.5 py-2 rounded-lg font-semibold text-[0.97rem] transition-colors',
+      'px-3 py-2 rounded-lg font-semibold text-[0.86rem] whitespace-nowrap transition-colors',
       isActive ? 'text-safe-magenta' : 'text-slate hover:text-safe-magenta hover:bg-mist',
     ].join(' ');
 
@@ -28,13 +28,13 @@ export default function Header() {
       className={`sticky top-0 z-50 border-b transition-shadow ${scrolled ? 'shadow-sfsm border-line' : 'border-transparent'}`}
       style={{ background: 'rgba(255,255,255,.86)', backdropFilter: 'saturate(180%) blur(14px)', WebkitBackdropFilter: 'saturate(180%) blur(14px)' }}
     >
-      <div className="container-safe flex items-center justify-between gap-4" style={{ height: 'var(--header-h)' }}>
+      <div className="container-safe flex items-center justify-between gap-3" style={{ height: 'var(--header-h)' }}>
         <Link to="/" aria-label="SAFE Géotechnique, accueil" className="shrink-0 inline-flex">
-          <Logo height={62} />
+          <Logo height={70} />
         </Link>
 
         <nav className="hidden xl:block" aria-label="Navigation principale">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center flex-nowrap gap-2">
             <li><NavLink to="/" end className={linkClass}>Accueil</NavLink></li>
             {NAV.map((item) => (
               <li key={item.to}><NavLink to={item.to} className={linkClass}>{item.label}</NavLink></li>
@@ -42,11 +42,11 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a href={COMPANY.phoneHref} className="hidden xl:inline-flex items-center gap-2 font-mono text-[0.9rem] font-semibold text-ink hover:text-safe-magenta">
-            <Icon name="phone" className="w-[18px] h-[18px] text-safe-magenta" /> {COMPANY.phone}
+        <div className="flex items-center gap-3 shrink-0">
+          <a href={COMPANY.phoneHref} className="hidden xl:inline-flex items-center gap-2 font-mono text-[0.88rem] font-semibold text-ink hover:text-safe-magenta whitespace-nowrap">
+            <Icon name="phone" className="w-[17px] h-[17px] text-safe-magenta" /> {COMPANY.phone}
           </a>
-          <Link to="/contact" className="btn btn-primary btn-sm hidden sm:inline-flex">Demander un devis</Link>
+          <Link to="/contact" className="btn btn-primary btn-sm hidden sm:inline-flex whitespace-nowrap">Demander un devis</Link>
           <button
             className="xl:hidden grid place-items-center w-11 h-11 rounded-[10px] border border-line bg-white"
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={open} aria-controls="mnav"
