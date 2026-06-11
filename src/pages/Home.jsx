@@ -154,7 +154,7 @@ export default function Home() {
 
       {/* ===== POURQUOI NOUS CHOISIR (réassurance) ===== */}
       <Reasons
-        label="Pourquoi nous choisir"
+        label="Pourquoi nous choisir ?"
         title="La sécurité de vos projets, par une équipe spécialisée"
         intro="Nous réunissons les conditions d'une reconnaissance des sols fiable, du terrain à l'étude."
         items={reasons}
@@ -224,7 +224,7 @@ export default function Home() {
       {/* ===== MÉTHODE ===== */}
       <Steps
         label="Notre méthode"
-        title="Comment nous travaillons"
+        title="Comment nous travaillons ?"
         intro="Une démarche simple et lisible, du premier échange à la remise du rapport."
         steps={methode}
         tone="mist"

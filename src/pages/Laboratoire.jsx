@@ -150,7 +150,7 @@ export default function Laboratoire() {
       />
 
       <Reasons
-        label="Pourquoi notre laboratoire"
+        label="Pourquoi notre laboratoire ?"
         title="Un laboratoire au service de vos projets"
         items={atouts}
         tone="mist"

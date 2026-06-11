@@ -87,7 +87,7 @@ export default function Sondage() {
       {/* Déroulement */}
       <Steps
         label="Le déroulement"
-        title="Comment se déroule un sondage"
+        title="Comment se déroule un sondage ?"
         intro="De la préparation en sécurité à la restitution des données, chaque étape est cadrée."
         steps={deroulement}
         tone="mist"
@@ -147,7 +147,7 @@ export default function Sondage() {
 
       <Reasons
         label="Vos garanties"
-        title="Pourquoi confier vos sondages à SAFE"
+        title="Pourquoi confier vos sondages à SAFE ?"
         items={garanties}
       />
 

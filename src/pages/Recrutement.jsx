@@ -65,7 +65,7 @@ export default function Recrutement() {
         intro="Vous êtes curieux, rigoureux et attiré par le terrain comme par l'analyse ? Découvrez nos métiers et envoyez-nous votre candidature, CV à l'appui."
       />
 
-      <Reasons label="Pourquoi nous rejoindre" title="Travailler chez SAFE Géotechnique" items={atouts} tone="mist" illustration={illRecrutement} illSize="max-w-[340px]" />
+      <Reasons label="Pourquoi nous rejoindre ?" title="Travailler chez SAFE Géotechnique" items={atouts} tone="mist" illustration={illRecrutement} illSize="max-w-[340px]" />
 
       <PhotoBand
         image={bandRecrut}

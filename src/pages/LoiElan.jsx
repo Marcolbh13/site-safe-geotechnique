@@ -149,7 +149,7 @@ export default function LoiElan() {
       {/* ACCOMPAGNEMENT */}
       <Steps
         label="Notre accompagnement"
-        title="Comment SAFE vous accompagne"
+        title="Comment SAFE vous accompagne ?"
         intro="De la prise de contact à la remise du rapport, nous prenons en charge votre étude G1."
         steps={accompagnement}
       />
