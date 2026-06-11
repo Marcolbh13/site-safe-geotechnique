@@ -7,6 +7,7 @@ import Decor from '../components/Decor.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
 import hdfLogo from '../assets/logos/inst-hauts-de-france.webp';
+import illEngagements from '../assets/illustrations/ill-engagements.svg';
 
 // Coordonnées géocodées du siège (rue des Famards, Fretin) — fiables pour le lien et la carte.
 const MAPS_COORDS = '50.5843092,3.1318136';
@@ -145,6 +146,8 @@ export default function Contact() {
         title="Ce que vous pouvez attendre de nous"
         items={engagements}
         tone="mist"
+        illustration={illEngagements}
+        illSize="max-w-[280px]"
       />
 
       {/* Zone d'intervention */}

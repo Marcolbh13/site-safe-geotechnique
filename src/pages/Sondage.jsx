@@ -15,6 +15,7 @@ import imgFondation from '../assets/images/t-fondation.webp';
 import imgEchantillon from '../assets/images/labo-echantillon.webp';
 import atelier450 from '../assets/images/atelier-450.webp';
 import atelier750 from '../assets/images/atelier-750.webp';
+import illTechniques from '../assets/illustrations/ill-techniques.svg';
 
 const deroulement = [
   { t: 'Préparation & déclarations', d: 'Repérage des réseaux (DICT) et organisation de l\'intervention en sécurité.' },
@@ -56,10 +57,15 @@ export default function Sondage() {
       <section className="section relative overflow-hidden">
         <Decor />
         <div className="container-safe relative z-10">
-          <Reveal className="max-w-[680px] mb-[clamp(2.5rem,5vw,4rem)]">
-            <p className="label mb-3">Nos prestations</p>
-            <h2>Des techniques adaptées à chaque reconnaissance</h2>
-          </Reveal>
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-x-10 gap-y-6 items-center mb-[clamp(2.5rem,5vw,4rem)]">
+            <Reveal className="max-w-[680px]">
+              <p className="label mb-3">Nos prestations</p>
+              <h2>Des techniques adaptées à chaque reconnaissance</h2>
+            </Reveal>
+            <Reveal delay={120} className="hidden lg:block">
+              <img src={illTechniques} alt="" aria-hidden="true" className="w-full max-w-[290px] ml-auto" loading="lazy" />
+            </Reveal>
+          </div>
           <div className="grid gap-[clamp(3rem,6vw,5.5rem)]">
             {prestations.map((p, i) => (
               <Reveal as="article" key={p.t}

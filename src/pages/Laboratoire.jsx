@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import imgPresse from '../assets/images/labo-presse.webp';
 import illLaboratoire from '../assets/illustrations/ill-laboratoire.svg';
+import illResistance from '../assets/illustrations/ill-resistance.svg';
+import illProcessus from '../assets/illustrations/ill-processus.svg';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
@@ -102,11 +104,16 @@ export default function Laboratoire() {
       {/* Résistance mécanique */}
       <section className="section bg-mist border-y border-line">
         <div className="container-safe">
-          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label mb-3">Résistance mécanique</p>
-            <h2>Mesurer le comportement sous charge</h2>
-            <p className="text-slate mt-4 text-[1.05rem]">La capacité du sol à supporter un ouvrage et à résister au cisaillement. Cisaillement de Casagrande et essais triaxiaux mesurent cette résistance dans des conditions différentes, choisies selon le besoin de l'étude.</p>
-          </Reveal>
+          <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-x-10 gap-y-6 items-center mb-[clamp(2rem,4vw,3rem)]">
+            <Reveal className="max-w-[680px]">
+              <p className="label mb-3">Résistance mécanique</p>
+              <h2>Mesurer le comportement sous charge</h2>
+              <p className="text-slate mt-4 text-[1.05rem]">La capacité du sol à supporter un ouvrage et à résister au cisaillement. Cisaillement de Casagrande et essais triaxiaux mesurent cette résistance dans des conditions différentes, choisies selon le besoin de l'étude.</p>
+            </Reveal>
+            <Reveal delay={120} className="hidden lg:block">
+              <img src={illResistance} alt="" aria-hidden="true" className="w-full max-w-[300px] ml-auto" loading="lazy" />
+            </Reveal>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
             {mecaniques.map((e) => <EssaiItem key={e.t} {...e} />)}
           </div>
@@ -118,6 +125,8 @@ export default function Laboratoire() {
         title="De l'échantillon au résultat"
         intro="Chaque échantillon suit un parcours maîtrisé, de sa réception au rapport."
         steps={processus}
+        illustration={illProcessus}
+        illSize="max-w-[300px]"
       />
 
       <Reasons

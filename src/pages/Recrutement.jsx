@@ -7,6 +7,8 @@ import PhotoBand from '../components/PhotoBand.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import bandRecrut from '../assets/images/labo-echantillon.webp';
+import illRecrutement from '../assets/illustrations/ill-recrutement.svg';
+import illCv from '../assets/illustrations/ill-cv.svg';
 import { COMPANY } from '../data/site.js';
 import { sendForm, fileToCv } from '../lib/send.js';
 
@@ -63,7 +65,7 @@ export default function Recrutement() {
         intro="Vous êtes curieux, rigoureux et attiré par le terrain comme par l'analyse ? Découvrez nos métiers et envoyez-nous votre candidature, CV à l'appui."
       />
 
-      <Reasons label="Pourquoi nous rejoindre" title="Travailler chez SAFE Géotechnique" items={atouts} tone="mist" />
+      <Reasons label="Pourquoi nous rejoindre" title="Travailler chez SAFE Géotechnique" items={atouts} tone="mist" illustration={illRecrutement} illSize="max-w-[340px]" />
 
       <PhotoBand
         image={bandRecrut}
@@ -88,6 +90,7 @@ export default function Recrutement() {
               <li className="flex items-center gap-2.5"><Icon name="mail" className="w-[18px] h-[18px] text-safe-magenta" /><a href={`mailto:${RECRUT_EMAIL}`}>{RECRUT_EMAIL}</a></li>
               <li className="flex items-center gap-2.5"><Icon name="phone" className="w-[18px] h-[18px] text-safe-magenta" /><a href={COMPANY.phoneHref} className="font-mono font-semibold">{COMPANY.phone}</a></li>
             </ul>
+            <img src={illCv} alt="" aria-hidden="true" className="hidden lg:block w-full max-w-[240px] mt-9" loading="lazy" />
           </Reveal>
 
           <Reveal delay={120}>

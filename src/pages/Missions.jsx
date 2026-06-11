@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import bandMissions from '../assets/images/labo-proctor.webp';
+import illEnjeux from '../assets/illustrations/ill-enjeux.svg';
 import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
@@ -43,6 +44,8 @@ export default function Missions() {
         intro="Le sol conditionne la tenue de tout ouvrage. L'étude géotechnique le caractérise pour construire sereinement."
         items={enjeux}
         tone="mist"
+        illustration={illEnjeux}
+        illSize="max-w-[260px]"
       />
 
       <PhotoBand

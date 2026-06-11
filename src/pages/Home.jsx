@@ -39,6 +39,9 @@ import laboTriaxial from '../assets/images/labo-triaxial.webp';
 import saforLogo from '../assets/logos/safor.webp';
 import illIngenierie from '../assets/illustrations/ill-ingenierie.svg';
 import illSecurite from '../assets/illustrations/ill-securite.svg';
+import illPourquoi from '../assets/illustrations/ill-pourquoi.svg';
+import illMethode from '../assets/illustrations/ill-methode.svg';
+import illLogiciels from '../assets/illustrations/ill-logiciels.svg';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -155,6 +158,8 @@ export default function Home() {
         title="La sécurité de vos projets, par une équipe spécialisée"
         intro="Nous réunissons les conditions d'une reconnaissance des sols fiable, du terrain à l'étude."
         items={reasons}
+        illustration={illPourquoi}
+        illSize="max-w-[280px]"
       />
 
       {/* ===== MISSIONS G1-G5 (clair) ===== */}
@@ -223,6 +228,8 @@ export default function Home() {
         intro="Une démarche simple et lisible, du premier échange à la remise du rapport."
         steps={methode}
         tone="mist"
+        illustration={illMethode}
+        illSize="max-w-[320px]"
       />
 
       {/* ===== LABORATOIRE (visuel) ===== */}
@@ -254,16 +261,21 @@ export default function Home() {
       <section className="section relative overflow-hidden bg-mist border-y border-line">
         <Decor />
         <div className="container-safe relative z-10">
-          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label mb-4">Nos outils de calcul</p>
-            <h2>Des logiciels d'ingénierie de référence</h2>
-            <p className="mt-4 text-slate text-[1.08rem] max-w-[64ch]">
-              Pour le dimensionnement géotechnique, nous nous appuyons sur la
-              suite <strong className="text-ink">Terrasol</strong> (Setec),
-              référence du calcul en France : fondations, soutènements et
-              stabilité des ouvrages sont vérifiés avec des outils éprouvés.
-            </p>
-          </Reveal>
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-x-10 gap-y-6 items-center mb-[clamp(2rem,4vw,3rem)]">
+            <Reveal className="max-w-[680px]">
+              <p className="label mb-4">Nos outils de calcul</p>
+              <h2>Des logiciels d'ingénierie de référence</h2>
+              <p className="mt-4 text-slate text-[1.08rem] max-w-[64ch]">
+                Pour le dimensionnement géotechnique, nous nous appuyons sur la
+                suite <strong className="text-ink">Terrasol</strong> (Setec),
+                référence du calcul en France : fondations, soutènements et
+                stabilité des ouvrages sont vérifiés avec des outils éprouvés.
+              </p>
+            </Reveal>
+            <Reveal delay={120} className="hidden lg:block">
+              <img src={illLogiciels} alt="" aria-hidden="true" className="w-full max-w-[380px] ml-auto" loading="lazy" />
+            </Reveal>
+          </div>
           <div className="grid md:grid-cols-3 border-t border-line">
             {logiciels.map((l, i) => (
               <Reveal
