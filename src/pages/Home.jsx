@@ -152,33 +152,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== VIDÉO DE PRÉSENTATION ===== */}
-      <section className="section bg-mist border-y border-line">
-        <div className="container-safe">
-          <Reveal className="max-w-[700px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label mb-4">SAFE en vidéo</p>
-            <h2>Découvrez notre métier en images</h2>
-            <p className="text-slate mt-4 text-[1.05rem] max-w-[62ch]">
-              Du sondage sur le terrain aux essais en laboratoire : une courte
-              vidéo pour comprendre ce que fait SAFE Géotechnique.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="relative aspect-video rounded-xl2 overflow-hidden shadow-sflg bg-plum">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube-nocookie.com/embed/AoUUbJXnGEc?rel=0"
-                title="SAFE Géotechnique — vidéo de présentation"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ===== POURQUOI NOUS CHOISIR (réassurance) ===== */}
       <Reasons
         label="Pourquoi nous choisir ?"
@@ -220,6 +193,34 @@ export default function Home() {
             <Link to="/missions" className="btn btn-primary">
               Voir le détail des missions <Icon name="arrow" className="arrow w-[18px] h-[18px]" />
             </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== VIDÉO DE PRÉSENTATION ===== */}
+      <section className="section relative overflow-hidden bg-safe-soft border-y border-line">
+        <Decor />
+        <div className="container-safe relative z-10 grid lg:grid-cols-2 gap-[clamp(1.5rem,4vw,3rem)] items-center">
+          <Reveal>
+            <p className="label mb-4">SAFE en vidéo</p>
+            <h2 className="text-[clamp(1.5rem,3vw,2rem)]">Découvrez notre métier en images</h2>
+            <p className="text-slate mt-4 text-[1.05rem] max-w-[52ch]">
+              Du sondage sur le terrain aux essais en laboratoire : une courte
+              vidéo pour comprendre ce que fait SAFE Géotechnique.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="relative aspect-video rounded-xl2 overflow-hidden shadow-sflg bg-plum">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube-nocookie.com/embed/AoUUbJXnGEc?rel=0"
+                title="SAFE Géotechnique — vidéo de présentation"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </Reveal>
         </div>
       </section>
