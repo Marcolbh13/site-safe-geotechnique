@@ -6,8 +6,12 @@ import Reasons from '../components/Reasons.jsx';
 import Decor from '../components/Decor.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
-import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import hdfLogo from '../assets/logos/inst-hauts-de-france.webp';
+
+const MAPS_QUERY = '660 rue des Famards, 59273 Fretin';
+const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
+// Carte intégrée OpenStreetMap (sans clé ni traceur), centrée sur le siège (Fretin).
+const MAPS_EMBED = 'https://www.openstreetmap.org/export/embed.html?bbox=3.1258%2C50.5803%2C3.1378%2C50.5883&layer=mapnik&marker=50.5843092%2C3.1318136';
 
 const engagements = [
   { icon: 'phone', t: 'Une réponse rapide', d: 'Nous revenons vers vous au plus vite après votre demande.' },
@@ -60,26 +64,46 @@ export default function Contact() {
       </section>
 
       <section className="section">
-        <div className="container-safe grid items-start gap-[clamp(1.75rem,4vw,3rem)] lg:grid-cols-[0.85fr_1.15fr]">
-          <Reveal className="grid gap-7">
-            <InfoBlock icon="pin" title="Adresse">
-              <p className="text-slate">{COMPANY.address}</p>
-              <a className="inline-flex items-center gap-1.5 mt-1.5 font-semibold text-safe-magenta text-[0.92rem]"
-                href="https://www.google.com/maps/search/?api=1&query=660+rue+des+Famards+59273+Fretin"
-                target="_blank" rel="noopener noreferrer">Voir sur la carte <Icon name="arrow" className="w-[15px] h-[15px]" /></a>
-            </InfoBlock>
-            <InfoBlock icon="phone" title="Téléphone">
-              <a className="font-mono font-semibold text-[1.05rem]" href={COMPANY.phoneHref}>{COMPANY.phone}</a>
-            </InfoBlock>
-            <InfoBlock icon="mail" title="E-mail">
-              <a className="font-semibold" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-            </InfoBlock>
-            <figure className="rounded-xl2 overflow-hidden shadow-sfmd mt-1">
-              <img src={camionSafe} alt="Atelier de sondage et véhicule SAFE Géotechnique" className="w-full object-cover aspect-[4/3]" loading="lazy" />
+        <div className="container-safe grid items-start gap-[clamp(1.75rem,4vw,3rem)] lg:grid-cols-[0.82fr_1.18fr]">
+          <Reveal className="grid gap-6 content-start">
+            <ul className="grid list-none p-0 border-t border-line">
+              <li className="flex items-start gap-4 py-4 border-b border-line">
+                <span className="icon-badge shrink-0"><Icon name="pin" /></span>
+                <div>
+                  <p className="font-semibold text-ink">Adresse</p>
+                  <p className="text-slate">{COMPANY.address}</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4 py-4 border-b border-line">
+                <span className="icon-badge shrink-0"><Icon name="phone" /></span>
+                <div>
+                  <p className="font-semibold text-ink">Téléphone</p>
+                  <a className="font-mono font-semibold text-[1.05rem] text-ink hover:text-safe-magenta transition-colors" href={COMPANY.phoneHref}>{COMPANY.phone}</a>
+                </div>
+              </li>
+              <li className="flex items-start gap-4 py-4 border-b border-line">
+                <span className="icon-badge shrink-0"><Icon name="mail" /></span>
+                <div className="min-w-0">
+                  <p className="font-semibold text-ink">E-mail</p>
+                  <a className="font-semibold text-ink hover:text-safe-magenta transition-colors break-words" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+                </div>
+              </li>
+            </ul>
+
+            <figure className="rounded-xl2 overflow-hidden shadow-sfmd border border-line">
+              <iframe
+                title="Localisation de SAFE Géotechnique à Fretin"
+                src={MAPS_EMBED}
+                className="block w-full aspect-[4/3] border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </figure>
+            <a className="btn btn-ghost justify-self-start" href={MAPS_LINK} target="_blank" rel="noopener noreferrer">
+              Ouvrir dans Google Maps <Icon name="arrow" className="arrow w-[16px] h-[16px] -rotate-45" />
+            </a>
           </Reveal>
 
-          {/* Formulaire : mailto par défaut (envoi serveur documenté dans le README). */}
           <Reveal delay={120}>
             <form className="form-card" onSubmit={onSubmit} noValidate>
               <h2 className="text-[1.45rem]">Demander un devis</h2>
@@ -150,15 +174,6 @@ export default function Contact() {
   );
 }
 
-function InfoBlock({ icon, title, children }) {
-  return (
-    <div>
-      <span className="icon-badge mb-2"><Icon name={icon} /></span>
-      <h3 className="mt-1 mb-1 text-[1.1rem]">{title}</h3>
-      {children}
-    </div>
-  );
-}
 function Field({ label, id, name, type = 'text', required, autoComplete, placeholder }) {
   return (
     <div className="field">

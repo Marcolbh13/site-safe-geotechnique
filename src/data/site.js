@@ -26,10 +26,11 @@ export const TEAM = [
   { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL' },
   { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH' },
   { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM' },
-  { name: 'Thomas Znidarsic', role: "Ingénieur chargé d'études", initials: 'TZ' },
+  { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ' },
 ];
 
 import foretudeLogo from '../assets/logos/foretude.svg';
+import ftcsLogo from '../assets/logos/client-ftcs.webp';
 import stpaLogo from '../assets/logos/stpa.webp';
 import sftpLogo from '../assets/logos/sftp.webp';
 import resumLogo from '../assets/logos/resum.svg';
@@ -46,7 +47,7 @@ export const SAFOR = {
 // Partenaires / sociétés du groupe (liens sortants vers leurs sites officiels).
 export const PARTNERS = [
   { nom: 'Foretude Ingénierie', d: "Bureau d'études spécialisé dans le forage dirigé et les travaux sans tranchée, depuis plus de 15 ans.", url: 'https://www.foretude-ingenierie.fr/', logo: foretudeLogo },
-  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans, société mère du Groupe RESUM.', url: 'https://ftcs-forage.com/', logo: null },
+  { nom: 'FTCS Forage', d: 'Spécialiste du forage dirigé et de la tarière depuis plus de 20 ans, société mère du Groupe RESUM.', url: 'https://ftcs-forage.com/', logo: ftcsLogo },
   { nom: 'STPA Forage', d: 'Forage dirigé et tarière, travaux sans tranchée (Groupe RESUM).', url: 'https://www.stpa-forage.fr/', logo: stpaLogo },
   { nom: 'SFTP Forage', d: 'Sud Forages TP : forage horizontal dirigé et travaux sans tranchée (Groupe RESUM).', url: 'https://www.sftp-forage.com/', logo: sftpLogo },
 ];

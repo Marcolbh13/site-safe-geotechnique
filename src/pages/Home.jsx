@@ -23,6 +23,16 @@ const methode = [
   { t: 'Rapport & recommandations', d: 'Nous interprétons les résultats et remettons des recommandations claires et exploitables.' },
 ];
 
+// Logiciels de calcul géotechnique de la suite Terrasol (Setec).
+const logiciels = [
+  { nom: 'FOXTA', url: 'https://terrasol.setec.fr/logiciels/foxta/', phare: true,
+    d: 'Calcul des fondations superficielles et profondes, groupes de pieux, radiers et interactions sol-structure.' },
+  { nom: 'K-REA', url: 'https://terrasol.setec.fr/logiciels/k-rea/',
+    d: 'Dimensionnement des écrans de soutènement : parois, rideaux de palplanches, calcul aux coefficients de réaction.' },
+  { nom: 'TALREN', url: 'https://terrasol.setec.fr/logiciels/talren/',
+    d: 'Analyse de la stabilité des pentes et talus, et des ouvrages en sol renforcé (clouage, soutènements).' },
+];
+
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboTriaxial from '../assets/images/labo-triaxial.webp';
@@ -226,6 +236,50 @@ export default function Home() {
             </ul>
             <div className="mt-7"><Link to="/laboratoire" className="btn btn-ghost">Le laboratoire en détail <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></Link></div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ===== OUTILS DE CALCUL (logiciels) ===== */}
+      <section className="section bg-plum text-white">
+        <div className="container-safe">
+          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
+            <p className="label on-dark mb-4">Nos outils de calcul</p>
+            <h2 className="text-white">Des logiciels d'ingénierie de référence</h2>
+            <p className="mt-4 text-white/80 text-[1.08rem] max-w-[64ch]">
+              Pour le dimensionnement géotechnique, nous nous appuyons sur la
+              suite <strong className="text-white">Terrasol</strong> (Setec),
+              référence du calcul en France : fondations, soutènements et
+              stabilité des ouvrages sont vérifiés avec des outils éprouvés.
+            </p>
+          </Reveal>
+          <div className="grid md:grid-cols-3 border-t border-white/15">
+            {logiciels.map((l, i) => (
+              <Reveal
+                key={l.nom}
+                delay={i * 90}
+                className={
+                  'py-8 md:py-9 border-b border-white/15 ' +
+                  (i > 0
+                    ? 'md:border-b-0 md:border-l md:border-white/15 md:pl-[clamp(1.5rem,3vw,2.75rem)]'
+                    : 'md:border-b-0 md:pr-[clamp(1.5rem,3vw,2.75rem)]')
+                }
+              >
+                <a href={l.url} target="_blank" rel="noopener noreferrer" className="group block">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 className="text-white font-mono tracking-tight text-[1.5rem] transition-colors group-hover:text-safe-rose">{l.nom}</h3>
+                    {l.phare && (
+                      <span className="font-mono text-[0.66rem] uppercase tracking-[0.16em] text-safe-rose border border-safe-rose/45 rounded-full px-2.5 py-1">Logiciel phare</span>
+                    )}
+                  </div>
+                  <p className="text-white/75 text-[0.97rem]">{l.d}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 font-bold text-safe-rose text-[0.95rem]">
+                    Découvrir <Icon name="arrow" className="arrow w-[16px] h-[16px] -rotate-45" />
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+          <p className="text-white/45 text-[0.85rem] mt-6">Les liens ouvrent le site de l'éditeur Terrasol (Setec) dans un nouvel onglet.</p>
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import foretude from '../assets/logos/client-foretude.svg';
-import ftcs from '../assets/logos/client-ftcs.svg';
+import ftcs from '../assets/logos/client-ftcs.webp';
 import nge from '../assets/logos/client-nge.svg';
 import ingeo from '../assets/logos/client-ingeo.svg';
 import enedis from '../assets/logos/client-enedis.svg';
