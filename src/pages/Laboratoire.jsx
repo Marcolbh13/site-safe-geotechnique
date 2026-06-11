@@ -3,7 +3,8 @@ import Reveal from '../components/Reveal.jsx';
 import Icon from '../components/Icon.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
-import imgPresse from '../assets/images/labo-presse.webp';
+import heroLaboratoire from '../assets/images/hero-laboratoire.webp';
+import bandLaboratoire from '../assets/images/band-laboratoire.webp';
 import illLaboratoire from '../assets/illustrations/ill-laboratoire.svg';
 import illResistance from '../assets/illustrations/ill-resistance.svg';
 import illProcessus from '../assets/illustrations/ill-processus.svg';
@@ -90,6 +91,8 @@ export default function Laboratoire() {
         label="Nos activités · Laboratoire"
         title="Identifier les sols par leur nature et leur résistance"
         intro="En laboratoire, chaque échantillon prélevé devient une donnée exploitable. Nos essais permettent d'abord d'identifier le sol (sa nature, son état), puis de mesurer sa résistance mécanique."
+        image={heroLaboratoire}
+        imageAlt="Examen d'échantillons de sol au laboratoire SAFE"
       />
 
       {/* Identification */}
@@ -112,13 +115,13 @@ export default function Laboratoire() {
       </section>
 
       <PhotoBand
-        image={imgPresse}
-        alt="Technicien SAFE réalisant un essai mécanique au laboratoire"
-        label="Au laboratoire"
-        title="Des essais normalisés, conduits par nos techniciens"
+        image={bandLaboratoire}
+        alt="Atelier de sondage SAFE E4.50 en intervention"
+        label="Une chaîne intégrée"
+        title="Du terrain au laboratoire, sans rupture"
       >
-        De la réception de l'échantillon à la mesure, chaque essai suit un
-        protocole maîtrisé, dans notre laboratoire intégré.
+        Les échantillons prélevés sur le terrain par nos équipes rejoignent
+        directement notre laboratoire pour y être identifiés et caractérisés.
       </PhotoBand>
 
       {/* Résistance mécanique */}

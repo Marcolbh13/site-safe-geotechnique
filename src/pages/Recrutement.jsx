@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
-import bandRecrut from '../assets/images/labo-echantillon.webp';
+import bandRecrut from '../assets/images/band-recrutement.webp';
 import illRecrutement from '../assets/illustrations/ill-recrutement.svg';
 import illCv from '../assets/illustrations/ill-cv.svg';
 import { COMPANY } from '../data/site.js';
@@ -69,7 +69,7 @@ export default function Recrutement() {
 
       <PhotoBand
         image={bandRecrut}
-        alt="Préparation d'un échantillon de sol au laboratoire SAFE"
+        alt="Atelier et véhicule SAFE Géotechnique sur un chantier"
         label="Nos métiers"
         title="Du terrain au laboratoire, des parcours qui ont du sens"
       >

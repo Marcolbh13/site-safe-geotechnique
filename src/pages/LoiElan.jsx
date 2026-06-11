@@ -8,7 +8,7 @@ import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
-import bandLoiElan from '../assets/images/atelier-450.webp';
+import bandLoiElan from '../assets/images/band-loielan.webp';
 import illLoiElan from '../assets/illustrations/ill-loielan.svg';
 
 const risque = [

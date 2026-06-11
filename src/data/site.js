@@ -31,7 +31,7 @@ export const TEAM = [
     desc: "Définit la stratégie de SAFE Géotechnique et son ancrage dans le Groupe RESUM." },
   { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH',
     desc: "Pilote l'activité du bureau d'études et coordonne les opérations au quotidien." },
-  { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM',
+  { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM', photo: teamAurelie,
     desc: "Accompagne les clients, du premier contact à la remise du rapport." },
   { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ',
     desc: "Conduit les études géotechniques et l'interprétation des essais (missions G1 à G5)." },
@@ -40,6 +40,7 @@ export const TEAM = [
 ];
 
 import teamMehdi from '../assets/images/team-mehdi.webp';
+import teamAurelie from '../assets/images/team-aurelie.webp';
 import foretudeLogo from '../assets/logos/foretude.svg';
 import ftcsLogo from '../assets/logos/client-ftcs.webp';
 import stpaLogo from '../assets/logos/stpa.webp';

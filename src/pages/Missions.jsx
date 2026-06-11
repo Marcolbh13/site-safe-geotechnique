@@ -4,7 +4,8 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
-import bandMissions from '../assets/images/labo-proctor.webp';
+import heroMissions from '../assets/images/hero-missions.webp';
+import bandMissions from '../assets/images/band-missions.webp';
 import illEnjeux from '../assets/illustrations/ill-enjeux.svg';
 import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
@@ -36,6 +37,8 @@ export default function Missions() {
         label="Ingénierie · Missions G1 à G5"
         title="De l'étude préalable au diagnostic d'ouvrage"
         intro="Nous interprétons les essais et rassemblons les documents géologiques et cartographiques du site pour étudier le comportement mécanique des sols et des roches. La norme structure cette ingénierie en cinq missions : voici, simplement, à quoi sert chacune."
+        image={heroMissions}
+        imageAlt="Observation d'échantillons de sol prélevés sur le terrain"
       />
 
       <Reasons
@@ -50,7 +53,7 @@ export default function Missions() {
 
       <PhotoBand
         image={bandMissions}
-        alt="Technicien SAFE réalisant un essai géotechnique au laboratoire"
+        alt="Atelier de sondage SAFE E4.50 sur le terrain"
         label="Du préalable au diagnostic"
         title="Une mission adaptée à chaque étape de votre projet"
       >

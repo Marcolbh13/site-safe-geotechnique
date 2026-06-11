@@ -16,6 +16,8 @@ import imgEchantillon from '../assets/images/labo-echantillon.webp';
 import atelier450 from '../assets/images/atelier-450.webp';
 import atelier750 from '../assets/images/atelier-750.webp';
 import illTechniques from '../assets/illustrations/ill-techniques.svg';
+import heroSondage from '../assets/images/hero-sondage.webp';
+import bandSondage from '../assets/images/band-sondage.webp';
 
 const deroulement = [
   { t: 'Préparation & déclarations', d: 'Repérage des réseaux (DICT) et organisation de l\'intervention en sécurité.' },
@@ -51,6 +53,8 @@ export default function Sondage() {
         label="Nos activités · Sondage"
         title="Reconnaissance des sols sur le terrain"
         intro="Nos équipes interviennent directement sur votre site pour identifier et classifier les sols. Chaque technique répond à un objectif précis, du repérage des couches à la mesure de leurs caractéristiques."
+        image={heroSondage}
+        imageAlt="Atelier de sondage SAFE E4.50 sur le terrain"
       />
 
       {/* Prestations — une section par technique (lignes alternées) */}
@@ -96,7 +100,7 @@ export default function Sondage() {
       {/* Bande photo terrain */}
       <section className="relative">
         <div className="relative h-[clamp(280px,40vw,460px)] overflow-hidden">
-          <img src={heroForeuse} alt="Atelier de sondage SAFE EMCI en intervention sur un chantier" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <img src={bandSondage} alt="Atelier de sondage SAFE E4.50 en intervention sur un chantier" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(110,35,80,.8) 0%, rgba(110,35,80,.3) 55%, rgba(110,35,80,0) 100%)' }} />
           <div className="container-safe relative h-full flex items-center">
             <Reveal className="max-w-[540px] text-white">
