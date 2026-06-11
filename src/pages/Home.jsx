@@ -36,6 +36,7 @@ const logiciels = [
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboTriaxial from '../assets/images/labo-triaxial.webp';
+import saforLogo from '../assets/logos/safor.webp';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -327,13 +328,18 @@ export default function Home() {
             </p>
           </Reveal>
 
-          {/* SAFOR — lockup ouvert */}
-          <Reveal className="border-l-4 border-safe-magenta/60 pl-5 sm:pl-6 mb-[clamp(2rem,4vw,3rem)]">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-              <span className="font-mono font-bold text-[1.5rem] text-safe-magenta tracking-tight">SAFOR</span>
-              <span className="font-semibold text-ink">SAFE Géotechnique <span className="text-muted font-normal">×</span> Foretude Ingénierie</span>
+          {/* SAFOR — lockup ouvert avec logo */}
+          <Reveal className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 border-l-4 border-safe-magenta/60 pl-5 sm:pl-6 mb-[clamp(2rem,4vw,3rem)]">
+            <span className="shrink-0 inline-flex items-center justify-center bg-white rounded-2xl px-5 py-4 shadow-sfsm self-start sm:self-center">
+              <img src={saforLogo} alt="Logo SAFOR" className="h-[64px] w-auto" />
+            </span>
+            <div>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                <span className="font-mono font-bold text-[1.5rem] text-safe-magenta tracking-tight">SAFOR</span>
+                <span className="font-semibold text-ink">SAFE Géotechnique <span className="text-muted font-normal">×</span> Foretude Ingénierie</span>
+              </div>
+              <p className="text-slate max-w-[72ch]">{SAFOR.d}</p>
             </div>
-            <p className="text-slate max-w-[72ch]">{SAFOR.d}</p>
           </Reveal>
 
           {/* Mur de logos partenaires (sans cadres) */}

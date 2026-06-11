@@ -3,6 +3,8 @@ import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import PhotoBand from '../components/PhotoBand.jsx';
+import heroForeuse from '../assets/images/hero-foreuse.webp';
 import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
@@ -42,6 +44,16 @@ export default function Missions() {
         items={enjeux}
         tone="mist"
       />
+
+      <PhotoBand
+        image={heroForeuse}
+        alt="Atelier de sondage SAFE en reconnaissance des sols"
+        label="Du préalable au diagnostic"
+        title="Une mission adaptée à chaque étape de votre projet"
+      >
+        De l'étude préalable à la supervision des travaux, nous vous accompagnons
+        sur l'ensemble du cycle de vie de l'ouvrage.
+      </PhotoBand>
 
       <section className="section relative overflow-hidden">
         <Decor />

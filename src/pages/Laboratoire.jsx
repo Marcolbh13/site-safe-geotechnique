@@ -1,6 +1,8 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
+import PhotoBand from '../components/PhotoBand.jsx';
+import imgPresse from '../assets/images/labo-presse.webp';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
@@ -80,6 +82,16 @@ export default function Laboratoire() {
           </div>
         </div>
       </section>
+
+      <PhotoBand
+        image={imgPresse}
+        alt="Technicien SAFE réalisant un essai mécanique au laboratoire"
+        label="Au laboratoire"
+        title="Des essais normalisés, conduits par nos techniciens"
+      >
+        De la réception de l'échantillon à la mesure, chaque essai suit un
+        protocole maîtrisé, dans notre laboratoire intégré.
+      </PhotoBand>
 
       {/* Résistance mécanique */}
       <section className="section bg-mist border-y border-line">
