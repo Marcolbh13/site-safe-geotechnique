@@ -37,6 +37,7 @@ import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboTriaxial from '../assets/images/labo-triaxial.webp';
 import saforLogo from '../assets/logos/safor.webp';
+import illIngenierie from '../assets/illustrations/ill-ingenierie.svg';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -158,14 +159,19 @@ export default function Home() {
       {/* ===== MISSIONS G1-G5 (clair) ===== */}
       <section className="section bg-mist border-y border-line">
         <div className="container-safe">
-          <Reveal className="max-w-[720px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label mb-4">Notre expertise au service de votre projet</p>
-            <h2>Les missions géotechniques G1 à G5</h2>
-            <p className="mt-4 text-slate text-[1.08rem] max-w-[62ch]">
-              SAFE Géotechnique vous accompagne tout au long de votre projet, de
-              l'étude préalable jusqu'au diagnostic de l'ouvrage.
-            </p>
-          </Reveal>
+          <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-x-10 gap-y-6 items-center mb-[clamp(2rem,4vw,3rem)]">
+            <Reveal className="max-w-[680px]">
+              <p className="label mb-4">Notre expertise au service de votre projet</p>
+              <h2>Les missions géotechniques G1 à G5</h2>
+              <p className="mt-4 text-slate text-[1.08rem] max-w-[62ch]">
+                SAFE Géotechnique vous accompagne tout au long de votre projet, de
+                l'étude préalable jusqu'au diagnostic de l'ouvrage.
+              </p>
+            </Reveal>
+            <Reveal delay={120} className="hidden lg:block">
+              <img src={illIngenierie} alt="" aria-hidden="true" className="w-full max-w-[360px] ml-auto" loading="lazy" />
+            </Reveal>
+          </div>
           <div className="grid sm:grid-cols-2 gap-x-[clamp(2rem,5vw,4rem)]">
             {MISSIONS.map((m, i) => (
               <Reveal key={m.code} delay={(i % 2) * 70} className="flex gap-5 py-5 border-t border-line">
