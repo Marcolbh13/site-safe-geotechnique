@@ -9,6 +9,7 @@ import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
 import bandLoiElan from '../assets/images/atelier-450.webp';
+import illLoiElan from '../assets/illustrations/ill-loielan.svg';
 
 const risque = [
   { icon: 'water', t: 'Le retrait-gonflement', d: 'Les sols argileux gonflent avec l\'eau, puis se rétractent en séchant, au fil des saisons.' },
@@ -167,6 +168,7 @@ export default function LoiElan() {
               <li className="flex items-center gap-2.5"><Icon name="phone" className="w-[18px] h-[18px] text-safe-magenta" /><a href={COMPANY.phoneHref} className="font-mono font-semibold">{COMPANY.phone}</a></li>
               <li className="flex items-center gap-2.5"><Icon name="mail" className="w-[18px] h-[18px] text-safe-magenta" /><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></li>
             </ul>
+            <img src={illLoiElan} alt="" aria-hidden="true" className="hidden lg:block w-full max-w-[260px] mt-9" loading="lazy" />
           </Reveal>
 
           {/* Formulaire G1 — mailto (envoi serveur documenté dans le README). */}

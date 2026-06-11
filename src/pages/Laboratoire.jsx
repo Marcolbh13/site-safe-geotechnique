@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import imgPresse from '../assets/images/labo-presse.webp';
+import illLaboratoire from '../assets/illustrations/ill-laboratoire.svg';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
@@ -72,11 +73,16 @@ export default function Laboratoire() {
       {/* Identification */}
       <section className="section">
         <div className="container-safe">
-          <Reveal className="max-w-[700px] mb-[clamp(2rem,4vw,3rem)]">
-            <p className="label mb-3">Identification & état</p>
-            <h2>Connaître le sol avant tout calcul</h2>
-            <p className="text-slate mt-4 text-[1.05rem]">Sa composition, sa teneur en argile et son rapport à l'eau conditionnent toute la suite de l'étude.</p>
-          </Reveal>
+          <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-x-10 gap-y-6 items-center mb-[clamp(2rem,4vw,3rem)]">
+            <Reveal className="max-w-[640px]">
+              <p className="label mb-3">Identification & état</p>
+              <h2>Connaître le sol avant tout calcul</h2>
+              <p className="text-slate mt-4 text-[1.05rem]">Sa composition, sa teneur en argile et son rapport à l'eau conditionnent toute la suite de l'étude.</p>
+            </Reveal>
+            <Reveal delay={120} className="hidden lg:block">
+              <img src={illLaboratoire} alt="" aria-hidden="true" className="w-full max-w-[320px] ml-auto" loading="lazy" />
+            </Reveal>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(1.5rem,3vw,2.5rem)] gap-y-[clamp(1.75rem,3vw,2.5rem)]">
             {identification.map((e) => <EssaiItem key={e.t} {...e} />)}
           </div>

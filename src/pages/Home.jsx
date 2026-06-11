@@ -38,6 +38,7 @@ import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 import laboTriaxial from '../assets/images/labo-triaxial.webp';
 import saforLogo from '../assets/logos/safor.webp';
 import illIngenierie from '../assets/illustrations/ill-ingenierie.svg';
+import illSecurite from '../assets/illustrations/ill-securite.svg';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -204,10 +205,13 @@ export default function Home() {
               réseaux existants.
             </p>
           </Reveal>
-          <Reveal delay={120} className="flex flex-wrap gap-x-8 gap-y-2 lg:justify-end">
-            {QUALIFS.map((q) => (
-              <span key={q} className="font-mono font-bold text-safe-magenta text-[1.6rem] tracking-tight">{q}</span>
-            ))}
+          <Reveal delay={120} className="flex flex-col items-center lg:items-end gap-7">
+            <img src={illSecurite} alt="" aria-hidden="true" className="w-full max-w-[250px]" loading="lazy" />
+            <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center lg:justify-end">
+              {QUALIFS.map((q) => (
+                <span key={q} className="font-mono font-bold text-safe-magenta text-[1.6rem] tracking-tight">{q}</span>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
