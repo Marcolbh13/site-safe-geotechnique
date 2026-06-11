@@ -309,9 +309,9 @@ export default function Home() {
       </section>
 
       {/* ===== CLIENTS (carousel) ===== */}
-      <section className="section-tight bg-mist border-y border-line">
+      <section className="bg-mist border-t border-line pt-[clamp(2.5rem,5vw,4rem)] pb-[clamp(2.5rem,5vw,4rem)]">
         <div className="container-safe">
-          <Reveal className="max-w-[680px] mb-7">
+          <Reveal className="max-w-[680px] mb-8">
             <p className="label mb-4">Ils nous font confiance</p>
             <h2>Nos partenaires & clients</h2>
             <p className="text-slate mt-4">
@@ -320,8 +320,8 @@ export default function Home() {
               projets les plus locaux.
             </p>
           </Reveal>
-          <ClientsCarousel />
         </div>
+        <ClientsCarousel />
       </section>
 
       {/* ===== LOI ELAN (bande pleine largeur) ===== */}

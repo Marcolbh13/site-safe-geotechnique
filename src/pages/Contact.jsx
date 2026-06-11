@@ -4,10 +4,10 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import Reasons from '../components/Reasons.jsx';
 import Decor from '../components/Decor.jsx';
-import FranceMap from '../components/FranceMap.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
+import hdfLogo from '../assets/logos/inst-hauts-de-france.webp';
 
 const engagements = [
   { icon: 'phone', t: 'Une réponse rapide', d: 'Nous revenons vers vous au plus vite après votre demande.' },
@@ -127,8 +127,8 @@ export default function Contact() {
         <Decor />
         <div className="container-safe relative z-10 grid gap-[clamp(1.5rem,5vw,3.5rem)] lg:grid-cols-[0.7fr_1.3fr] items-center">
           <Reveal className="flex flex-col items-center">
-            <FranceMap className="w-full max-w-[240px] h-auto" />
-            <p className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-muted mt-3 text-center">Base Hauts-de-France · toute la France</p>
+            <img src={hdfLogo} alt="Région Hauts-de-France" className="w-auto max-h-[150px] h-auto" loading="lazy" />
+            <p className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-muted mt-4 text-center">Base Hauts-de-France · toute la France</p>
           </Reveal>
           <Reveal delay={120}>
             <p className="label mb-3">Zone d'intervention</p>
