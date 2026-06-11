@@ -241,7 +241,7 @@ export default function Home() {
               vos projets de bout en bout, de la direction au terrain.
             </p>
           </Reveal>
-          <div className="grid gap-x-[clamp(1.5rem,4vw,3rem)] gap-y-8 sm:grid-cols-3 max-w-[860px]">
+          <div className="grid gap-x-[clamp(1.5rem,4vw,2.5rem)] gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 90}>
                 {/* emplacement photo (initiales en attendant la vraie photo) */}

@@ -26,6 +26,7 @@ export const TEAM = [
   { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL' },
   { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH' },
   { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM' },
+  { name: 'Thomas Znidarsic', role: "Ingénieur chargé d'études", initials: 'TZ' },
 ];
 
 import foretudeLogo from '../assets/logos/foretude.svg';
