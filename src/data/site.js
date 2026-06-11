@@ -35,8 +35,11 @@ export const TEAM = [
     desc: "Accompagne les clients, du premier contact à la remise du rapport." },
   { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ',
     desc: "Conduit les études géotechniques et l'interprétation des essais (missions G1 à G5)." },
+  { name: 'Mehdi Boumaza', role: 'Technicien de laboratoire', initials: 'MB', photo: teamMehdi,
+    desc: "Prépare les échantillons et réalise les essais d'identification et de résistance au laboratoire." },
 ];
 
+import teamMehdi from '../assets/images/team-mehdi.webp';
 import foretudeLogo from '../assets/logos/foretude.svg';
 import ftcsLogo from '../assets/logos/client-ftcs.webp';
 import stpaLogo from '../assets/logos/stpa.webp';

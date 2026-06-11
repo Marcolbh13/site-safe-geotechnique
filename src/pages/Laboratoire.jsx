@@ -7,6 +7,7 @@ import imgPresse from '../assets/images/labo-presse.webp';
 import illLaboratoire from '../assets/illustrations/ill-laboratoire.svg';
 import illResistance from '../assets/illustrations/ill-resistance.svg';
 import illProcessus from '../assets/illustrations/ill-processus.svg';
+import illLaboAtouts from '../assets/illustrations/ill-labo-atouts.svg';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
@@ -154,6 +155,8 @@ export default function Laboratoire() {
         title="Un laboratoire au service de vos projets"
         items={atouts}
         tone="mist"
+        illustration={illLaboAtouts}
+        illSize="max-w-[300px]"
       />
 
       <CtaBand title="Des échantillons à analyser ?" text="Confiez-nous vos prélèvements ou intégrez le laboratoire à votre mission de reconnaissance des sols." />

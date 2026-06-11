@@ -347,12 +347,14 @@ export default function Home() {
               des sols sur vos chantiers.
             </p>
           </Reveal>
-          <div className="grid gap-x-[clamp(1.5rem,4vw,2.5rem)] gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-[clamp(1.5rem,4vw,2.5rem)] gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
             {TEAM.map((p, i) => (
               <Reveal key={p.name} delay={i * 90}>
-                {/* emplacement photo (initiales en attendant la vraie photo) */}
-                <div className="aspect-[4/5] rounded-xl2 mb-4 grid place-items-center bg-safe-soft border border-line overflow-hidden">
-                  <span className="font-mono font-bold text-[2.2rem] text-safe-magenta/65">{p.initials}</span>
+                {/* photo si disponible, sinon initiales */}
+                <div className="aspect-[4/5] rounded-xl2 mb-4 grid place-items-center bg-white border border-line overflow-hidden">
+                  {p.photo
+                    ? <img src={p.photo} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
+                    : <span className="font-mono font-bold text-[2.2rem] text-safe-magenta/65">{p.initials}</span>}
                 </div>
                 <h3 className="text-[1.15rem]">{p.name}</h3>
                 <p className="text-safe-magenta font-semibold text-[0.95rem]">{p.role}</p>
