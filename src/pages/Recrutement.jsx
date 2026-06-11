@@ -115,7 +115,7 @@ export default function Recrutement() {
                 <textarea id="r-msg" name="message" rows="4" placeholder="Présentez-vous en quelques lignes." />
               </div>
               <div className="field">
-                <label htmlFor="r-cv">CV (PDF, DOC — 5 Mo max)</label>
+                <label htmlFor="r-cv">CV (PDF, DOC, 5 Mo max)</label>
                 <input id="r-cv" name="cv" type="file" accept=".pdf,.doc,.docx" />
               </div>
               <button type="submit" disabled={status === 'sending'} className="btn btn-primary justify-self-start disabled:opacity-60">

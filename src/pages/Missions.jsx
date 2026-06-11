@@ -20,10 +20,10 @@ const enjeux = [
 ];
 
 const moments = [
-  { t: 'Avant le projet — G1', d: 'Première reconnaissance des risques géotechniques du site.' },
-  { t: 'À la conception — G2', d: 'Dimensionnement des ouvrages géotechniques (AVP, PRO, DCE).' },
-  { t: 'Pendant les travaux — G3 / G4', d: 'Étude, suivi et supervision de l\'exécution.' },
-  { t: 'Sur un ouvrage — G5', d: 'Diagnostic ciblé d\'un désordre ou d\'un élément spécifique.' },
+  { t: 'Avant le projet (G1)', d: 'Première reconnaissance des risques géotechniques du site.' },
+  { t: 'À la conception (G2)', d: 'Dimensionnement des ouvrages géotechniques (AVP, PRO, DCE).' },
+  { t: 'Pendant les travaux (G3 / G4)', d: 'Étude, suivi et supervision de l\'exécution.' },
+  { t: 'Sur un ouvrage (G5)', d: 'Diagnostic ciblé d\'un désordre ou d\'un élément spécifique.' },
 ];
 
 export default function Missions() {

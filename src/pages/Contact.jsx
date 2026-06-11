@@ -21,7 +21,7 @@ const engagements = [
   { icon: 'doc', t: 'Un devis adapté', d: 'Une proposition ajustée à votre terrain et à vos contraintes.' },
 ];
 
-const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol – vente de terrain (loi ELAN)', 'Autre demande'];
+const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', 'Mission géotechnique (G1 à G5)', 'Étude de sol pour vente de terrain (loi ELAN)', 'Autre demande'];
 
 export default function Contact() {
   const [status, setStatus] = useState('');

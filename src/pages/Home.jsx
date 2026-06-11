@@ -214,7 +214,7 @@ export default function Home() {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube-nocookie.com/embed/AoUUbJXnGEc?rel=0"
-                title="SAFE Géotechnique — vidéo de présentation"
+                title="SAFE Géotechnique : vidéo de présentation"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
