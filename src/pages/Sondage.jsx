@@ -116,7 +116,7 @@ export default function Sondage() {
             </div>
             <div>
               <p className="label mb-4">Notre matériel</p>
-              <h2 className="text-[clamp(1.6rem,3vw,2.2rem)]">Des ateliers EMCI pour atteindre la bonne profondeur</h2>
+              <h2 className="text-[clamp(1.6rem,3vw,2.2rem)]">Des ateliers pour atteindre la bonne profondeur</h2>
               <p className="text-slate mt-3 mb-6 max-w-[58ch]">
                 Sondages pressiométriques, destructifs et carottés, dans le
                 respect des normes en vigueur. Nous mobilisons l'atelier adapté à
