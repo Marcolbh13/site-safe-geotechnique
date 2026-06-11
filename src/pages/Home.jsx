@@ -41,7 +41,7 @@ import illIngenierie from '../assets/illustrations/ill-ingenierie.svg';
 import illSecurite from '../assets/illustrations/ill-securite.svg';
 import illPourquoi from '../assets/illustrations/ill-pourquoi.svg';
 import illMethode from '../assets/illustrations/ill-methode.svg';
-import illLogiciels from '../assets/illustrations/ill-logiciels.svg';
+import logicielEcran from '../assets/images/logiciel-ecran.webp';
 
 const services = [
   { icon: 'drill', title: 'Sondage', to: '/sondage',
@@ -300,7 +300,9 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={120} className="hidden lg:block">
-              <img src={illLogiciels} alt="" aria-hidden="true" className="w-full max-w-[380px] ml-auto" loading="lazy" />
+              <figure className="ml-auto max-w-[420px] rounded-xl2 overflow-hidden shadow-sfmd border border-line">
+                <img src={logicielEcran} alt="Logiciel d'analyse géotechnique sur un poste de travail SAFE" className="w-full object-cover aspect-[4/3]" loading="lazy" />
+              </figure>
             </Reveal>
           </div>
           <div className="grid md:grid-cols-3 border-t border-line">
