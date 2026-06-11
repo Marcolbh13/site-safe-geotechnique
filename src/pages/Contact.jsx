@@ -8,8 +8,9 @@ import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
 import hdfLogo from '../assets/logos/inst-hauts-de-france.webp';
 
-const MAPS_QUERY = '660 rue des Famards, 59273 Fretin';
-const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
+// Coordonnées géocodées du siège (rue des Famards, Fretin) — fiables pour le lien et la carte.
+const MAPS_COORDS = '50.5843092,3.1318136';
+const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_COORDS)}`;
 // Carte intégrée OpenStreetMap (sans clé ni traceur), centrée sur le siège (Fretin).
 const MAPS_EMBED = 'https://www.openstreetmap.org/export/embed.html?bbox=3.1258%2C50.5803%2C3.1378%2C50.5883&layer=mapnik&marker=50.5843092%2C3.1318136';
 
