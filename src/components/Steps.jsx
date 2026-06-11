@@ -1,8 +1,9 @@
 import Reveal from './Reveal.jsx';
 import Decor from './Decor.jsx';
+import Icon from './Icon.jsx';
 
 // Processus / méthode en étapes numérotées (éditorial, sans boîtes).
-export default function Steps({ label, title, intro, steps, tone, illustration, illSize = 'max-w-[300px]' }) {
+export default function Steps({ label, title, intro, steps, tone, illustration, illSize = 'max-w-[300px]', arrows = false }) {
   return (
     <section className={`section relative overflow-hidden ${tone === 'mist' ? 'bg-mist border-y border-line' : ''}`}>
       <Decor />
@@ -22,7 +23,15 @@ export default function Steps({ label, title, intro, steps, tone, illustration, 
         <ol className="grid gap-x-[clamp(2rem,5vw,3.5rem)] gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <Reveal as="li" key={s.t} delay={i * 70}
-              className={i > 0 ? 'lg:border-l lg:border-line lg:pl-[clamp(1rem,2vw,2rem)]' : ''}>
+              className={`relative ${i > 0 && !arrows ? 'lg:border-l lg:border-line lg:pl-[clamp(1rem,2vw,2rem)]' : ''}`}>
+              {arrows && i > 0 && (
+                <Icon
+                  name="arrow"
+                  aria-hidden="true"
+                  className="hidden lg:block absolute top-1.5 w-[26px] h-[26px] text-safe-magenta/45 -translate-x-1/2"
+                  style={{ left: 'calc(clamp(2rem,5vw,3.5rem) / -2)' }}
+                />
+              )}
               <span className="font-mono font-bold text-[1.7rem] leading-none text-transparent bg-clip-text bg-safe-gradient">
                 {String(i + 1).padStart(2, '0')}
               </span>

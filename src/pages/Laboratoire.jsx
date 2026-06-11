@@ -146,6 +146,7 @@ export default function Laboratoire() {
         steps={processus}
         illustration={illProcessus}
         illSize="max-w-[300px]"
+        arrows
       />
 
       <Reasons
