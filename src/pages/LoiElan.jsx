@@ -7,6 +7,7 @@ import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
+import { sendForm, mailtoFallback } from '../lib/send.js';
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 
 const risque = [
@@ -36,23 +37,29 @@ const types = ['Construction', 'Achat', 'Vente', 'Autre'];
 export default function LoiElan() {
   const [status, setStatus] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const d = new FormData(form);
     const g = (k) => String(d.get(k) ?? '').trim();
-    const subject = `Étude de sol G1 (loi ELAN) · ${g('type')} · ${g('nom')} ${g('prenom')}`;
-    const body = [
-      `Nom : ${g('nom')}`, `Prénom : ${g('prenom')}`,
-      `Téléphone : ${g('telephone')}`, `E-mail : ${g('email')}`,
-      `Type de projet : ${g('type')}`,
-      `Surface du terrain : ${g('surface') || '(non renseignée)'}`,
-      `Adresse du terrain : ${g('adresse') || ''} ${g('cp') || ''} ${g('ville') || ''}`.trim(),
-      '', 'Détails : ', g('details') || '(aucun)',
-    ].join('\n');
-    window.location.href = `mailto:${COMPANY.devisEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setStatus('Votre logiciel de messagerie va s’ouvrir avec votre demande d’étude G1 pré-remplie.');
+    const fields = {
+      'Nom': g('nom'), 'Prénom': g('prenom'),
+      'Téléphone': g('telephone'), 'E-mail': g('email'),
+      'Type de projet': g('type'),
+      'Surface du terrain': g('surface'),
+      'Adresse du terrain': `${g('adresse')} ${g('cp')} ${g('ville')}`.trim(),
+      'Détails': g('details'),
+    };
+    setStatus('sending');
+    try {
+      await sendForm({ type: 'devis', fields });
+      setStatus('ok');
+      form.reset();
+    } catch {
+      mailtoFallback(COMPANY.devisEmail, `Étude de sol G1 (loi ELAN) · ${fields['Type de projet']} · ${fields.Nom} ${fields['Prénom']}`, fields);
+      setStatus('mailto');
+    }
   };
 
   return (
@@ -193,8 +200,11 @@ export default function LoiElan() {
                 <label htmlFor="e-details">Détails supplémentaires</label>
                 <textarea id="e-details" name="details" rows="4" placeholder="Toute précision utile sur votre projet." />
               </div>
-              <button type="submit" className="btn btn-primary justify-self-start">Demander mon devis G1 <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></button>
-              {status && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">{status}</p>}
+              <button type="submit" disabled={status === 'sending'} className="btn btn-primary justify-self-start disabled:opacity-60">
+                {status === 'sending' ? 'Envoi…' : <>Demander mon devis G1 <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></>}
+              </button>
+              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status" aria-live="polite">Merci ! Votre demande d'étude G1 a bien été envoyée.</p>}
+              {status === 'mailto' && <p className="text-[0.92rem] text-slate" role="status" aria-live="polite">Votre logiciel de messagerie s'est ouvert avec votre demande pré-remplie.</p>}
             </form>
           </Reveal>
         </div>

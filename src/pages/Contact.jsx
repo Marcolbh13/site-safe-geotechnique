@@ -6,6 +6,7 @@ import Reasons from '../components/Reasons.jsx';
 import Decor from '../components/Decor.jsx';
 import FranceMap from '../components/FranceMap.jsx';
 import { COMPANY } from '../data/site.js';
+import { sendForm, mailtoFallback } from '../lib/send.js';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
 
 const engagements = [
@@ -19,24 +20,30 @@ const besoins = ['Sondage / reconnaissance des sols', 'Essais en laboratoire', '
 export default function Contact() {
   const [status, setStatus] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const d = new FormData(form);
     const g = (k) => String(d.get(k) ?? '').trim();
-    const subject = `Demande de devis · ${g('besoin')} · ${g('nom')}`;
-    const body = [
-      `Nom et prénom : ${g('nom')}`,
-      `Société / organisme : ${g('structure') || '(non renseigné)'}`,
-      `E-mail : ${g('email')}`,
-      `Téléphone : ${g('telephone') || '(non renseigné)'}`,
-      `Besoin : ${g('besoin')}`,
-      `Localisation : ${g('lieu') || '(non renseignée)'}`,
-      '', 'Message :', g('message'),
-    ].join('\n');
-    window.location.href = `mailto:${COMPANY.devisEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setStatus('Votre logiciel de messagerie va s’ouvrir avec votre demande pré-remplie. Validez l’envoi pour nous la transmettre.');
+    const fields = {
+      'Nom et prénom': g('nom'),
+      'Société / organisme': g('structure'),
+      'E-mail': g('email'),
+      'Téléphone': g('telephone'),
+      'Besoin': g('besoin'),
+      'Localisation': g('lieu'),
+      'Message': g('message'),
+    };
+    setStatus('sending');
+    try {
+      await sendForm({ type: 'devis', fields });
+      setStatus('ok');
+      form.reset();
+    } catch {
+      mailtoFallback(COMPANY.devisEmail, `Demande de devis · ${fields.Besoin} · ${fields['Nom et prénom']}`, fields);
+      setStatus('mailto');
+    }
   };
 
   return (
@@ -99,8 +106,11 @@ export default function Contact() {
                 <label htmlFor="c-message">Votre message *</label>
                 <textarea id="c-message" name="message" rows="6" required placeholder="Décrivez votre projet, le type d'ouvrage, vos échéances et toute contrainte utile." />
               </div>
-              <button type="submit" className="btn btn-primary justify-self-start">Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></button>
-              {status && <p className="text-[0.92rem] font-semibold text-safe-magenta" role="status" aria-live="polite">{status}</p>}
+              <button type="submit" disabled={status === 'sending'} className="btn btn-primary justify-self-start disabled:opacity-60">
+                {status === 'sending' ? 'Envoi…' : <>Envoyer ma demande <Icon name="arrow" className="arrow w-[18px] h-[18px]" /></>}
+              </button>
+              {status === 'ok' && <p className="text-[0.95rem] font-semibold text-safe-magenta" role="status" aria-live="polite">Merci ! Votre demande a bien été envoyée.</p>}
+              {status === 'mailto' && <p className="text-[0.92rem] text-slate" role="status" aria-live="polite">Votre logiciel de messagerie s'est ouvert avec votre demande pré-remplie.</p>}
             </form>
           </Reveal>
         </div>

@@ -16,6 +16,7 @@ export const NAV = [
   { to: '/laboratoire', label: 'Laboratoire' },
   { to: '/missions', label: 'Missions G1 à G5' },
   { to: '/loi-elan', label: 'Loi ELAN' },
+  { to: '/recrutement', label: 'Recrutement' },
 ];
 
 export const QUALIFS = ['AIPR', 'H0B0', 'SST'];

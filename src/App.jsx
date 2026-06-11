@@ -6,6 +6,7 @@ import Laboratoire from './pages/Laboratoire.jsx';
 import Missions from './pages/Missions.jsx';
 import LoiElan from './pages/LoiElan.jsx';
 import Contact from './pages/Contact.jsx';
+import Recrutement from './pages/Recrutement.jsx';
 import MentionsLegales from './pages/MentionsLegales.jsx';
 import NotFound from './pages/NotFound.jsx';
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/missions" element={<Missions />} />
         <Route path="/loi-elan" element={<LoiElan />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/recrutement" element={<Recrutement />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
 
         {/* Anciennes URLs */}

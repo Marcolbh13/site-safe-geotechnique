@@ -161,6 +161,33 @@ de Bolt.new. Pour recréer le projet :
 - Respect de `prefers-reduced-motion`.
 - Images WebP optimisées (47–211 ko), `loading="lazy"` hors hero, JS raisonnable.
 
+## Formulaires & Resend
+
+Les formulaires **devis** (pages Contact et Loi ELAN) et **recrutement**
+(page Recrutement, avec pièce jointe CV) envoient un e-mail via **Resend**,
+au travers d'une fonction serverless `api/contact.js` (la clé API reste côté
+serveur, jamais exposée au navigateur).
+
+Destinataires (déjà câblés) :
+- **Devis** → `lebihan@resum.fr`
+- **Recrutement** → `v.lebihan@ftcs-forage.com`
+
+Pour activer l'envoi réel :
+1. Déployer sur un hébergeur qui exécute les fonctions `/api` (**Vercel**
+   recommandé : il détecte Vite + la fonction automatiquement ; `vercel.json`
+   est fourni pour le routage SPA). Netlify fonctionne aussi (déplacer la
+   fonction dans `netlify/functions/` + redirection `/api/*`).
+2. Définir les variables d'environnement (cf. `.env.example`) :
+   - `RESEND_API_KEY` : clé API Resend.
+   - `RESEND_FROM` : expéditeur sur un **domaine vérifié** dans Resend
+     (ex. `no-reply@safe-geotechnique.fr`).
+3. Vérifier le domaine d'envoi dans Resend (https://resend.com/domains).
+
+Sans fonction déployée (site purement statique, aperçu local), les formulaires
+**basculent automatiquement en `mailto:`** : aucun message d'erreur, l'utilisateur
+envoie via son client mail. L'envoi du CV en pièce jointe nécessite la fonction
+serverless (le `mailto:` ne peut pas joindre de fichier).
+
 ## À compléter / valider
 
 Voir **`A-VALIDER.md`** (contenus et ressources à confirmer) et **`CREDITS.md`**
