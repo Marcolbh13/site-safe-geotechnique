@@ -25,20 +25,22 @@ export const NAV = [
 
 export const QUALIFS = ['AIPR', 'H0B0', 'SST'];
 
-// Équipe (photos à fournir). Ordre hiérarchique : direction puis affaires.
+// Équipe. Ordre hiérarchique : direction puis affaires.
 export const TEAM = [
-  { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL',
+  { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL', photo: teamCyrille,
     desc: "Définit la stratégie de SAFE Géotechnique et son ancrage dans le Groupe RESUM." },
   { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH',
     desc: "Pilote l'activité du bureau d'études et coordonne les opérations au quotidien." },
   { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM', photo: teamAurelie,
     desc: "Accompagne les clients, du premier contact à la remise du rapport." },
-  { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ',
+  { name: 'Thomas Znidarsic', role: "Ingénieur d'études", initials: 'TZ', photo: teamThomas,
     desc: "Conduit les études géotechniques et l'interprétation des essais (missions G1 à G5)." },
   { name: 'Mehdi Boumaza', role: 'Technicien de laboratoire', initials: 'MB', photo: teamMehdi,
     desc: "Prépare les échantillons et réalise les essais d'identification et de résistance au laboratoire." },
 ];
 
+import teamCyrille from '../assets/images/team-cyrille.webp';
+import teamThomas from '../assets/images/team-thomas.webp';
 import teamMehdi from '../assets/images/team-mehdi.webp';
 import teamAurelie from '../assets/images/team-aurelie.webp';
 import foretudeLogo from '../assets/logos/foretude.svg';
