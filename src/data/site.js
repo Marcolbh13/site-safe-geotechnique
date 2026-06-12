@@ -29,7 +29,7 @@ export const QUALIFS = ['AIPR', 'H0B0', 'SST'];
 export const TEAM = [
   { name: 'Cyrille Le Bihan', role: 'Président', initials: 'CL', photo: teamCyrille,
     desc: "Définit la stratégie de SAFE Géotechnique et son ancrage dans le Groupe RESUM." },
-  { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH',
+  { name: 'Jérôme Hochard', role: 'Directeur', initials: 'JH', photo: teamJerome,
     desc: "Pilote l'activité du bureau d'études et coordonne les opérations au quotidien." },
   { name: 'Aurélie Moitel', role: "Chargée d'affaires", initials: 'AM', photo: teamAurelie,
     desc: "Accompagne les clients, du premier contact à la remise du rapport." },
@@ -40,6 +40,7 @@ export const TEAM = [
 ];
 
 import teamCyrille from '../assets/images/team-cyrille.webp';
+import teamJerome from '../assets/images/team-jerome.webp';
 import teamThomas from '../assets/images/team-thomas.webp';
 import teamMehdi from '../assets/images/team-mehdi.webp';
 import teamAurelie from '../assets/images/team-aurelie.webp';
