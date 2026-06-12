@@ -21,14 +21,23 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$apiKey = getenv('RESEND_API_KEY');
+// Clé/expéditeur : d'abord les variables d'environnement, sinon un fichier
+// secrets.php déposé À CÔTÉ de ce fichier sur le serveur OVH (hors Git).
+// secrets.php doit faire : <?php return ['RESEND_API_KEY' => 're_...', 'RESEND_FROM' => '...'];
+$secrets = [];
+if (is_file(__DIR__ . '/secrets.php')) {
+    $loaded = include __DIR__ . '/secrets.php';
+    if (is_array($loaded)) { $secrets = $loaded; }
+}
+
+$apiKey = getenv('RESEND_API_KEY') ?: (isset($secrets['RESEND_API_KEY']) ? $secrets['RESEND_API_KEY'] : '');
 if (!$apiKey) {
     http_response_code(500);
     echo json_encode(['ok' => false, 'error' => 'RESEND_API_KEY manquante côté serveur.']);
     exit;
 }
 
-$from = getenv('RESEND_FROM') ?: 'SAFE Géotechnique <onboarding@resend.dev>';
+$from = getenv('RESEND_FROM') ?: (isset($secrets['RESEND_FROM']) ? $secrets['RESEND_FROM'] : 'SAFE Géotechnique <onboarding@resend.dev>');
 
 $RECIPIENTS = [
     'devis'       => 'lebihan@resum.fr',

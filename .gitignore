@@ -18,3 +18,7 @@ pnpm-debug.log*
 .npm-cache/
 # config locale outils (non nécessaire au site)
 .claude/
+
+# Secret Resend déposé sur le serveur OVH (jamais committé)
+public/api/secrets.php
+dist/api/secrets.php
