@@ -17,7 +17,9 @@ export default function PageHero({ label, title, intro, children, image, imageAl
       >
         <Reveal>
           <p className="label mb-4">{label}</p>
-          <h1 className="max-w-[20ch]">{title}</h1>
+          {/* En 2 colonnes (image), la colonne contraint déjà la largeur : on réduit
+              le corps pour garder le titre sur 2 lignes maximum. */}
+          <h1 className={image ? 'text-[clamp(2rem,3.6vw,2.85rem)]' : 'max-w-[24ch]'}>{title}</h1>
           {intro && <p className="lead mt-5 max-w-[60ch]">{intro}</p>}
           {children}
         </Reveal>
