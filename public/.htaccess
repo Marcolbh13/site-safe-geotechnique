@@ -1,8 +1,14 @@
 # SAFE Géotechnique — SPA React Router (hébergement Apache/OVH)
-# Toute URL qui ne correspond pas à un fichier réel est servie par index.html.
 RewriteEngine On
 RewriteBase /
+
+# Endpoint formulaires : /api/contact -> /api/contact.php (Resend)
+RewriteRule ^api/contact/?$ /api/contact.php [L]
+
+# Le reste : fichiers réels servis tels quels, sinon l'app (index.html).
+# /api est exclu pour ne pas renvoyer index.html sur les appels d'API.
 RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_URI} !^/api/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
