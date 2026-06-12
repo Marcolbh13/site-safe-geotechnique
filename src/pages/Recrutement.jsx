@@ -22,7 +22,7 @@ const atouts = [
 ];
 
 export default function Recrutement() {
-  const [status, setStatus] = useState(null); // null | 'sending' | 'ok' | 'mailto' | 'error'
+  const [status, setStatus] = useState(null); // null | 'sending' | 'ok' | 'error'
 
   const onSubmit = async (e) => {
     e.preventDefault();

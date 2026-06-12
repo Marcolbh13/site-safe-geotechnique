@@ -171,7 +171,7 @@ export default function LoiElan() {
             <img src={illLoiElan} alt="" aria-hidden="true" className="hidden lg:block w-full max-w-[260px] mt-9" loading="lazy" />
           </Reveal>
 
-          {/* Formulaire G1 — mailto (envoi serveur documenté dans le README). */}
+          {/* Formulaire G1 : envoi via /api/contact (Resend) -> lebihan@resum.fr */}
           <Reveal delay={120}>
             <form className="form-card" onSubmit={onSubmit} noValidate>
               <div className="grid gap-[1.1rem] sm:grid-cols-2">
