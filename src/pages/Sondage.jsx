@@ -6,7 +6,7 @@ import DepthScale from '../components/DepthScale.jsx';
 import Steps from '../components/Steps.jsx';
 import Reasons from '../components/Reasons.jsx';
 import CtaBand from '../components/CtaBand.jsx';
-import heroForeuse from '../assets/images/hero-foreuse.webp';
+import imgForage from '../assets/images/t-forage.webp';
 import imgCarottage from '../assets/images/t-carottage.webp';
 import imgPressio from '../assets/images/t-pressiometre.webp';
 import imgPiezo from '../assets/images/t-piezo.webp';
@@ -34,7 +34,7 @@ const garanties = [
 ];
 
 const prestations = [
-  { img: heroForeuse, t: 'Forage destructif et semi-destructif', d: "Le forage progresse en broyant le terrain. En semi-destructif, les débris remontés restent analysables. Rapide, il établit la coupe du sol (la succession des couches) et repère la profondeur des horizons rencontrés." },
+  { img: imgForage, t: 'Forage destructif et semi-destructif', d: "Le forage progresse en broyant le terrain. En semi-destructif, les débris remontés restent analysables. Rapide, il établit la coupe du sol (la succession des couches) et repère la profondeur des horizons rencontrés." },
   { img: imgCarottage, t: 'Carottage', d: "On prélève des carottes de sol intactes, sous forme de cylindres continus. Elles permettent d'observer le terrain dans sa structure réelle et de sélectionner les échantillons à tester en laboratoire." },
   { img: imgPressio, t: 'Essai pressiométrique', d: "Réalisé directement dans le forage, il mesure comment le sol se déforme sous pression. Ses résultats alimentent les calculs de portance et de tassement des fondations." },
   { img: imgPiezo, t: 'Pose de piézomètre et suivi', d: "Un tube crépiné est installé dans le forage pour mesurer le niveau de la nappe. Le suivi saisonnier en révèle les variations (déclaration préalable auprès de l'administration)." },

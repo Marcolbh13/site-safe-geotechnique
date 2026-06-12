@@ -9,6 +9,7 @@ import Reasons from '../components/Reasons.jsx';
 import { COMPANY } from '../data/site.js';
 import { sendForm } from '../lib/send.js';
 import bandLoiElan from '../assets/images/band-loielan.webp';
+import logicielEcran from '../assets/images/logiciel-ecran.webp';
 import illLoiElan from '../assets/illustrations/ill-loielan.svg';
 
 const risque = [
@@ -152,6 +153,8 @@ export default function LoiElan() {
         title="Comment SAFE vous accompagne ?"
         intro="De la prise de contact à la remise du rapport, nous prenons en charge votre étude G1."
         steps={accompagnement}
+        illustration={logicielEcran}
+        illSize="max-w-[360px] rounded-xl2 shadow-sfmd border border-line"
       />
 
       {/* DEVIS G1 */}

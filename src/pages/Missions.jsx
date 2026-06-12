@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import heroMissions from '../assets/images/hero-missions.webp';
-import bandMissions from '../assets/images/band-missions.webp';
+import bandMissions from '../assets/images/labo-proctor.webp';
 import illEnjeux from '../assets/illustrations/ill-enjeux.svg';
 import Decor from '../components/Decor.jsx';
 import Steps from '../components/Steps.jsx';
@@ -53,7 +53,7 @@ export default function Missions() {
 
       <PhotoBand
         image={bandMissions}
-        alt="Atelier de sondage SAFE E4.50 sur le terrain"
+        alt="Technicien SAFE réalisant un essai géotechnique au laboratoire"
         label="Du préalable au diagnostic"
         title="Une mission adaptée à chaque étape de votre projet"
       >

@@ -35,7 +35,7 @@ const logiciels = [
 
 import heroForeuse from '../assets/images/hero-foreuse.webp';
 import camionSafe from '../assets/images/foreuse-camion-safe.webp';
-import laboTriaxial from '../assets/images/labo-triaxial.webp';
+import homeLabo from '../assets/images/home-labo.webp';
 import saforLogo from '../assets/logos/safor.webp';
 import illIngenierie from '../assets/illustrations/ill-ingenierie.svg';
 import illSecurite from '../assets/illustrations/ill-securite.svg';
@@ -265,7 +265,7 @@ export default function Home() {
         <div className="container-safe grid items-center gap-[clamp(2rem,5vw,3.5rem)] md:grid-cols-2">
           <Reveal className="order-first md:order-none">
             <figure className="rounded-xl2 overflow-hidden shadow-sfmd">
-              <img src={laboTriaxial} alt="Cellule d'essai triaxial au laboratoire SAFE" className="w-full object-cover aspect-[5/4]" loading="lazy" />
+              <img src={homeLabo} alt="Tamisage d'un échantillon de sol au laboratoire SAFE" className="w-full object-cover aspect-[5/4]" loading="lazy" />
             </figure>
           </Reveal>
           <Reveal delay={120}>

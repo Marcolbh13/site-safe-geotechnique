@@ -4,7 +4,7 @@ import Icon from '../components/Icon.jsx';
 import PageHero from '../components/PageHero.jsx';
 import PhotoBand from '../components/PhotoBand.jsx';
 import heroLaboratoire from '../assets/images/hero-laboratoire.webp';
-import bandLaboratoire from '../assets/images/band-laboratoire.webp';
+import bandLaboratoire from '../assets/images/labo-presse.webp';
 import illLaboratoire from '../assets/illustrations/ill-laboratoire.svg';
 import illResistance from '../assets/illustrations/ill-resistance.svg';
 import illProcessus from '../assets/illustrations/ill-processus.svg';
@@ -116,12 +116,12 @@ export default function Laboratoire() {
 
       <PhotoBand
         image={bandLaboratoire}
-        alt="Atelier de sondage SAFE E4.50 en intervention"
-        label="Une chaîne intégrée"
-        title="Du terrain au laboratoire, sans rupture"
+        alt="Technicien SAFE réalisant un essai mécanique au laboratoire"
+        label="Au laboratoire"
+        title="Des essais normalisés, conduits par nos techniciens"
       >
-        Les échantillons prélevés sur le terrain par nos équipes rejoignent
-        directement notre laboratoire pour y être identifiés et caractérisés.
+        De la réception de l'échantillon à la mesure, chaque essai suit un
+        protocole maîtrisé, dans notre laboratoire intégré.
       </PhotoBand>
 
       {/* Résistance mécanique */}
